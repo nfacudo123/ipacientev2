@@ -7,6 +7,7 @@ import IdentificationFields from "./register/IdentificationFields";
 import ContactFields from "./register/ContactFields";
 import PasswordFields from "./register/PasswordFields";
 import { RegisterFormData } from "./register/types";
+import ReCAPTCHA from "react-google-recaptcha";
 
 interface RegisterModalProps {
   isOpen: boolean;
@@ -28,6 +29,8 @@ const RegisterModal = ({ isOpen, onClose }: RegisterModalProps) => {
     confirmPassword: "",
   });
 
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
@@ -37,8 +40,16 @@ const RegisterModal = ({ isOpen, onClose }: RegisterModalProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!captchaValue) {
+      console.log("Por favor, complete el captcha");
+      return;
+    }
     console.log("Register form submitted:", formData);
     onClose();
+  };
+
+  const handleCaptchaChange = (value: string | null) => {
+    setCaptchaValue(value);
   };
 
   return (
@@ -57,11 +68,20 @@ const RegisterModal = ({ isOpen, onClose }: RegisterModalProps) => {
             <ContactFields formData={formData} handleChange={handleChange} />
             <PasswordFields formData={formData} handleChange={handleChange} />
             
-            <div className="w-full h-16 sm:h-20 bg-gray-50 dark:bg-gray-800 rounded-xl flex items-center justify-center text-xs sm:text-sm text-gray-500">
-              ReCAPTCHA
+            <div className="w-full flex items-center justify-center">
+              <ReCAPTCHA
+                sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                onChange={handleCaptchaChange}
+                theme={document.documentElement.classList.contains('dark') ? 'dark' : 'light'}
+                className="transform scale-90 sm:scale-100"
+              />
             </div>
             
-            <button type="submit" className="login-button w-full">
+            <button 
+              type="submit" 
+              className="login-button w-full"
+              disabled={!captchaValue}
+            >
               Crear Cuenta
             </button>
           </form>
