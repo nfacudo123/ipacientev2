@@ -3,7 +3,7 @@ import { Stethoscope } from "lucide-react";
 
 export const SidebarFooter = () => {
   return (
-    <div className="border-t border-gray-100 dark:border-gray-800 p-4">
+    <div className="mt-auto border-t border-gray-100 dark:border-gray-800 p-4">
       <div className="flex items-center space-x-3">
         <Stethoscope className="w-8 h-8 text-[#9b87f5]" />
         <div>

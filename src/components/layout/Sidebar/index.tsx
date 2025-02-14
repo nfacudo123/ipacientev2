@@ -2,6 +2,7 @@
 import { SidebarHeader } from "./SidebarHeader";
 import { SidebarMenu } from "./SidebarMenu";
 import { SidebarOptions } from "./SidebarOptions";
+import { SidebarFooter } from "./SidebarFooter";
 
 interface SidebarProps {
   isDark: boolean;
@@ -16,9 +17,12 @@ export const Sidebar = ({ isDark, toggleTheme, isMobileMenuOpen }: SidebarProps)
       md:translate-x-0 md:block md:left-0 flex flex-col
       ${isMobileMenuOpen ? 'translate-x-0 right-0' : 'translate-x-full right-0'}
     `}>
-      <SidebarHeader isDark={isDark} toggleTheme={toggleTheme} />
-      <SidebarMenu />
-      <SidebarOptions />
+      <div className="flex flex-col h-full">
+        <SidebarHeader isDark={isDark} toggleTheme={toggleTheme} />
+        <SidebarMenu />
+        <SidebarOptions />
+        <SidebarFooter />
+      </div>
     </aside>
   );
 };
