@@ -43,25 +43,25 @@ const RegisterModal = ({ isOpen, onClose }: RegisterModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="p-0 bg-white dark:bg-[hsl(var(--card))] rounded-2xl overflow-hidden max-w-[800px] border-0">
+      <DialogContent className="p-0 bg-white dark:bg-[hsl(var(--card))] rounded-2xl overflow-hidden w-[calc(100%-2rem)] max-w-[800px] border-0 mx-4 sm:mx-auto">
         <div className="bg-[hsl(var(--primary))] w-full p-4 sm:p-6 flex items-center justify-center">
           <PlusSquare className="w-8 h-8 sm:w-12 sm:h-12 text-white" strokeWidth={1.5} />
         </div>
-        <div className="p-6 overflow-y-auto max-h-[80vh]">
-          <h2 className="text-2xl font-semibold text-center mb-6 text-[hsl(var(--text-primary))]">
+        <div className="p-4 sm:p-6 overflow-y-auto max-h-[calc(100vh-8rem)]">
+          <h2 className="text-xl sm:text-2xl font-semibold text-center mb-4 sm:mb-6 text-[hsl(var(--text-primary))]">
             Crear Cuenta
           </h2>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
             <PersonalInfoFields formData={formData} handleChange={handleChange} />
             <IdentificationFields formData={formData} handleChange={handleChange} />
             <ContactFields formData={formData} handleChange={handleChange} />
             <PasswordFields formData={formData} handleChange={handleChange} />
             
-            <div className="w-full h-20 bg-gray-50 dark:bg-gray-800 rounded-xl flex items-center justify-center text-sm text-gray-500">
+            <div className="w-full h-16 sm:h-20 bg-gray-50 dark:bg-gray-800 rounded-xl flex items-center justify-center text-xs sm:text-sm text-gray-500">
               ReCAPTCHA
             </div>
             
-            <button type="submit" className="login-button">
+            <button type="submit" className="login-button w-full">
               Crear Cuenta
             </button>
           </form>

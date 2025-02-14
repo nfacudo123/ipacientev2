@@ -30,12 +30,12 @@ const ForgotPasswordModal = ({ isOpen, onClose }: ForgotPasswordModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="p-0 bg-white dark:bg-[hsl(var(--card))] rounded-2xl overflow-hidden max-w-[400px] border-0">
+      <DialogContent className="p-0 bg-white dark:bg-[hsl(var(--card))] rounded-2xl overflow-hidden w-[calc(100%-2rem)] max-w-[400px] border-0 mx-4 sm:mx-auto">
         <div className="bg-[hsl(var(--primary))] w-full p-4 sm:p-6 flex items-center justify-center">
           <Key className="w-8 h-8 sm:w-12 sm:h-12 text-white" strokeWidth={1.5} />
         </div>
-        <div className="p-6">
-          <h2 className="text-2xl font-semibold text-center mb-6 text-[hsl(var(--text-primary))]">
+        <div className="p-4 sm:p-6">
+          <h2 className="text-xl sm:text-2xl font-semibold text-center mb-4 sm:mb-6 text-[hsl(var(--text-primary))]">
             Recuperar Contraseña
           </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -83,13 +83,13 @@ const ForgotPasswordModal = ({ isOpen, onClose }: ForgotPasswordModalProps) => {
               />
             </div>
 
-            <button type="submit" className="login-button">
+            <button type="submit" className="login-button w-full">
               Recuperar Contraseña
             </button>
           </form>
           <button 
             onClick={onClose}
-            className="w-full text-center mt-4 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
+            className="w-full text-center mt-4 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
           >
             Volver al Inicio de Sesión
           </button>
