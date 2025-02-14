@@ -1,5 +1,5 @@
 
-import { Settings, Info, LogOut } from "lucide-react";
+import { Settings, Info, LogOut, Stethoscope } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const SidebarOptions = () => {
