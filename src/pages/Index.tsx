@@ -14,9 +14,9 @@ const Index = () => {
     <div className="min-h-screen flex w-full bg-[#F8F7FF]">
       {/* Sidebar */}
       <aside className={`
-        w-64 bg-white shadow-lg fixed h-full z-30 transition-transform duration-300
-        md:translate-x-0 md:block right-0
-        ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
+        w-64 bg-white shadow-lg fixed h-screen z-30 transition-transform duration-300
+        md:translate-x-0 md:block md:left-0
+        ${isMobileMenuOpen ? 'translate-x-0 right-0' : 'translate-x-full right-0'}
       `}>
         <div className="p-4 border-b flex items-center">
           <Stethoscope className="w-8 h-8 text-[#0066CC]" />
@@ -89,7 +89,7 @@ const Index = () => {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 md:ml-0 md:mr-64 p-4 pt-20 md:pt-4">
+      <main className="flex-1 md:ml-64 p-4 pt-20 md:pt-4">
         {/* Header Banner */}
         <div className="w-full h-[300px] bg-gray-200 rounded-xl mb-6">
           <img 
