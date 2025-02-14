@@ -1,6 +1,7 @@
 
 import { PlusSquare, User, Key, CreditCard, Sun, Moon } from "lucide-react";
 import { useState, useEffect } from "react";
+import RegisterModal from "@/components/RegisterModal";
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ const Index = () => {
   });
 
   const [isDark, setIsDark] = useState(false);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
   useEffect(() => {
     if (isDark) {
@@ -37,96 +39,103 @@ const Index = () => {
   };
 
   return (
-    <div className="login-card">
-      <button
-        onClick={toggleTheme}
-        className="theme-switch"
-        aria-label="Toggle theme"
-      >
-        {isDark ? (
-          <Moon className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" />
-        ) : (
-          <Sun className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-500" />
-        )}
-      </button>
-
-      <div className="icon-container">
-        <PlusSquare className="w-8 h-8 sm:w-12 sm:h-12 text-white" strokeWidth={1.5} />
-      </div>
-
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="relative">
-          <CreditCard className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-          <select
-            name="idType"
-            value={formData.idType}
-            onChange={handleChange}
-            className="select-field"
-          >
-            <option value="" disabled>Tipo de Identificación</option>
-            <option value="CC">CC</option>
-            <option value="CE">CE</option>
-            <option value="PA">PA</option>
-            <option value="RC">RC</option>
-            <option value="TI">TI</option>
-            <option value="AS">AS</option>
-            <option value="MS">MS</option>
-            <option value="NU">NU</option>
-            <option value="NI">NI</option>
-            <option value="PIP">PIP</option>
-          </select>
-        </div>
-
-        <div className="relative">
-          <CreditCard className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-          <input
-            type="text"
-            name="idNumber"
-            placeholder="Número de Identificación"
-            value={formData.idNumber}
-            onChange={handleChange}
-            className="input-field"
-          />
-        </div>
-
-        <div className="relative">
-          <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-          <input
-            type="text"
-            name="username"
-            placeholder="Usuario"
-            value={formData.username}
-            onChange={handleChange}
-            className="input-field"
-          />
-        </div>
-
-        <div className="relative">
-          <Key className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-          <input
-            type="password"
-            name="password"
-            placeholder="Contraseña"
-            value={formData.password}
-            onChange={handleChange}
-            className="input-field"
-          />
-        </div>
-
-        <button type="submit" className="login-button">
-          Iniciar Sesión
+    <>
+      <div className="login-card">
+        <button
+          onClick={toggleTheme}
+          className="theme-switch"
+          aria-label="Toggle theme"
+        >
+          {isDark ? (
+            <Moon className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" />
+          ) : (
+            <Sun className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-500" />
+          )}
         </button>
-      </form>
 
-      <div className="flex justify-between items-center pt-4 text-sm">
-        <a href="/register" className="link whitespace-nowrap">
-          Registrarse ahora
-        </a>
-        <a href="/forgot-password" className="link whitespace-nowrap">
-          ¿Olvidaste tu contraseña?
-        </a>
+        <div className="icon-container">
+          <PlusSquare className="w-8 h-8 sm:w-12 sm:h-12 text-white" strokeWidth={1.5} />
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="relative">
+            <CreditCard className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
+            <select
+              name="idType"
+              value={formData.idType}
+              onChange={handleChange}
+              className="select-field"
+            >
+              <option value="" disabled>Tipo de Identificación</option>
+              <option value="CC">CC</option>
+              <option value="CE">CE</option>
+              <option value="PA">PA</option>
+              <option value="RC">RC</option>
+              <option value="TI">TI</option>
+              <option value="AS">AS</option>
+              <option value="MS">MS</option>
+              <option value="NU">NU</option>
+              <option value="NI">NI</option>
+              <option value="PIP">PIP</option>
+            </select>
+          </div>
+
+          <div className="relative">
+            <CreditCard className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
+            <input
+              type="text"
+              name="idNumber"
+              placeholder="Número de Identificación"
+              value={formData.idNumber}
+              onChange={handleChange}
+              className="input-field"
+            />
+          </div>
+
+          <div className="relative">
+            <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
+            <input
+              type="text"
+              name="username"
+              placeholder="Usuario"
+              value={formData.username}
+              onChange={handleChange}
+              className="input-field"
+            />
+          </div>
+
+          <div className="relative">
+            <Key className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
+            <input
+              type="password"
+              name="password"
+              placeholder="Contraseña"
+              value={formData.password}
+              onChange={handleChange}
+              className="input-field"
+            />
+          </div>
+
+          <button type="submit" className="login-button">
+            Iniciar Sesión
+          </button>
+        </form>
+
+        <div className="flex justify-between items-center pt-4 text-sm">
+          <button onClick={() => setIsRegisterOpen(true)} className="link whitespace-nowrap">
+            Registrarse ahora
+          </button>
+          <a href="/forgot-password" className="link whitespace-nowrap">
+            ¿Olvidaste tu contraseña?
+          </a>
+        </div>
       </div>
-    </div>
+
+      <RegisterModal 
+        isOpen={isRegisterOpen}
+        onClose={() => setIsRegisterOpen(false)}
+      />
+    </>
   );
 };
 
