@@ -11,7 +11,10 @@ const Index = () => {
     password: "",
   });
 
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme === 'dark';
+  });
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
   useEffect(() => {
@@ -20,6 +23,7 @@ const Index = () => {
     } else {
       document.documentElement.classList.remove('dark');
     }
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
   }, [isDark]);
 
   const handleSubmit = (e: React.FormEvent) => {

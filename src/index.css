@@ -42,11 +42,11 @@
 }
 
 .input-field {
-  @apply w-full pl-12 pr-4 py-3 sm:py-3.5 text-base sm:text-lg rounded-xl border border-gray-100 dark:border-gray-700 bg-[hsl(var(--input))] text-[hsl(var(--text-primary))] placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[hsl(var(--primary))] focus:ring-1 focus:ring-[hsl(var(--primary))] transition-all duration-200 tracking-wide;
+  @apply w-full pl-12 pr-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl border border-gray-100 dark:border-gray-700 bg-[hsl(var(--input))] text-[hsl(var(--text-primary))] placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[hsl(var(--primary))] focus:ring-1 focus:ring-[hsl(var(--primary))] transition-all duration-200;
 }
 
 .select-field {
-  @apply w-full pl-12 pr-8 py-3 sm:py-3.5 text-base sm:text-lg rounded-xl border border-gray-100 dark:border-gray-700 bg-[hsl(var(--input))] text-[hsl(var(--text-primary))] appearance-none focus:outline-none focus:border-[hsl(var(--primary))] focus:ring-1 focus:ring-[hsl(var(--primary))] transition-all duration-200 tracking-wide;
+  @apply w-full pl-12 pr-8 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl border border-gray-100 dark:border-gray-700 bg-[hsl(var(--input))] text-[hsl(var(--text-primary))] appearance-none focus:outline-none focus:border-[hsl(var(--primary))] focus:ring-1 focus:ring-[hsl(var(--primary))] transition-all duration-200;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
   background-position: right 0.75rem center;
   background-repeat: no-repeat;
@@ -54,11 +54,11 @@
 }
 
 .login-button {
-  @apply w-full bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary-hover))] text-white font-medium rounded-xl px-6 py-3.5 sm:py-4 text-base sm:text-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary))] focus:ring-offset-2 tracking-wide;
+  @apply w-full bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary-hover))] text-white font-medium rounded-xl px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary))] focus:ring-offset-2;
 }
 
 .link {
-  @apply text-[hsl(var(--primary))] hover:text-[hsl(var(--primary-hover))] transition-colors duration-200 text-sm sm:text-base tracking-wide;
+  @apply text-[hsl(var(--primary))] hover:text-[hsl(var(--primary-hover))] transition-colors duration-200 text-xs sm:text-sm;
 }
 
 .theme-switch {
