@@ -1,5 +1,4 @@
-
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { PlusSquare, User, Mail, Phone, Lock, RefreshCw, CreditCard } from "lucide-react";
 import { useState } from "react";
 
@@ -38,16 +37,14 @@ const RegisterModal = ({ isOpen, onClose }: RegisterModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[800px] p-0 max-h-[90vh] overflow-hidden flex flex-col">
-        <div className="bg-[hsl(var(--primary))] w-full p-4 sm:p-6 flex items-center justify-center rounded-t-lg">
+      <DialogContent className="p-0 bg-white dark:bg-[hsl(var(--card))] rounded-2xl overflow-hidden max-w-[800px] border-0">
+        <div className="bg-[hsl(var(--primary))] w-full p-4 sm:p-6 flex items-center justify-center">
           <PlusSquare className="w-8 h-8 sm:w-12 sm:h-12 text-white" strokeWidth={1.5} />
         </div>
-        <div className="p-4 sm:p-6 overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="text-2xl sm:text-3xl font-semibold text-center mb-6">
-              Crear Cuenta
-            </DialogTitle>
-          </DialogHeader>
+        <div className="p-6 overflow-y-auto max-h-[80vh]">
+          <h2 className="text-2xl font-semibold text-center mb-6 text-[hsl(var(--text-primary))]">
+            Crear Cuenta
+          </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="relative">
@@ -201,11 +198,6 @@ const RegisterModal = ({ isOpen, onClose }: RegisterModalProps) => {
               Crear Cuenta
             </button>
           </form>
-          <p className="text-center mt-4 text-sm">
-            <a onClick={onClose} className="link cursor-pointer">
-              ¿Ya tienes una cuenta? Inicia Sesión
-            </a>
-          </p>
         </div>
       </DialogContent>
     </Dialog>

@@ -2,6 +2,7 @@
 import { PlusSquare, User, Key, CreditCard, Sun, Moon } from "lucide-react";
 import { useState, useEffect } from "react";
 import RegisterModal from "@/components/RegisterModal";
+import ForgotPasswordModal from "@/components/ForgotPasswordModal";
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +17,7 @@ const Index = () => {
     return savedTheme === 'dark';
   });
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
 
   useEffect(() => {
     if (isDark) {
@@ -129,15 +131,23 @@ const Index = () => {
           <button onClick={() => setIsRegisterOpen(true)} className="link whitespace-nowrap">
             Registrarse ahora
           </button>
-          <a href="/forgot-password" className="link whitespace-nowrap">
+          <button 
+            onClick={() => setIsForgotPasswordOpen(true)} 
+            className="link whitespace-nowrap"
+          >
             ¿Olvidaste tu contraseña?
-          </a>
+          </button>
         </div>
       </div>
 
       <RegisterModal 
         isOpen={isRegisterOpen}
         onClose={() => setIsRegisterOpen(false)}
+      />
+      
+      <ForgotPasswordModal
+        isOpen={isForgotPasswordOpen}
+        onClose={() => setIsForgotPasswordOpen(false)}
       />
     </>
   );
