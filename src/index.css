@@ -33,7 +33,7 @@
 }
 
 .login-card {
-  @apply bg-[hsl(var(--card))] rounded-2xl sm:rounded-3xl shadow-lg w-full max-w-[500px] sm:max-w-[550px] md:max-w-[600px] p-6 sm:p-8 md:p-10 space-y-6 sm:space-y-7 transition-all duration-300 ease-in-out relative;
+  @apply bg-[hsl(var(--card))] rounded-2xl sm:rounded-3xl shadow-lg w-full max-w-[550px] sm:max-w-[600px] md:max-w-[650px] p-6 sm:p-8 md:p-10 space-y-6 sm:space-y-7 transition-all duration-300 ease-in-out relative;
   box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.1);
 }
 
