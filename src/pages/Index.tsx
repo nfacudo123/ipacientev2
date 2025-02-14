@@ -32,59 +32,81 @@ const Index = () => {
       {/* Sidebar */}
       <aside className={`
         w-64 bg-[hsl(var(--card))] shadow-lg fixed inset-y-0 z-30 transition-all duration-300
-        md:translate-x-0 md:block md:left-0
+        md:translate-x-0 md:block md:left-0 flex flex-col justify-between
         ${isMobileMenuOpen ? 'translate-x-0 right-0' : 'translate-x-full right-0'}
       `}>
-        <div className="p-4 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
-          <Stethoscope className="w-8 h-8 text-[#9b87f5]" />
-          <button
-            onClick={toggleTheme}
-            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
-          >
-            {isDark ? (
-              <Moon className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-            ) : (
-              <Sun className="w-5 h-5 text-yellow-500" />
-            )}
-          </button>
+        {/* Top Section */}
+        <div>
+          <div className="p-4 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
+            <Stethoscope className="w-8 h-8 text-[#9b87f5]" />
+            <button
+              onClick={toggleTheme}
+              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+            >
+              {isDark ? (
+                <Moon className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+              ) : (
+                <Sun className="w-5 h-5 text-yellow-500" />
+              )}
+            </button>
+          </div>
+          
+          <div className="py-4">
+            <div className="px-4 py-2 text-sm text-[#7E69AB] dark:text-[#9b87f5]">MENÚ</div>
+            
+            <Link to="/" className="flex items-center px-4 py-3 text-[#9b87f5] bg-[#F8F7FF] dark:bg-gray-800/50">
+              <Home className="w-5 h-5 mr-3" />
+              <span>Inicio</span>
+            </Link>
+            
+            <Link to="/mis-datos" className="flex items-center px-4 py-3 text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50">
+              <User className="w-5 h-5 mr-3" />
+              <span>Mis Datos</span>
+            </Link>
+            
+            <Link to="/mis-citas" className="flex items-center px-4 py-3 text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50">
+              <Calendar className="w-5 h-5 mr-3" />
+              <span>Mis Citas</span>
+            </Link>
+          </div>
+          
+          <div className="py-4 border-t border-gray-100 dark:border-gray-800">
+            <div className="px-4 py-2 text-sm text-[#7E69AB] dark:text-[#9b87f5]">OPCIONES</div>
+            
+            <Link to="/preferencias" className="flex items-center px-4 py-3 text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50">
+              <Settings className="w-5 h-5 mr-3" />
+              <span>Preferencias</span>
+            </Link>
+            
+            <Link to="/acerca-de" className="flex items-center px-4 py-3 text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50">
+              <Info className="w-5 h-5 mr-3" />
+              <span>Acerca de</span>
+            </Link>
+            
+            <Link to="/login" className="flex items-center px-4 py-3 text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50">
+              <LogOut className="w-5 h-5 mr-3" />
+              <span>Cerrar sesión</span>
+            </Link>
+          </div>
         </div>
-        
-        <div className="py-4">
-          <div className="px-4 py-2 text-sm text-[#7E69AB] dark:text-[#9b87f5]">MENÚ</div>
-          
-          <Link to="/" className="flex items-center px-4 py-3 text-[#9b87f5] bg-[#F8F7FF] dark:bg-gray-800/50">
-            <Home className="w-5 h-5 mr-3" />
-            <span>Inicio</span>
-          </Link>
-          
-          <Link to="/mis-datos" className="flex items-center px-4 py-3 text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50">
-            <User className="w-5 h-5 mr-3" />
-            <span>Mis Datos</span>
-          </Link>
-          
-          <Link to="/mis-citas" className="flex items-center px-4 py-3 text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50">
-            <Calendar className="w-5 h-5 mr-3" />
-            <span>Mis Citas</span>
-          </Link>
-        </div>
-        
-        <div className="py-4 border-t border-gray-100 dark:border-gray-800">
-          <div className="px-4 py-2 text-sm text-[#7E69AB] dark:text-[#9b87f5]">OPCIONES</div>
-          
-          <Link to="/preferencias" className="flex items-center px-4 py-3 text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50">
-            <Settings className="w-5 h-5 mr-3" />
-            <span>Preferencias</span>
-          </Link>
-          
-          <Link to="/acerca-de" className="flex items-center px-4 py-3 text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50">
-            <Info className="w-5 h-5 mr-3" />
-            <span>Acerca de</span>
-          </Link>
-          
-          <Link to="/login" className="flex items-center px-4 py-3 text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50">
-            <LogOut className="w-5 h-5 mr-3" />
-            <span>Cerrar sesión</span>
-          </Link>
+
+        {/* Company Info Footer */}
+        <div className="border-t border-gray-100 dark:border-gray-800 p-4">
+          <div className="flex items-center space-x-3">
+            <img 
+              src="public/lovable-uploads/9d476cda-5fb3-48c6-aea2-33a5608b1dad.png" 
+              alt="Logo" 
+              className="w-8 h-8 rounded"
+            />
+            <div>
+              <p className="text-sm font-medium text-[#7E69AB] dark:text-gray-300">
+                Nombre de la Empresa
+              </p>
+              <p className="text-xs text-[#7E69AB] dark:text-gray-400">
+                Versión 1.0.0
+              </p>
+            </div>
+          </div>
         </div>
       </aside>
 
