@@ -1,6 +1,12 @@
+
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { PlusSquare, User, Mail, Phone, Lock, RefreshCw, CreditCard } from "lucide-react";
+import { PlusSquare } from "lucide-react";
 import { useState } from "react";
+import PersonalInfoFields from "./register/PersonalInfoFields";
+import IdentificationFields from "./register/IdentificationFields";
+import ContactFields from "./register/ContactFields";
+import PasswordFields from "./register/PasswordFields";
+import { RegisterFormData } from "./register/types";
 
 interface RegisterModalProps {
   isOpen: boolean;
@@ -8,7 +14,7 @@ interface RegisterModalProps {
 }
 
 const RegisterModal = ({ isOpen, onClose }: RegisterModalProps) => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<RegisterFormData>({
     firstName: "",
     secondName: "",
     firstLastName: "",
@@ -45,155 +51,16 @@ const RegisterModal = ({ isOpen, onClose }: RegisterModalProps) => {
           <h2 className="text-2xl font-semibold text-center mb-6 text-[hsl(var(--text-primary))]">
             Crear Cuenta
           </h2>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="relative">
-                <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-                <input
-                  type="text"
-                  name="firstName"
-                  placeholder="Primer Nombre"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  className="input-field pl-12"
-                  required
-                />
-              </div>
-              <div className="relative">
-                <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-                <input
-                  type="text"
-                  name="secondName"
-                  placeholder="Segundo Nombre"
-                  value={formData.secondName}
-                  onChange={handleChange}
-                  className="input-field pl-12"
-                />
-              </div>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="relative">
-                <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-                <input
-                  type="text"
-                  name="firstLastName"
-                  placeholder="Primer Apellido"
-                  value={formData.firstLastName}
-                  onChange={handleChange}
-                  className="input-field pl-12"
-                  required
-                />
-              </div>
-              <div className="relative">
-                <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-                <input
-                  type="text"
-                  name="secondLastName"
-                  placeholder="Segundo Apellido"
-                  value={formData.secondLastName}
-                  onChange={handleChange}
-                  className="input-field pl-12"
-                  required
-                />
-              </div>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="relative">
-                <CreditCard className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-                <select
-                  name="idType"
-                  value={formData.idType}
-                  onChange={handleChange}
-                  className="select-field pl-12"
-                  required
-                >
-                  <option value="">Tipo de Identificación</option>
-                  <option value="CC">CC</option>
-                  <option value="CE">CE</option>
-                  <option value="PA">PA</option>
-                  <option value="RC">RC</option>
-                  <option value="TI">TI</option>
-                </select>
-              </div>
-              <div className="relative">
-                <CreditCard className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-                <input
-                  type="text"
-                  name="idNumber"
-                  placeholder="Número de Identificación"
-                  value={formData.idNumber}
-                  onChange={handleChange}
-                  className="input-field pl-12"
-                  required
-                />
-              </div>
-            </div>
-            <div className="relative">
-              <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-              <select
-                name="userType"
-                value={formData.userType}
-                onChange={handleChange}
-                className="select-field pl-12 w-full"
-                required
-              >
-                <option value="">Tipo de Usuario</option>
-                <option value="student">Estudiante</option>
-                <option value="teacher">Profesor</option>
-                <option value="admin">Administrador</option>
-              </select>
-            </div>
-            <div className="relative">
-              <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-              <input
-                type="email"
-                name="email"
-                placeholder="Correo Electrónico"
-                value={formData.email}
-                onChange={handleChange}
-                className="input-field pl-12"
-                required
-              />
-            </div>
-            <div className="relative">
-              <Phone className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Teléfono"
-                value={formData.phone}
-                onChange={handleChange}
-                className="input-field pl-12"
-                required
-              />
-            </div>
-            <div className="relative">
-              <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-              <input
-                type="password"
-                name="password"
-                placeholder="Contraseña"
-                value={formData.password}
-                onChange={handleChange}
-                className="input-field pl-12"
-                required
-              />
-            </div>
-            <div className="relative">
-              <RefreshCw className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-              <input
-                type="password"
-                name="confirmPassword"
-                placeholder="Confirmar Contraseña"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                className="input-field pl-12"
-                required
-              />
-            </div>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <PersonalInfoFields formData={formData} handleChange={handleChange} />
+            <IdentificationFields formData={formData} handleChange={handleChange} />
+            <ContactFields formData={formData} handleChange={handleChange} />
+            <PasswordFields formData={formData} handleChange={handleChange} />
+            
             <div className="w-full h-20 bg-gray-50 dark:bg-gray-800 rounded-xl flex items-center justify-center text-sm text-gray-500">
               ReCAPTCHA
             </div>
+            
             <button type="submit" className="login-button">
               Crear Cuenta
             </button>
