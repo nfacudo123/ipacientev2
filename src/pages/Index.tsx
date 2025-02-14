@@ -44,25 +44,25 @@ const Index = () => {
         aria-label="Toggle theme"
       >
         {isDark ? (
-          <Moon className="w-5 h-5 text-gray-400" />
+          <Moon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
         ) : (
-          <Sun className="w-5 h-5 text-yellow-500" />
+          <Sun className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500" />
         )}
       </button>
 
       <div className="login-card">
         <div className="icon-container">
-          <PlusSquare className="w-12 h-12 text-white" strokeWidth={1.5} />
+          <PlusSquare className="w-8 h-8 sm:w-12 sm:h-12 text-white" strokeWidth={1.5} />
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="relative">
-            <CreditCard className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <CreditCard className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
             <select
               name="idType"
               value={formData.idType}
               onChange={handleChange}
-              className="select-field pl-16"
+              className="select-field"
             >
               <option value="" disabled>Tipo de Identificación</option>
               <option value="CC">CC</option>
@@ -79,7 +79,7 @@ const Index = () => {
           </div>
 
           <div className="relative">
-            <CreditCard className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <CreditCard className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
             <input
               type="text"
               name="idNumber"
@@ -91,7 +91,7 @@ const Index = () => {
           </div>
 
           <div className="relative">
-            <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
             <input
               type="text"
               name="username"
@@ -103,7 +103,7 @@ const Index = () => {
           </div>
 
           <div className="relative">
-            <Key className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Key className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
             <input
               type="password"
               name="password"
