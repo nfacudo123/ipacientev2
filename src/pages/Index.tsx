@@ -14,7 +14,7 @@ const Index = () => {
     <div className="min-h-screen flex w-full bg-[#F8F7FF]">
       {/* Sidebar */}
       <aside className={`
-        w-64 bg-white shadow-lg fixed h-screen z-30 transition-transform duration-300
+        w-64 bg-white shadow-lg fixed inset-y-0 z-30 transition-transform duration-300
         md:translate-x-0 md:block md:left-0
         ${isMobileMenuOpen ? 'translate-x-0 right-0' : 'translate-x-full right-0'}
       `}>
