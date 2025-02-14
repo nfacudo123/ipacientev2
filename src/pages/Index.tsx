@@ -127,7 +127,7 @@ const Index = () => {
           </button>
         </form>
 
-        <div className="flex justify-between items-center pt-4 text-sm">
+        <div className="flex justify-between items-center pt-4 text-sm space-x-20">
           <button onClick={() => setIsRegisterOpen(true)} className="link whitespace-nowrap">
             Registrarse ahora
           </button>
