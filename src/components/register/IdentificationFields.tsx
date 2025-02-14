@@ -26,6 +26,11 @@ const IdentificationFields = ({ formData, handleChange }: IdentificationFieldsPr
             <option value="PA">PA</option>
             <option value="RC">RC</option>
             <option value="TI">TI</option>
+            <option value="AS">AS</option>
+            <option value="MS">MS</option>
+            <option value="NU">NU</option>
+            <option value="NI">NI</option>
+            <option value="PIP">PIP</option>
           </select>
         </div>
         <div className="relative">
@@ -51,9 +56,10 @@ const IdentificationFields = ({ formData, handleChange }: IdentificationFieldsPr
           required
         >
           <option value="">Tipo de Usuario</option>
-          <option value="student">Estudiante</option>
-          <option value="teacher">Profesor</option>
-          <option value="admin">Administrador</option>
+          <option value="paciente">Paciente</option>
+          <option value="funcionario">Funcionario</option>
+          <option value="estudiante">Estudiante</option>
+          <option value="visitante">Visitante</option>
         </select>
       </div>
     </div>

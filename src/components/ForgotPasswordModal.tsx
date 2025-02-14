@@ -54,6 +54,11 @@ const ForgotPasswordModal = ({ isOpen, onClose }: ForgotPasswordModalProps) => {
                 <option value="PA">PA</option>
                 <option value="RC">RC</option>
                 <option value="TI">TI</option>
+                <option value="AS">AS</option>
+                <option value="MS">MS</option>
+                <option value="NU">NU</option>
+                <option value="NI">NI</option>
+                <option value="PIP">PIP</option>
               </select>
             </div>
 
