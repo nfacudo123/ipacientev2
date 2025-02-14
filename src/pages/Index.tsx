@@ -62,12 +62,19 @@ const Index = () => {
               name="idType"
               value={formData.idType}
               onChange={handleChange}
-              className="select-field pl-12"
+              className="select-field pl-16"
             >
               <option value="" disabled>Tipo de Identificación</option>
-              <option value="dni">DNI</option>
-              <option value="passport">Pasaporte</option>
-              <option value="foreign">Carnet de Extranjería</option>
+              <option value="CC">CC</option>
+              <option value="CE">CE</option>
+              <option value="PA">PA</option>
+              <option value="RC">RC</option>
+              <option value="TI">TI</option>
+              <option value="AS">AS</option>
+              <option value="MS">MS</option>
+              <option value="NU">NU</option>
+              <option value="NI">NI</option>
+              <option value="PIP">PIP</option>
             </select>
           </div>
 
