@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { MobileHeader } from "@/components/layout/MobileHeader";
 import { Topbar } from "@/components/layout/Topbar";
+import { MobileMenu } from "@/components/layout/MobileMenu";
 import { DashboardCards } from "@/components/DashboardCards";
 
 const Index = () => {
@@ -52,7 +53,7 @@ const Index = () => {
       <Topbar isDark={isDark} />
 
       {/* Main Content */}
-      <main className="flex-1 md:ml-64 p-4 pt-20">
+      <main className="flex-1 md:ml-64 p-4 pt-20 pb-20 md:pb-4">
         {/* Welcome Message */}
         <div className="mb-6">
           <h1 className="text-2xl font-bold text-[hsl(var(--text-primary))] mb-1">
@@ -74,6 +75,9 @@ const Index = () => {
 
         <DashboardCards />
       </main>
+
+      {/* Mobile Bottom Menu */}
+      <MobileMenu />
     </div>
   );
 };

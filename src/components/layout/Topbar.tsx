@@ -1,11 +1,12 @@
 
-import { Bell, Settings } from "lucide-react";
+import { Bell, Settings, User } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Link } from "react-router-dom";
 
@@ -29,12 +30,15 @@ export const Topbar = ({ isDark }: TopbarProps) => {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48 bg-[hsl(var(--card))] border border-gray-100 dark:border-gray-800">
               <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50">
-                <Link to="/mis-datos" className="w-full text-[#7E69AB] dark:text-gray-300 cursor-pointer">
+                <Link to="/mis-datos" className="w-full text-[#7E69AB] dark:text-gray-300 cursor-pointer flex items-center">
+                  <User className="w-4 h-4 mr-2" />
                   Mis Datos
                 </Link>
               </DropdownMenuItem>
+              <DropdownMenuSeparator className="bg-gray-100 dark:bg-gray-800" />
               <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50">
-                <Link to="/preferencias" className="w-full text-[#7E69AB] dark:text-gray-300 cursor-pointer">
+                <Link to="/preferencias" className="w-full text-[#7E69AB] dark:text-gray-300 cursor-pointer flex items-center">
+                  <Settings className="w-4 h-4 mr-2" />
                   Preferencias
                 </Link>
               </DropdownMenuItem>
