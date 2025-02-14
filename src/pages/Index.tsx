@@ -93,11 +93,7 @@ const Index = () => {
         {/* Company Info Footer */}
         <div className="border-t border-gray-100 dark:border-gray-800 p-4">
           <div className="flex items-center space-x-3">
-            <img 
-              src="public/lovable-uploads/9d476cda-5fb3-48c6-aea2-33a5608b1dad.png" 
-              alt="Logo" 
-              className="w-8 h-8 rounded"
-            />
+            <Stethoscope className="w-8 h-8 text-[#9b87f5]" />
             <div>
               <p className="text-sm font-medium text-[#7E69AB] dark:text-gray-300">
                 Nombre de la Empresa
