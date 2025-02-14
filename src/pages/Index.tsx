@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { MobileHeader } from "@/components/layout/MobileHeader";
+import { Topbar } from "@/components/layout/Topbar";
 import { DashboardCards } from "@/components/DashboardCards";
 
 const Index = () => {
@@ -44,10 +45,14 @@ const Index = () => {
         />
       )}
 
+      {/* Mobile Header - Only visible on mobile */}
       <MobileHeader toggleMobileMenu={toggleMobileMenu} />
 
+      {/* Desktop Topbar - Visible on all devices */}
+      <Topbar isDark={isDark} />
+
       {/* Main Content */}
-      <main className="flex-1 md:ml-64 p-4 pt-20 md:pt-4">
+      <main className="flex-1 md:ml-64 p-4 pt-20">
         {/* Welcome Message */}
         <div className="mb-6">
           <h1 className="text-2xl font-bold text-[hsl(var(--text-primary))] mb-1">
