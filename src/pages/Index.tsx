@@ -1,5 +1,5 @@
 
-import { Bell, Home, User, Calendar, Settings, Info, LogOut, Menu } from "lucide-react";
+import { Bell, Home, User, Calendar, Settings, Info, LogOut, Menu, Stethoscope } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -18,8 +18,9 @@ const Index = () => {
         md:translate-x-0 md:block right-0
         ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
       `}>
-        <div className="p-4 border-b">
+        <div className="p-4 border-b flex items-center space-x-3">
           <img src="/placeholder.svg" alt="Logo" className="h-8" />
+          <Stethoscope className="w-6 h-6 text-[#0066CC]" />
         </div>
         
         <div className="py-4">
@@ -72,7 +73,10 @@ const Index = () => {
       {/* Mobile Header */}
       <div className="md:hidden fixed top-0 left-0 right-0 bg-white shadow-sm z-10 p-4">
         <div className="flex justify-between items-center">
-          <img src="/placeholder.svg" alt="Logo" className="h-8" />
+          <div className="flex items-center space-x-3">
+            <img src="/placeholder.svg" alt="Logo" className="h-8" />
+            <Stethoscope className="w-6 h-6 text-[#0066CC]" />
+          </div>
           <div className="flex items-center space-x-4">
             <Bell className="w-6 h-6 text-gray-500" />
             <Settings className="w-6 h-6 text-gray-500" />
@@ -91,8 +95,8 @@ const Index = () => {
         {/* Header Banner */}
         <div className="w-full h-[300px] bg-gray-200 rounded-xl mb-6">
           <img 
-            src="/placeholder.svg" 
-            alt="Banner" 
+            src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952" 
+            alt="Doctor en consulta" 
             className="w-full h-full object-cover rounded-xl"
           />
         </div>
@@ -102,7 +106,7 @@ const Index = () => {
           {/* Personal Info Card */}
           <div className="bg-white rounded-xl overflow-hidden shadow-sm">
             <img 
-              src="/placeholder.svg" 
+              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
               alt="Personal Info" 
               className="w-full h-[200px] object-cover"
             />
@@ -116,7 +120,7 @@ const Index = () => {
           {/* Appointments Card */}
           <div className="bg-white rounded-xl overflow-hidden shadow-sm">
             <img 
-              src="/placeholder.svg" 
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c"
               alt="Appointments" 
               className="w-full h-[200px] object-cover"
             />
@@ -130,7 +134,7 @@ const Index = () => {
           {/* Health Blog Card */}
           <div className="bg-white rounded-xl overflow-hidden shadow-sm">
             <img 
-              src="/placeholder.svg" 
+              src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952"
               alt="Health Blog" 
               className="w-full h-[200px] object-cover"
             />
