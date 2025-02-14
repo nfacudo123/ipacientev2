@@ -27,14 +27,14 @@ export const Topbar = ({ isDark }: TopbarProps) => {
                 <AvatarFallback>DR</AvatarFallback>
               </Avatar>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-48">
-              <DropdownMenuItem asChild>
-                <Link to="/mis-datos" className="cursor-pointer">
+            <DropdownMenuContent align="end" className="w-48 bg-[hsl(var(--card))] border border-gray-100 dark:border-gray-800">
+              <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50">
+                <Link to="/mis-datos" className="w-full text-[#7E69AB] dark:text-gray-300 cursor-pointer">
                   Mis Datos
                 </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/preferencias" className="cursor-pointer">
+              <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50">
+                <Link to="/preferencias" className="w-full text-[#7E69AB] dark:text-gray-300 cursor-pointer">
                   Preferencias
                 </Link>
               </DropdownMenuItem>
