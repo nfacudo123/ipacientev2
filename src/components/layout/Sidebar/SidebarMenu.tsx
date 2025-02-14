@@ -1,5 +1,5 @@
 
-import { Home, User, Calendar } from "lucide-react";
+import { Home, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const SidebarMenu = () => {
@@ -10,11 +10,6 @@ export const SidebarMenu = () => {
       <Link to="/" className="flex items-center px-4 py-3 text-[#9b87f5] bg-[#F8F7FF] dark:bg-gray-800/50">
         <Home className="w-5 h-5 mr-3" />
         <span>Inicio</span>
-      </Link>
-      
-      <Link to="/mis-datos" className="flex items-center px-4 py-3 text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50">
-        <User className="w-5 h-5 mr-3" />
-        <span>Mis Datos</span>
       </Link>
       
       <Link to="/mis-citas" className="flex items-center px-4 py-3 text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50">
