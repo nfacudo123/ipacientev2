@@ -69,10 +69,10 @@ const RegisterModal = ({ isOpen, onClose }: RegisterModalProps) => {
             <PasswordFields formData={formData} handleChange={handleChange} />
             
             <div className="w-full flex flex-col items-center justify-center space-y-2">
-              <div className="w-full text-sm text-gray-500 dark:text-gray-400 text-center mb-2">
-                Por favor, verifica que no eres un robot
-              </div>
               <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <div className="w-full text-sm text-gray-500 dark:text-gray-400 text-center mb-2">
+                  Por favor, verifica que no eres un robot
+                </div>
                 <ReCAPTCHA
                   sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
                   onChange={handleCaptchaChange}
