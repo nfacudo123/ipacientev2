@@ -1,12 +1,23 @@
 
-import { Bell, Home, User, Calendar, Settings, Info, LogOut } from "lucide-react";
+import { Bell, Home, User, Calendar, Settings, Info, LogOut, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Index = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <div className="min-h-screen flex w-full bg-[#F8F7FF]">
       {/* Sidebar */}
-      <aside className="w-64 bg-white shadow-lg fixed h-full hidden md:block">
+      <aside className={`
+        w-64 bg-white shadow-lg fixed h-full z-30 transition-transform duration-300
+        md:translate-x-0 md:block
+        ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}
+      `}>
         <div className="p-4 border-b">
           <img src="/placeholder.svg" alt="Logo" className="h-8" />
         </div>
@@ -50,10 +61,26 @@ const Index = () => {
         </div>
       </aside>
 
+      {/* Overlay for mobile menu */}
+      {isMobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-20 md:hidden"
+          onClick={toggleMobileMenu}
+        />
+      )}
+
       {/* Mobile Header */}
       <div className="md:hidden fixed top-0 left-0 right-0 bg-white shadow-sm z-10 p-4">
         <div className="flex justify-between items-center">
-          <img src="/placeholder.svg" alt="Logo" className="h-8" />
+          <div className="flex items-center space-x-3">
+            <button 
+              onClick={toggleMobileMenu}
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              <Menu className="w-6 h-6 text-gray-700" />
+            </button>
+            <img src="/placeholder.svg" alt="Logo" className="h-8" />
+          </div>
           <div className="flex items-center space-x-4">
             <Bell className="w-6 h-6 text-gray-500" />
             <Settings className="w-6 h-6 text-gray-500" />
