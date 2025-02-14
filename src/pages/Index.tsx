@@ -18,9 +18,8 @@ const Index = () => {
         md:translate-x-0 md:block right-0
         ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
       `}>
-        <div className="p-4 border-b flex items-center space-x-3">
-          <img src="/placeholder.svg" alt="Logo" className="h-8" />
-          <Stethoscope className="w-6 h-6 text-[#0066CC]" />
+        <div className="p-4 border-b flex items-center">
+          <Stethoscope className="w-8 h-8 text-[#0066CC]" />
         </div>
         
         <div className="py-4">
@@ -73,9 +72,8 @@ const Index = () => {
       {/* Mobile Header */}
       <div className="md:hidden fixed top-0 left-0 right-0 bg-white shadow-sm z-10 p-4">
         <div className="flex justify-between items-center">
-          <div className="flex items-center space-x-3">
-            <img src="/placeholder.svg" alt="Logo" className="h-8" />
-            <Stethoscope className="w-6 h-6 text-[#0066CC]" />
+          <div className="flex items-center">
+            <Stethoscope className="w-8 h-8 text-[#0066CC]" />
           </div>
           <div className="flex items-center space-x-4">
             <Bell className="w-6 h-6 text-gray-500" />
