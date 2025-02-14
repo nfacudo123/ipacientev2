@@ -45,7 +45,7 @@ const Index = () => {
   };
 
   return (
-    <>
+    <div className="min-h-screen w-full flex items-center justify-center p-4">
       <div className="login-card">
         <button
           onClick={toggleTheme}
@@ -149,7 +149,7 @@ const Index = () => {
         isOpen={isForgotPasswordOpen}
         onClose={() => setIsForgotPasswordOpen(false)}
       />
-    </>
+    </div>
   );
 };
 
