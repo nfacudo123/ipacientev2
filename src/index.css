@@ -42,21 +42,21 @@
 }
 
 .icon-container {
-  @apply bg-[#33C3F0] rounded-xl sm:rounded-2xl p-4 inline-block mb-4;
+  @apply bg-[#4285F4] rounded-xl sm:rounded-2xl p-4 inline-block mb-4;
 }
 
 .input-field {
-  @apply w-full pl-12 pr-4 py-3 bg-[#F6F6F7] dark:bg-[hsl(var(--input))] border border-gray-200 dark:border-gray-700 rounded-lg text-gray-700 dark:text-[hsl(var(--text-primary))] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#33C3F0] focus:border-transparent transition-all duration-200;
+  @apply w-full pl-12 pr-4 py-3 bg-[#F6F6F7] dark:bg-[hsl(var(--input))] border border-gray-200 dark:border-gray-700 rounded-lg text-gray-700 dark:text-[hsl(var(--text-primary))] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#4285F4] focus:border-transparent transition-all duration-200;
 }
 
 .select-field {
-  @apply w-full pl-12 pr-4 py-3 bg-[#F6F6F7] dark:bg-[hsl(var(--input))] border border-gray-200 dark:border-gray-700 rounded-lg text-gray-700 dark:text-[hsl(var(--text-primary))] focus:outline-none focus:ring-2 focus:ring-[#33C3F0] focus:border-transparent transition-all duration-200 appearance-none;
+  @apply w-full pl-12 pr-4 py-3 bg-[#F6F6F7] dark:bg-[hsl(var(--input))] border border-gray-200 dark:border-gray-700 rounded-lg text-gray-700 dark:text-[hsl(var(--text-primary))] focus:outline-none focus:ring-2 focus:ring-[#4285F4] focus:border-transparent transition-all duration-200 appearance-none;
 }
 
 .login-button {
-  @apply w-full py-3 bg-[#33C3F0] hover:bg-[#1EAEDB] text-white rounded-lg transition-colors duration-200 font-medium;
+  @apply w-full py-3 bg-[#4285F4] hover:bg-[#3b77db] text-white rounded-lg transition-colors duration-200 font-medium;
 }
 
 .link {
-  @apply text-[#33C3F0] hover:text-[#1EAEDB] transition-colors duration-200;
+  @apply text-[#4285F4] hover:text-[#3b77db] transition-colors duration-200;
 }
