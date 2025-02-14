@@ -1,3 +1,4 @@
+
 import { Bell, Home, User, Calendar, Settings, Info, LogOut, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -14,8 +15,8 @@ const Index = () => {
       {/* Sidebar */}
       <aside className={`
         w-64 bg-white shadow-lg fixed h-full z-30 transition-transform duration-300
-        md:translate-x-0 md:block
-        ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}
+        md:translate-x-0 md:block right-0
+        ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
       `}>
         <div className="p-4 border-b">
           <img src="/placeholder.svg" alt="Logo" className="h-8" />
@@ -74,19 +75,19 @@ const Index = () => {
           <img src="/placeholder.svg" alt="Logo" className="h-8" />
           <div className="flex items-center space-x-4">
             <Bell className="w-6 h-6 text-gray-500" />
+            <Settings className="w-6 h-6 text-gray-500" />
             <button 
               onClick={toggleMobileMenu}
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
             >
               <Menu className="w-6 h-6 text-gray-700" />
             </button>
-            <Settings className="w-6 h-6 text-gray-500" />
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 md:ml-64 p-4 pt-20 md:pt-4">
+      <main className="flex-1 md:ml-0 md:mr-64 p-4 pt-20 md:pt-4">
         {/* Header Banner */}
         <div className="w-full h-[300px] bg-gray-200 rounded-xl mb-6">
           <img 
