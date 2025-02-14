@@ -1,14 +1,31 @@
 
-import { Bell, Home, User, Calendar, Settings, Info, LogOut, Menu, Stethoscope } from "lucide-react";
+import { Bell, Home, User, Calendar, Settings, Info, LogOut, Menu, Stethoscope, Sun, Moon } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Index = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme === 'dark';
+  });
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+  };
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }, [isDark]);
 
   return (
     <div className="min-h-screen flex w-full bg-[#F8F7FF]">
@@ -18,43 +35,53 @@ const Index = () => {
         md:translate-x-0 md:block md:left-0
         ${isMobileMenuOpen ? 'translate-x-0 right-0' : 'translate-x-full right-0'}
       `}>
-        <div className="p-4 border-b flex items-center">
-          <Stethoscope className="w-8 h-8 text-[#0066CC]" />
+        <div className="p-4 border-b flex items-center justify-between">
+          <Stethoscope className="w-8 h-8 text-[#9b87f5]" />
+          <button
+            onClick={toggleTheme}
+            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          >
+            {isDark ? (
+              <Moon className="w-5 h-5 text-gray-600" />
+            ) : (
+              <Sun className="w-5 h-5 text-yellow-500" />
+            )}
+          </button>
         </div>
         
         <div className="py-4">
-          <div className="px-4 py-2 text-sm text-gray-500">MENÚ</div>
+          <div className="px-4 py-2 text-sm text-[#7E69AB]">MENÚ</div>
           
-          <Link to="/" className="flex items-center px-4 py-3 text-blue-600 bg-blue-50">
+          <Link to="/" className="flex items-center px-4 py-3 text-[#9b87f5] bg-[#F8F7FF]">
             <Home className="w-5 h-5 mr-3" />
             <span>Inicio</span>
           </Link>
           
-          <Link to="/mis-datos" className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50">
+          <Link to="/mis-datos" className="flex items-center px-4 py-3 text-[#7E69AB] hover:bg-[#F8F7FF]">
             <User className="w-5 h-5 mr-3" />
             <span>Mis Datos</span>
           </Link>
           
-          <Link to="/mis-citas" className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50">
+          <Link to="/mis-citas" className="flex items-center px-4 py-3 text-[#7E69AB] hover:bg-[#F8F7FF]">
             <Calendar className="w-5 h-5 mr-3" />
             <span>Mis Citas</span>
           </Link>
         </div>
         
-        <div className="py-4 border-t">
-          <div className="px-4 py-2 text-sm text-gray-500">OPCIONES</div>
+        <div className="py-4 border-t border-gray-100">
+          <div className="px-4 py-2 text-sm text-[#7E69AB]">OPCIONES</div>
           
-          <Link to="/preferencias" className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50">
+          <Link to="/preferencias" className="flex items-center px-4 py-3 text-[#7E69AB] hover:bg-[#F8F7FF]">
             <Settings className="w-5 h-5 mr-3" />
             <span>Preferencias</span>
           </Link>
           
-          <Link to="/acerca-de" className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50">
+          <Link to="/acerca-de" className="flex items-center px-4 py-3 text-[#7E69AB] hover:bg-[#F8F7FF]">
             <Info className="w-5 h-5 mr-3" />
             <span>Acerca de</span>
           </Link>
           
-          <Link to="/login" className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50">
+          <Link to="/login" className="flex items-center px-4 py-3 text-[#7E69AB] hover:bg-[#F8F7FF]">
             <LogOut className="w-5 h-5 mr-3" />
             <span>Cerrar sesión</span>
           </Link>
@@ -73,7 +100,7 @@ const Index = () => {
       <div className="md:hidden fixed top-0 left-0 right-0 bg-white shadow-sm z-10 p-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <Stethoscope className="w-8 h-8 text-[#0066CC]" />
+            <Stethoscope className="w-8 h-8 text-[#9b87f5]" />
           </div>
           <div className="flex items-center space-x-4">
             <Bell className="w-6 h-6 text-gray-500" />
@@ -90,6 +117,12 @@ const Index = () => {
 
       {/* Main Content */}
       <main className="flex-1 md:ml-64 p-4 pt-20 md:pt-4">
+        {/* Welcome Message */}
+        <div className="mb-6">
+          <h1 className="text-2xl font-bold text-gray-800 mb-1">Bienvenido paciente Juan Pérez</h1>
+          <p className="text-gray-600">juan.perez@ejemplo.com</p>
+        </div>
+
         {/* Header Banner */}
         <div className="w-full h-[300px] bg-gray-200 rounded-xl mb-6">
           <img 
