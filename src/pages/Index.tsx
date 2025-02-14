@@ -25,10 +25,10 @@ const Index = () => {
   return (
     <div className="login-card">
       <div className="icon-container">
-        <PlusSquare className="w-12 h-12 text-white" strokeWidth={1.5} />
+        <PlusSquare className="w-16 h-16 text-white" strokeWidth={1.5} />
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <select
             name="idType"
@@ -55,26 +55,26 @@ const Index = () => {
         </div>
 
         <div className="relative">
-          <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+          <User className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-400 w-6 h-6" />
           <input
             type="text"
             name="username"
             placeholder="Usuario"
             value={formData.username}
             onChange={handleChange}
-            className="input-field pl-12"
+            className="input-field pl-16"
           />
         </div>
 
         <div className="relative">
-          <Key className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+          <Key className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-400 w-6 h-6" />
           <input
             type="password"
             name="password"
             placeholder="Contraseña"
             value={formData.password}
             onChange={handleChange}
-            className="input-field pl-12"
+            className="input-field pl-16"
           />
         </div>
 
@@ -83,7 +83,7 @@ const Index = () => {
         </button>
       </form>
 
-      <div className="flex justify-between pt-4 text-sm">
+      <div className="flex justify-between pt-6 text-base">
         <a href="/register" className="link">
           Registrarse ahora
         </a>
