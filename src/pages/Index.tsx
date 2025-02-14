@@ -1,155 +1,123 @@
 
-import { PlusSquare, User, Key, CreditCard, Sun, Moon } from "lucide-react";
-import { useState, useEffect } from "react";
-import RegisterModal from "@/components/RegisterModal";
-import ForgotPasswordModal from "@/components/ForgotPasswordModal";
+import { Bell, Home, User, Calendar, Settings, Info, LogOut } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Index = () => {
-  const [formData, setFormData] = useState({
-    idType: "",
-    idNumber: "",
-    username: "",
-    password: "",
-  });
-
-  const [isDark, setIsDark] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme === 'dark';
-  });
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-  const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
-
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  }, [isDark]);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-  };
-
   return (
-    <>
-      <div className="login-card">
-        <button
-          onClick={toggleTheme}
-          className="theme-switch"
-          aria-label="Toggle theme"
-        >
-          {isDark ? (
-            <Moon className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" />
-          ) : (
-            <Sun className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-500" />
-          )}
-        </button>
-
-        <div className="icon-container">
-          <PlusSquare className="w-8 h-8 sm:w-12 sm:h-12 text-white" strokeWidth={1.5} />
+    <div className="min-h-screen flex w-full bg-[#F8F7FF]">
+      {/* Sidebar */}
+      <aside className="w-64 bg-white shadow-lg fixed h-full hidden md:block">
+        <div className="p-4 border-b">
+          <img src="/placeholder.svg" alt="Logo" className="h-8" />
         </div>
+        
+        <div className="py-4">
+          <div className="px-4 py-2 text-sm text-gray-500">MENÚ</div>
+          
+          <Link to="/" className="flex items-center px-4 py-3 text-blue-600 bg-blue-50">
+            <Home className="w-5 h-5 mr-3" />
+            <span>Inicio</span>
+          </Link>
+          
+          <Link to="/mis-datos" className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50">
+            <User className="w-5 h-5 mr-3" />
+            <span>Mis Datos</span>
+          </Link>
+          
+          <Link to="/mis-citas" className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50">
+            <Calendar className="w-5 h-5 mr-3" />
+            <span>Mis Citas</span>
+          </Link>
+        </div>
+        
+        <div className="py-4 border-t">
+          <div className="px-4 py-2 text-sm text-gray-500">OPCIONES</div>
+          
+          <Link to="/preferencias" className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50">
+            <Settings className="w-5 h-5 mr-3" />
+            <span>Preferencias</span>
+          </Link>
+          
+          <Link to="/acerca-de" className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50">
+            <Info className="w-5 h-5 mr-3" />
+            <span>Acerca de</span>
+          </Link>
+          
+          <Link to="/login" className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50">
+            <LogOut className="w-5 h-5 mr-3" />
+            <span>Cerrar sesión</span>
+          </Link>
+        </div>
+      </aside>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="relative">
-            <CreditCard className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-            <select
-              name="idType"
-              value={formData.idType}
-              onChange={handleChange}
-              className="select-field"
-            >
-              <option value="" disabled>Tipo de Identificación</option>
-              <option value="CC">CC</option>
-              <option value="CE">CE</option>
-              <option value="PA">PA</option>
-              <option value="RC">RC</option>
-              <option value="TI">TI</option>
-              <option value="AS">AS</option>
-              <option value="MS">MS</option>
-              <option value="NU">NU</option>
-              <option value="NI">NI</option>
-              <option value="PIP">PIP</option>
-            </select>
+      {/* Mobile Header */}
+      <div className="md:hidden fixed top-0 left-0 right-0 bg-white shadow-sm z-10 p-4">
+        <div className="flex justify-between items-center">
+          <img src="/placeholder.svg" alt="Logo" className="h-8" />
+          <div className="flex items-center space-x-4">
+            <Bell className="w-6 h-6 text-gray-500" />
+            <Settings className="w-6 h-6 text-gray-500" />
           </div>
-
-          <div className="relative">
-            <CreditCard className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-            <input
-              type="text"
-              name="idNumber"
-              placeholder="Número de Identificación"
-              value={formData.idNumber}
-              onChange={handleChange}
-              className="input-field"
-            />
-          </div>
-
-          <div className="relative">
-            <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-            <input
-              type="text"
-              name="username"
-              placeholder="Usuario"
-              value={formData.username}
-              onChange={handleChange}
-              className="input-field"
-            />
-          </div>
-
-          <div className="relative">
-            <Key className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-            <input
-              type="password"
-              name="password"
-              placeholder="Contraseña"
-              value={formData.password}
-              onChange={handleChange}
-              className="input-field"
-            />
-          </div>
-
-          <button type="submit" className="login-button">
-            Iniciar Sesión
-          </button>
-        </form>
-
-        <div className="flex justify-between items-center pt-4 text-sm space-x-20">
-          <button onClick={() => setIsRegisterOpen(true)} className="link whitespace-nowrap">
-            Registrarse ahora
-          </button>
-          <button 
-            onClick={() => setIsForgotPasswordOpen(true)} 
-            className="link whitespace-nowrap"
-          >
-            ¿Olvidaste tu contraseña?
-          </button>
         </div>
       </div>
 
-      <RegisterModal 
-        isOpen={isRegisterOpen}
-        onClose={() => setIsRegisterOpen(false)}
-      />
-      
-      <ForgotPasswordModal
-        isOpen={isForgotPasswordOpen}
-        onClose={() => setIsForgotPasswordOpen(false)}
-      />
-    </>
+      {/* Main Content */}
+      <main className="flex-1 md:ml-64 p-4 pt-20 md:pt-4">
+        {/* Header Banner */}
+        <div className="w-full h-[300px] bg-gray-200 rounded-xl mb-6">
+          <img 
+            src="/placeholder.svg" 
+            alt="Banner" 
+            className="w-full h-full object-cover rounded-xl"
+          />
+        </div>
+
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Personal Info Card */}
+          <div className="bg-white rounded-xl overflow-hidden shadow-sm">
+            <img 
+              src="/placeholder.svg" 
+              alt="Personal Info" 
+              className="w-full h-[200px] object-cover"
+            />
+            <div className="p-6 bg-[#FF1493]">
+              <p className="text-white text-lg font-medium">
+                Revisa y actualiza tu información personal
+              </p>
+            </div>
+          </div>
+
+          {/* Appointments Card */}
+          <div className="bg-white rounded-xl overflow-hidden shadow-sm">
+            <img 
+              src="/placeholder.svg" 
+              alt="Appointments" 
+              className="w-full h-[200px] object-cover"
+            />
+            <div className="p-6 bg-[#0066CC]">
+              <p className="text-white text-lg font-medium">
+                Ver tus citas programadas y completadas
+              </p>
+            </div>
+          </div>
+
+          {/* Health Blog Card */}
+          <div className="bg-white rounded-xl overflow-hidden shadow-sm">
+            <img 
+              src="/placeholder.svg" 
+              alt="Health Blog" 
+              className="w-full h-[200px] object-cover"
+            />
+            <div className="p-6 bg-[#FF4500]">
+              <p className="text-white text-lg font-medium">
+                Mantente actualizado con nuestro blog de salud
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
   );
 };
 
