@@ -1,5 +1,5 @@
 
-import { Sun, Moon, User, Settings, LogOut } from "lucide-react";
+import { Sun, Moon, User, Settings, LogOut, BellRing } from "lucide-react";
 import { useTheme } from "next-themes";
 import {
   DropdownMenu,
@@ -50,6 +50,64 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
               <Sun className="w-5 h-5 text-yellow-500" />
             )}
           </button>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className="relative inline-flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
+                <BellRing className="w-5 h-5 text-gray-500 dark:text-gray-400 hover:text-[#9b87f5] transition-colors" />
+                <span className="absolute -top-0.5 -right-0.5 inline-flex items-center justify-center w-4 h-4 text-[10px] font-bold text-white bg-red-500 rounded-full">
+                  2
+                </span>
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-[calc(100vw-32px)] bg-[hsl(var(--card))] border border-gray-100 dark:border-gray-800">
+              <div className="px-4 py-3 font-medium text-[#7E69AB] dark:text-gray-300">
+                Notificaciones
+              </div>
+              <DropdownMenuSeparator className="bg-gray-100 dark:bg-gray-800" />
+              <div className="max-h-[50vh] overflow-auto">
+                <DropdownMenuItem className="p-3 focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50">
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-2">
+                      <BellRing className="w-4 h-4 text-[#9b87f5] mt-0.5 animate-pulse" />
+                      <div>
+                        <p className="font-medium text-sm text-gray-800 dark:text-gray-200">
+                          Cita Julio 11 a las 11:00 am
+                        </p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                          Tienes cita con: Dr. Santiago Franco
+                        </p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                          Control por Medicina General
+                        </p>
+                        <p className="text-xs font-medium text-red-500 mt-1">
+                          Ya faltan 25 minutos para tu cita!!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="p-3 focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50">
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-2">
+                      <BellRing className="w-4 h-4 text-[#9b87f5] mt-0.5" />
+                      <div>
+                        <p className="font-medium text-sm text-gray-800 dark:text-gray-200">
+                          Cita Julio 11 a las 11:00 am
+                        </p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                          Tienes cita con: Dr. Santiago Franco
+                        </p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                          Control por Medicina General
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </DropdownMenuItem>
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
