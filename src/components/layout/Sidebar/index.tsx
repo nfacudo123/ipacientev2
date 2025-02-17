@@ -21,7 +21,7 @@ export const Sidebar = ({ isDark, toggleTheme, isMobileMenuOpen }: SidebarProps)
 
   return (
     <aside className={`
-      ${isCollapsed ? 'w-20' : 'w-64'} bg-[hsl(var(--card))] shadow-lg fixed inset-y-0 z-30 transition-all duration-300
+      ${isCollapsed ? 'w-[72px]' : 'w-64'} bg-[hsl(var(--card))] shadow-lg fixed inset-y-0 z-30 transition-all duration-200
       md:translate-x-0 md:block md:left-0 flex flex-col
       ${isMobileMenuOpen ? 'translate-x-0 right-0' : 'translate-x-full right-0'}
     `}>
@@ -29,7 +29,7 @@ export const Sidebar = ({ isDark, toggleTheme, isMobileMenuOpen }: SidebarProps)
         <SidebarHeader isDark={isDark} toggleTheme={toggleTheme} isCollapsed={isCollapsed} />
         <SidebarMenu isCollapsed={isCollapsed} />
         <SidebarOptions isCollapsed={isCollapsed} />
-        <SidebarFooter />
+        <SidebarFooter isCollapsed={isCollapsed} />
         
         <button 
           onClick={toggleCollapse}
