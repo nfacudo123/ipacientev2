@@ -1,6 +1,15 @@
 
 import { Menu, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Link } from "react-router-dom";
 
 interface MobileHeaderProps {
   toggleMobileMenu: () => void;
@@ -36,6 +45,34 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
               <Sun className="w-5 h-5 text-yellow-500" />
             )}
           </button>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Avatar className="h-8 w-8 cursor-pointer">
+                <AvatarImage src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d" alt="Doctor" />
+                <AvatarFallback>DR</AvatarFallback>
+              </Avatar>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48 bg-[hsl(var(--card))] border border-gray-100 dark:border-gray-800">
+              <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50">
+                <Link to="/profile" className="w-full text-[#7E69AB] dark:text-gray-300 cursor-pointer flex items-center">
+                  Mis Datos
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50">
+                <Link to="/preferencias" className="w-full text-[#7E69AB] dark:text-gray-300 cursor-pointer flex items-center">
+                  Preferencias
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator className="bg-gray-100 dark:bg-gray-800" />
+              <DropdownMenuItem 
+                className="focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50 text-[#7E69AB] dark:text-gray-300 cursor-pointer flex items-center"
+              >
+                Cerrar sesión
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           <button 
             onClick={toggleMobileMenu}
             className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
