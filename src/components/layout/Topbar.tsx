@@ -1,5 +1,5 @@
 
-import { Bell, Settings, User } from "lucide-react";
+import { Bell } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -9,6 +9,7 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Link } from "react-router-dom";
+import { User, Settings } from "lucide-react";
 
 interface TopbarProps {
   isDark: boolean;
@@ -20,7 +21,6 @@ export const Topbar = ({ isDark }: TopbarProps) => {
       <div className="flex justify-end items-center h-16 px-4">
         <div className="flex items-center space-x-4">
           <Bell className="w-6 h-6 text-gray-500 dark:text-gray-400 cursor-pointer hover:text-[#9b87f5] transition-colors" />
-          <Settings className="w-6 h-6 text-gray-500 dark:text-gray-400 cursor-pointer hover:text-[#9b87f5] transition-colors" />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Avatar className="h-8 w-8 cursor-pointer">
