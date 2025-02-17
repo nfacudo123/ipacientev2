@@ -12,6 +12,7 @@ const Index = () => {
     const savedTheme = localStorage.getItem('theme');
     return savedTheme === 'dark';
   });
+  const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -36,9 +37,9 @@ const Index = () => {
         isDark={isDark}
         toggleTheme={toggleTheme}
         isMobileMenuOpen={isMobileMenuOpen}
+        onCollapseChange={setIsMenuCollapsed}
       />
 
-      {/* Overlay for mobile menu */}
       {isMobileMenuOpen && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-50 z-20 md:hidden"
@@ -46,15 +47,10 @@ const Index = () => {
         />
       )}
 
-      {/* Mobile Header - Only visible on mobile */}
       <MobileHeader toggleMobileMenu={toggleMobileMenu} />
+      <Topbar isDark={isDark} isMenuCollapsed={isMenuCollapsed} />
 
-      {/* Desktop Topbar - Visible on all devices */}
-      <Topbar isDark={isDark} />
-
-      {/* Main Content */}
-      <main className="flex-1 md:ml-64 p-4 pt-20 pb-20 md:pb-4">
-        {/* Welcome Message */}
+      <main className={`flex-1 ${isMenuCollapsed ? 'md:ml-[72px]' : 'md:ml-64'} p-4 pt-20 pb-20 md:pb-4 transition-all duration-200`}>
         <div className="mb-6">
           <h1 className="text-2xl font-bold text-[hsl(var(--text-primary))] mb-1">
             Bienvenido paciente Juan Pérez
@@ -64,7 +60,6 @@ const Index = () => {
           </p>
         </div>
 
-        {/* Header Banner */}
         <div className="w-full h-[300px] bg-[hsl(var(--card))] rounded-xl mb-6">
           <img 
             src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952" 
@@ -76,7 +71,6 @@ const Index = () => {
         <DashboardCards />
       </main>
 
-      {/* Mobile Bottom Menu */}
       <MobileMenu />
     </div>
   );

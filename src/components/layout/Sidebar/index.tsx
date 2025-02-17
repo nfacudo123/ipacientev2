@@ -10,13 +10,15 @@ interface SidebarProps {
   isDark: boolean;
   toggleTheme: () => void;
   isMobileMenuOpen: boolean;
+  onCollapseChange: (collapsed: boolean) => void;
 }
 
-export const Sidebar = ({ isDark, toggleTheme, isMobileMenuOpen }: SidebarProps) => {
+export const Sidebar = ({ isDark, toggleTheme, isMobileMenuOpen, onCollapseChange }: SidebarProps) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed);
+    onCollapseChange(!isCollapsed);
   };
 
   return (

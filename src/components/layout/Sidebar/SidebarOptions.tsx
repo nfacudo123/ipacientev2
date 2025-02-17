@@ -17,20 +17,26 @@ export const SidebarOptions = ({ isCollapsed }: SidebarOptionsProps) => {
     const content = (
       <Link 
         to={to} 
-        className="flex items-center px-4 py-3 text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
+        className={`
+          flex items-center ${isCollapsed ? 'justify-center' : ''} px-4 py-3 
+          text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50
+        `}
       >
-        <Icon className="w-5 h-5 min-w-[20px]" />
+        <Icon className={`${isCollapsed ? 'w-8 h-8' : 'w-5 h-5'} transition-all duration-200`} />
         {!isCollapsed && <span className="ml-3">{label}</span>}
       </Link>
     );
 
     return isCollapsed ? (
       <TooltipProvider>
-        <Tooltip>
+        <Tooltip delayDuration={0}>
           <TooltipTrigger asChild>
             {content}
           </TooltipTrigger>
-          <TooltipContent side="right" className="bg-white dark:bg-gray-800 text-sm">
+          <TooltipContent 
+            side="right" 
+            className="bg-white dark:bg-gray-800 text-sm py-2 px-3 font-medium shadow-lg border border-gray-100 dark:border-gray-700"
+          >
             {label}
           </TooltipContent>
         </Tooltip>
