@@ -39,38 +39,36 @@ const About = () => {
           </h1>
         </div>
 
-        <div className="w-[calc(100vw-2rem)] md:w-auto -mx-4 md:mx-0">
-          <div className="px-4 md:px-0 flex md:grid md:grid-cols-3 gap-4 overflow-x-auto md:overflow-visible pb-4 md:pb-0">
-            <Link
-              to="/politicas-privacidad"
-              className="w-[280px] md:w-auto shrink-0 flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
-            >
-              <div className="flex items-center justify-center w-10 h-10 mb-2 rounded-lg bg-[#F8F7FF] dark:bg-gray-800">
-                <FileText className="w-6 h-6 text-[#9b87f5]" />
-              </div>
-              <span className="text-sm font-medium">Políticas de privacidad</span>
-            </Link>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <Link
+            to="/politicas-privacidad"
+            className="flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
+          >
+            <div className="flex items-center justify-center w-10 h-10 mb-2 rounded-lg bg-[#F8F7FF] dark:bg-gray-800">
+              <FileText className="w-6 h-6 text-[#9b87f5]" />
+            </div>
+            <span className="text-sm font-medium">Políticas de privacidad</span>
+          </Link>
 
-            <Link
-              to="/consentimiento-informado"
-              className="w-[280px] md:w-auto shrink-0 flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
-            >
-              <div className="flex items-center justify-center w-10 h-10 mb-2 rounded-lg bg-[#F8F7FF] dark:bg-gray-800">
-                <Lock className="w-6 h-6 text-[#9b87f5]" />
-              </div>
-              <span className="text-sm font-medium">Consentimiento informado</span>
-            </Link>
+          <Link
+            to="/consentimiento-informado"
+            className="flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
+          >
+            <div className="flex items-center justify-center w-10 h-10 mb-2 rounded-lg bg-[#F8F7FF] dark:bg-gray-800">
+              <Lock className="w-6 h-6 text-[#9b87f5]" />
+            </div>
+            <span className="text-sm font-medium">Consentimiento informado</span>
+          </Link>
 
-            <Link
-              to="/nosotros"
-              className="w-[280px] md:w-auto shrink-0 flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
-            >
-              <div className="flex items-center justify-center w-10 h-10 mb-2 rounded-lg bg-[#F8F7FF] dark:bg-gray-800">
-                <Users className="w-6 h-6 text-[#9b87f5]" />
-              </div>
-              <span className="text-sm font-medium">Nosotros</span>
-            </Link>
-          </div>
+          <Link
+            to="/nosotros"
+            className="flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
+          >
+            <div className="flex items-center justify-center w-10 h-10 mb-2 rounded-lg bg-[#F8F7FF] dark:bg-gray-800">
+              <Users className="w-6 h-6 text-[#9b87f5]" />
+            </div>
+            <span className="text-sm font-medium">Nosotros</span>
+          </Link>
         </div>
 
         <div className="mt-6 bg-white dark:bg-[hsl(var(--card))] rounded-lg p-4">
