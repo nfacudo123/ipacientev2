@@ -62,7 +62,6 @@ const Login = () => {
   };
 
   const toggleTheme = () => {
-    document.documentElement.classList.toggle('dark');
     setTheme(isDark ? "light" : "dark");
   };
 
@@ -86,6 +85,7 @@ const Login = () => {
       <div className="login-card">
         <div className="flex flex-col items-center justify-center">
           <img 
+            key={theme} // Agregamos key para forzar el re-render cuando cambia el tema
             src={isDark ? "/lovable-uploads/0556f409-35a9-43e5-aaf2-52249b735899.png" : "/lovable-uploads/1685d97b-8505-4da0-a24e-c67e0ae010c0.png"}
             alt="ISISMAWEB Logo"
             className="w-48 h-12 object-contain mb-6"
