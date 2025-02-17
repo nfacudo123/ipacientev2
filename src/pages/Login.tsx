@@ -87,7 +87,7 @@ const Login = () => {
         <div className="flex flex-col items-center justify-center">
           <img 
             key={theme}
-            src={isDark ? "/lovable-uploads/1685d97b-8505-4da0-a24e-c67e0ae010c0.png" : "/lovable-uploads/0556f409-35a9-43e5-aaf2-52249b735899.png"}
+            src={!isDark ? "/lovable-uploads/1685d97b-8505-4da0-a24e-c67e0ae010c0.png" : "/lovable-uploads/0556f409-35a9-43e5-aaf2-52249b735899.png"}
             alt="ISISMAWEB Logo"
             className="w-48 h-12 object-contain mb-6"
           />
