@@ -83,7 +83,7 @@ const Profile = () => {
       <main className={`flex-1 ${isMenuCollapsed ? 'md:ml-[72px]' : 'md:ml-64'} p-4 pt-20 pb-20 md:pb-4 transition-all duration-200`}>
         <div className="mb-6">
           <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
-            Perfil
+            Mis Datos
           </h1>
         </div>
 
