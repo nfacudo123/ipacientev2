@@ -15,7 +15,7 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
   };
 
   return (
-    <div className="md:hidden fixed top-0 left-0 right-0 bg-[hsl(var(--card))] shadow-sm z-10 p-4">
+    <div className="md:hidden fixed top-0 left-0 right-0 bg-[hsl(var(--card))] shadow-sm z-40 p-4">
       <div className="flex justify-between items-center">
         <div className="flex items-center">
           <img 
@@ -31,9 +31,9 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
             aria-label="Cambiar tema"
           >
             {isDark ? (
-              <Sun className="w-5 h-5 text-yellow-500" />
+              <Moon className="w-5 h-5 text-gray-600 dark:text-gray-300" />
             ) : (
-              <Moon className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+              <Sun className="w-5 h-5 text-yellow-500" />
             )}
           </button>
           <button 
