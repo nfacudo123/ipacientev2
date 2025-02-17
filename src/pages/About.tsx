@@ -39,10 +39,10 @@ const About = () => {
           </h1>
         </div>
 
-        <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 md:grid md:grid-cols-3 md:gap-4 md:pb-0 md:overflow-x-visible">
+        <div className="-mx-4 px-4 flex gap-4 overflow-x-auto pb-4 md:mx-0 md:px-0 md:grid md:grid-cols-3 md:gap-4 md:overflow-x-visible">
           <Link
             to="/politicas-privacidad"
-            className="snap-center min-w-[280px] md:min-w-0 flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
+            className="w-[280px] md:w-auto flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
           >
             <div className="flex items-center justify-center w-10 h-10 mb-2 rounded-lg bg-[#F8F7FF] dark:bg-gray-800">
               <FileText className="w-6 h-6 text-[#9b87f5]" />
@@ -52,7 +52,7 @@ const About = () => {
 
           <Link
             to="/consentimiento-informado"
-            className="snap-center min-w-[280px] md:min-w-0 flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
+            className="w-[280px] md:w-auto flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
           >
             <div className="flex items-center justify-center w-10 h-10 mb-2 rounded-lg bg-[#F8F7FF] dark:bg-gray-800">
               <Lock className="w-6 h-6 text-[#9b87f5]" />
@@ -62,7 +62,7 @@ const About = () => {
 
           <Link
             to="/nosotros"
-            className="snap-center min-w-[280px] md:min-w-0 flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
+            className="w-[280px] md:w-auto flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
           >
             <div className="flex items-center justify-center w-10 h-10 mb-2 rounded-lg bg-[#F8F7FF] dark:bg-gray-800">
               <Users className="w-6 h-6 text-[#9b87f5]" />
