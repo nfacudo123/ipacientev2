@@ -1,5 +1,5 @@
 
-import { Menu, Sun, Moon } from "lucide-react";
+import { Sun, Moon, User, Settings, LogOut } from "lucide-react";
 import { useTheme } from "next-themes";
 import {
   DropdownMenu,
@@ -55,31 +55,26 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48 bg-[hsl(var(--card))] border border-gray-100 dark:border-gray-800">
               <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50">
-                <Link to="/profile" className="w-full text-[#7E69AB] dark:text-gray-300 cursor-pointer flex items-center">
+                <Link to="/profile" className="w-full text-[#7E69AB] dark:text-gray-300 cursor-pointer flex items-center gap-2">
+                  <User className="w-4 h-4" />
                   Mis Datos
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50">
-                <Link to="/preferencias" className="w-full text-[#7E69AB] dark:text-gray-300 cursor-pointer flex items-center">
+                <Link to="/preferencias" className="w-full text-[#7E69AB] dark:text-gray-300 cursor-pointer flex items-center gap-2">
+                  <Settings className="w-4 h-4" />
                   Preferencias
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuSeparator className="bg-gray-100 dark:bg-gray-800" />
               <DropdownMenuItem 
-                className="focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50 text-[#7E69AB] dark:text-gray-300 cursor-pointer flex items-center"
+                className="focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50 text-[#7E69AB] dark:text-gray-300 cursor-pointer flex items-center gap-2"
               >
+                <LogOut className="w-4 h-4" />
                 Cerrar sesión
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-
-          <button 
-            onClick={toggleMobileMenu}
-            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
-            aria-label="Abrir menú"
-          >
-            <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-          </button>
         </div>
       </div>
     </div>
