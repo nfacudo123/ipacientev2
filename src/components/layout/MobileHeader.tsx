@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface MobileHeaderProps {
   toggleMobileMenu: () => void;
@@ -18,9 +18,14 @@ interface MobileHeaderProps {
 export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
   const { theme, setTheme } = useTheme();
   const isDark = theme === "dark";
+  const navigate = useNavigate();
 
   const toggleTheme = () => {
     setTheme(isDark ? "light" : "dark");
+  };
+
+  const handleLogout = () => {
+    navigate('/login');
   };
 
   return (
@@ -68,6 +73,7 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
               </DropdownMenuItem>
               <DropdownMenuSeparator className="bg-gray-100 dark:bg-gray-800" />
               <DropdownMenuItem 
+                onClick={handleLogout}
                 className="focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50 text-[#7E69AB] dark:text-gray-300 cursor-pointer flex items-center gap-2"
               >
                 <LogOut className="w-4 h-4" />
