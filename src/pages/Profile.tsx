@@ -1,5 +1,5 @@
-
 import { useState } from "react";
+import { Save } from "lucide-react";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { MobileHeader } from "@/components/layout/MobileHeader";
 import { Topbar } from "@/components/layout/Topbar";
@@ -65,6 +65,12 @@ const Profile = () => {
     setIsDark(!isDark);
   };
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Aquí irá la lógica para guardar el perfil
+    console.log('Perfil guardado:', formData);
+  };
+
   return (
     <div className="min-h-screen flex w-full bg-[hsl(var(--background))] transition-colors duration-200">
       <Sidebar 
@@ -85,12 +91,22 @@ const Profile = () => {
       <Topbar isDark={isDark} isMenuCollapsed={isMenuCollapsed} />
 
       <main className={`flex-1 ${isMenuCollapsed ? 'md:ml-[72px]' : 'md:ml-64'} p-4 pt-20 pb-20 md:pb-4 transition-all duration-200`}>
-        <div className="w-full max-w-3xl mx-auto space-y-8">
+        <form onSubmit={handleSubmit} className="w-full max-w-3xl mx-auto space-y-8">
           <BasicInformation formData={formData} handleChange={handleChange} />
           <LocationInformation formData={formData} handleChange={handleChange} />
           <AcademicInformation formData={formData} handleChange={handleChange} />
           <AssistanceInformation formData={formData} handleChange={handleChange} />
-        </div>
+          
+          <div className="flex justify-end">
+            <button
+              type="submit"
+              className="flex items-center gap-2 px-6 py-3 bg-[#4285F4] hover:bg-[#3b77db] text-white rounded-[16px] transition-colors duration-200 font-medium text-sm"
+            >
+              <Save className="w-5 h-5" />
+              Guardar Perfil
+            </button>
+          </div>
+        </form>
       </main>
 
       <MobileMenu />
