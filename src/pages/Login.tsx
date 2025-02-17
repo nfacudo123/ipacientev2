@@ -16,13 +16,21 @@ const Login = () => {
   const [mounted, setMounted] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
+  // Esperar a que el tema se resuelva antes de mostrar cualquier contenido
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const isDark = theme === "dark";
+  if (!mounted) {
+    // Evitar flash de contenido mientras se resuelve el tema
+    return (
+      <div className="min-h-screen w-full flex items-center justify-center bg-[#F1F7FF] dark:bg-[hsl(var(--background))]"></div>
+    );
+  }
+
+  const isDark = resolvedTheme === "dark";
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -62,12 +70,9 @@ const Login = () => {
   };
 
   const toggleTheme = () => {
+    console.log("Cambiando tema de:", isDark ? "oscuro" : "claro", "a:", isDark ? "claro" : "oscuro");
     setTheme(isDark ? "light" : "dark");
   };
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-[#F1F7FF] dark:bg-[hsl(var(--background))] p-4 transition-colors duration-200">
