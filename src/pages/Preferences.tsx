@@ -1,9 +1,21 @@
+
 import { useState, useEffect } from "react";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { MobileHeader } from "@/components/layout/MobileHeader";
 import { Topbar } from "@/components/layout/Topbar";
 import { MobileMenu } from "@/components/layout/MobileMenu";
-import { Settings, Mail, Lock, GaugeCircle, Camera, Upload, User } from "lucide-react";
+import { 
+  Settings, 
+  Mail, 
+  Lock, 
+  GaugeCircle, 
+  Camera, 
+  User, 
+  UserCircle, 
+  AtSign, 
+  KeyRound,
+  UserCircle2
+} from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
@@ -66,7 +78,7 @@ const Preferences = () => {
 
       <main className={`flex-1 ${isMenuCollapsed ? 'md:ml-[72px]' : 'md:ml-64'} p-4 pt-20 pb-20 md:pb-4 transition-all duration-200`}>
         <div className="mb-6">
-          <h1 className="text-2xl font-bold text-[hsl(var(--text-primary))]">
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
             Preferencias
           </h1>
         </div>
@@ -161,26 +173,38 @@ const Preferences = () => {
                   </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    placeholder="Primer Nombre"
-                    className="input-field"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Segundo Nombre"
-                    className="input-field"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Primer Apellido"
-                    className="input-field"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Segundo Apellido"
-                    className="input-field"
-                  />
+                  <div className="relative">
+                    <UserCircle className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-gray-500" />
+                    <input
+                      type="text"
+                      placeholder="Primer Nombre"
+                      className="input-field dark:bg-gray-800 dark:text-white dark:border-gray-700"
+                    />
+                  </div>
+                  <div className="relative">
+                    <UserCircle2 className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-gray-500" />
+                    <input
+                      type="text"
+                      placeholder="Segundo Nombre"
+                      className="input-field dark:bg-gray-800 dark:text-white dark:border-gray-700"
+                    />
+                  </div>
+                  <div className="relative">
+                    <UserCircle className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-gray-500" />
+                    <input
+                      type="text"
+                      placeholder="Primer Apellido"
+                      className="input-field dark:bg-gray-800 dark:text-white dark:border-gray-700"
+                    />
+                  </div>
+                  <div className="relative">
+                    <UserCircle2 className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-gray-500" />
+                    <input
+                      type="text"
+                      placeholder="Segundo Apellido"
+                      className="input-field dark:bg-gray-800 dark:text-white dark:border-gray-700"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -192,17 +216,23 @@ const Preferences = () => {
                   Correo Electrónico
                 </h3>
                 <div className="space-y-4">
-                  <input
-                    type="email"
-                    placeholder="Correo electrónico actual"
-                    className="input-field w-full md:w-2/3"
-                    disabled
-                  />
-                  <input
-                    type="email"
-                    placeholder="Nuevo correo electrónico"
-                    className="input-field w-full md:w-2/3"
-                  />
+                  <div className="relative">
+                    <AtSign className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-gray-500" />
+                    <input
+                      type="email"
+                      placeholder="Correo electrónico actual"
+                      className="input-field w-full md:w-2/3 dark:bg-gray-800 dark:text-white dark:border-gray-700"
+                      disabled
+                    />
+                  </div>
+                  <div className="relative">
+                    <AtSign className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-gray-500" />
+                    <input
+                      type="email"
+                      placeholder="Nuevo correo electrónico"
+                      className="input-field w-full md:w-2/3 dark:bg-gray-800 dark:text-white dark:border-gray-700"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -214,21 +244,30 @@ const Preferences = () => {
                   Contraseña
                 </h3>
                 <div className="space-y-4">
-                  <input
-                    type="password"
-                    placeholder="Contraseña actual"
-                    className="input-field w-full md:w-2/3"
-                  />
-                  <input
-                    type="password"
-                    placeholder="Nueva contraseña"
-                    className="input-field w-full md:w-2/3"
-                  />
-                  <input
-                    type="password"
-                    placeholder="Confirmar nueva contraseña"
-                    className="input-field w-full md:w-2/3"
-                  />
+                  <div className="relative">
+                    <KeyRound className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-gray-500" />
+                    <input
+                      type="password"
+                      placeholder="Contraseña actual"
+                      className="input-field w-full md:w-2/3 dark:bg-gray-800 dark:text-white dark:border-gray-700"
+                    />
+                  </div>
+                  <div className="relative">
+                    <KeyRound className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-gray-500" />
+                    <input
+                      type="password"
+                      placeholder="Nueva contraseña"
+                      className="input-field w-full md:w-2/3 dark:bg-gray-800 dark:text-white dark:border-gray-700"
+                    />
+                  </div>
+                  <div className="relative">
+                    <KeyRound className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-gray-500" />
+                    <input
+                      type="password"
+                      placeholder="Confirmar nueva contraseña"
+                      className="input-field w-full md:w-2/3 dark:bg-gray-800 dark:text-white dark:border-gray-700"
+                    />
+                  </div>
                 </div>
               </div>
 
