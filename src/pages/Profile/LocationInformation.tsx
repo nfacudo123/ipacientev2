@@ -1,4 +1,3 @@
-
 import { Home, Phone, MapPin } from "lucide-react";
 import { ProfileFormData } from "./types";
 

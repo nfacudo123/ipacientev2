@@ -1,4 +1,3 @@
-
 import { User, CreditCard, Mail, Phone } from "lucide-react";
 import { ProfileFormData } from "./types";
 
