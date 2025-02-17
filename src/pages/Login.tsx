@@ -13,19 +13,16 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [isForgotPasswordModalOpen, setIsForgotPasswordModalOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
   const { theme, setTheme } = useTheme();
-  const isDark = theme === "dark";
 
   useEffect(() => {
-    // Aplicar el tema al cargar el componente
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDark]);
+    setMounted(true);
+  }, []);
+
+  const isDark = theme === "dark";
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -67,6 +64,10 @@ const Login = () => {
   const toggleTheme = () => {
     setTheme(isDark ? "light" : "dark");
   };
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-[#F1F7FF] dark:bg-[hsl(var(--background))] p-4 transition-colors duration-200">
