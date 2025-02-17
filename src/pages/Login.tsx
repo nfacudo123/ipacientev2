@@ -62,11 +62,9 @@ const Login = () => {
   };
 
   const toggleTheme = () => {
-    document.documentElement.classList.toggle('dark');
     setTheme(isDark ? "light" : "dark");
   };
 
-  // No renderizar nada hasta que el componente esté montado
   if (!mounted) {
     return null;
   }
@@ -75,7 +73,7 @@ const Login = () => {
     <div className="min-h-screen w-full flex items-center justify-center bg-[#F1F7FF] dark:bg-[hsl(var(--background))] p-4 transition-colors duration-200">
       <button
         onClick={toggleTheme}
-        className="fixed top-4 right-4 p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+        className="fixed top-4 right-4 p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
         aria-label="Toggle theme"
       >
         {isDark ? (
