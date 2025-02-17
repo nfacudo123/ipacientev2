@@ -14,7 +14,7 @@ export const SidebarHeader = ({ isDark, toggleTheme, isCollapsed }: SidebarHeade
       <img 
         src={isDark ? "/lovable-uploads/0556f409-35a9-43e5-aaf2-52249b735899.png" : "/lovable-uploads/1685d97b-8505-4da0-a24e-c67e0ae010c0.png"}
         alt="ISISMAWEB Logo"
-        className={`transition-all duration-200 ${isCollapsed ? 'w-8 h-8' : 'w-40 h-10'} object-contain`}
+        className={`transition-all duration-200 ${isCollapsed ? 'w-8 h-8' : 'w-48 h-12'} object-contain`}
       />
       {!isCollapsed && (
         <button

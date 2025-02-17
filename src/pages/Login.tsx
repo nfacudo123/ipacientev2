@@ -56,8 +56,8 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-[#F1F7FF] dark:bg-[hsl(var(--background))] p-4">
-      <div className="login-card">
+    <div className="min-h-screen w-full flex items-center justify-center bg-[#F1F7FF] dark:bg-[hsl(var(--background))] p-4 transition-colors duration-200">
+      <div className="login-card dark:bg-[hsl(var(--card))] dark:text-white">
         <div className="flex flex-col items-center justify-center">
           <img 
             src={isDark ? "/lovable-uploads/0556f409-35a9-43e5-aaf2-52249b735899.png" : "/lovable-uploads/1685d97b-8505-4da0-a24e-c67e0ae010c0.png"}
@@ -66,22 +66,22 @@ const Login = () => {
           />
           <form onSubmit={handleLogin} className="space-y-6 w-full">
             <div className="relative">
-              <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
+              <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 w-4 h-4 sm:w-5 sm:h-5" />
               <input
                 type="email"
                 placeholder="Correo Electrónico"
-                className="input-field pl-12"
+                className="input-field dark:bg-[hsl(var(--input))] dark:text-white"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
             <div className="relative">
-              <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
+              <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 w-4 h-4 sm:w-5 sm:h-5" />
               <input
                 type="password"
                 placeholder="Contraseña"
-                className="input-field pl-12"
+                className="input-field dark:bg-[hsl(var(--input))] dark:text-white"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -92,10 +92,10 @@ const Login = () => {
             </Button>
           </form>
           <div className="flex items-center justify-between w-full mt-4">
-            <Link to="#" onClick={toggleForgotPasswordModal} className="link">
+            <Link to="#" onClick={toggleForgotPasswordModal} className="link dark:text-[#9b87f5] dark:hover:text-[#8b77e5]">
               ¿Olvidaste tu contraseña?
             </Link>
-            <Link to="#" onClick={toggleRegisterModal} className="link">
+            <Link to="#" onClick={toggleRegisterModal} className="link dark:text-[#9b87f5] dark:hover:text-[#8b77e5]">
               Crear una cuenta
             </Link>
           </div>
