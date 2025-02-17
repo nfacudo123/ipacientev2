@@ -1,5 +1,5 @@
 
-import { Bell } from "lucide-react";
+import { Bell, User, Settings, LogOut } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -8,8 +8,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { Link } from "react-router-dom";
-import { User, Settings } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 interface TopbarProps {
   isDark: boolean;
@@ -17,6 +16,12 @@ interface TopbarProps {
 }
 
 export const Topbar = ({ isDark, isMenuCollapsed }: TopbarProps) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate('/login');
+  };
+
   return (
     <div className={`fixed top-0 right-0 bg-[hsl(var(--card))] shadow-sm z-10 transition-all duration-200 ${isMenuCollapsed ? 'md:left-[72px]' : 'md:left-64'}`}>
       <div className="flex justify-end items-center h-16 px-4">
@@ -36,12 +41,19 @@ export const Topbar = ({ isDark, isMenuCollapsed }: TopbarProps) => {
                   Mis Datos
                 </Link>
               </DropdownMenuItem>
-              <DropdownMenuSeparator className="bg-gray-100 dark:bg-gray-800" />
               <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50">
                 <Link to="/preferencias" className="w-full text-[#7E69AB] dark:text-gray-300 cursor-pointer flex items-center">
                   <Settings className="w-4 h-4 mr-2" />
                   Preferencias
                 </Link>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator className="bg-gray-100 dark:bg-gray-800" />
+              <DropdownMenuItem 
+                onClick={handleLogout}
+                className="focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50 text-[#7E69AB] dark:text-gray-300 cursor-pointer flex items-center"
+              >
+                <LogOut className="w-4 h-4 mr-2" />
+                Cerrar sesión
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
