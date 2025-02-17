@@ -18,8 +18,17 @@ export interface ProfileFormData {
   address: string;
   otherPhone: string;
   city: string;
-  // Nuevos campos para información académica
   education: string;
   academicStatus: string;
   profession: string;
+  // Campos para Información de Asistencia
+  disabilityCondition: string;
+  epsName: string;
+  pensionFund: string;
+  // Campos para Información de Contacto
+  responsibleName: string;
+  relationship: string;
+  regimeType: string;
+  arlName: string;
+  responsiblePhone: string;
 }

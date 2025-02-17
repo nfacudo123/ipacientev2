@@ -7,6 +7,7 @@ import { MobileMenu } from "@/components/layout/MobileMenu";
 import BasicInformation from "./Profile/BasicInformation";
 import LocationInformation from "./Profile/LocationInformation";
 import AcademicInformation from "./Profile/AcademicInformation";
+import AssistanceInformation from "./Profile/AssistanceInformation";
 import { ProfileFormData } from "./Profile/types";
 
 const Profile = () => {
@@ -39,6 +40,14 @@ const Profile = () => {
     education: "",
     academicStatus: "",
     profession: "",
+    disabilityCondition: "",
+    epsName: "",
+    pensionFund: "",
+    responsibleName: "",
+    relationship: "",
+    regimeType: "",
+    arlName: "",
+    responsiblePhone: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -80,6 +89,7 @@ const Profile = () => {
           <BasicInformation formData={formData} handleChange={handleChange} />
           <LocationInformation formData={formData} handleChange={handleChange} />
           <AcademicInformation formData={formData} handleChange={handleChange} />
+          <AssistanceInformation formData={formData} handleChange={handleChange} />
         </div>
       </main>
 
