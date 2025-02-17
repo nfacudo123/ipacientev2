@@ -58,8 +58,6 @@ const AssistanceInformation = ({ formData, handleChange }: AssistanceInformation
             />
           </div>
         </div>
-        
-        <hr className="my-8 border-t border-gray-200 dark:border-gray-700" />
       </div>
 
       <div>
@@ -137,8 +135,6 @@ const AssistanceInformation = ({ formData, handleChange }: AssistanceInformation
             />
           </div>
         </div>
-        
-        <hr className="my-8 border-t border-gray-200 dark:border-gray-700" />
       </div>
     </>
   );
