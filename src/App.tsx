@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Appointments from "./pages/Appointments";
+import Preferences from "./pages/Preferences";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/mis-citas" element={<Appointments />} />
+          <Route path="/preferencias" element={<Preferences />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

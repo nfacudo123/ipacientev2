@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { useTheme } from "next-themes";
-import { Mail, Lock } from "lucide-react";
+import { Mail, Lock, Sun, Moon } from "lucide-react";
 import RegisterModal from "@/components/RegisterModal";
 import ForgotPasswordModal from "@/components/ForgotPasswordModal";
 
@@ -55,8 +55,23 @@ const Login = () => {
     setIsForgotPasswordModalOpen(!isForgotPasswordModalOpen);
   };
 
+  const toggleTheme = () => {
+    setTheme(isDark ? "light" : "dark");
+  };
+
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-[#F1F7FF] dark:bg-[hsl(var(--background))] p-4 transition-colors duration-200">
+      <button
+        onClick={toggleTheme}
+        className="fixed top-4 right-4 p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+        aria-label="Toggle theme"
+      >
+        {isDark ? (
+          <Sun className="w-5 h-5 text-yellow-500" />
+        ) : (
+          <Moon className="w-5 h-5 text-gray-600" />
+        )}
+      </button>
       <div className="login-card">
         <div className="flex flex-col items-center justify-center">
           <img 
