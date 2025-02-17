@@ -97,10 +97,10 @@ const Profile = () => {
           <AcademicInformation formData={formData} handleChange={handleChange} />
           <AssistanceInformation formData={formData} handleChange={handleChange} />
           
-          <div className="flex justify-end">
+          <div className="w-full">
             <button
               type="submit"
-              className="flex items-center gap-2 px-6 py-3 bg-[#4285F4] hover:bg-[#3b77db] text-white rounded-[16px] transition-colors duration-200 font-medium text-sm"
+              className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[#4285F4] hover:bg-[#3b77db] text-white rounded-[16px] transition-colors duration-200 font-medium text-sm"
             >
               <Save className="w-5 h-5" />
               Guardar Perfil

@@ -1,4 +1,3 @@
-
 import { Heart, Phone, User } from "lucide-react";
 import { ProfileFormData } from "./types";
 
@@ -11,9 +10,12 @@ const AssistanceInformation = ({ formData, handleChange }: AssistanceInformation
   return (
     <>
       <div>
-        <h1 className="text-2xl font-bold text-[hsl(var(--text-primary))] mb-6">
-          Información de Asistencia
-        </h1>
+        <div className="flex items-center justify-center gap-2 mb-6">
+          <Heart className="w-6 h-6 text-[#4285F4]" />
+          <h1 className="text-2xl font-bold text-[hsl(var(--text-primary))]">
+            Información de Asistencia
+          </h1>
+        </div>
 
         <div className="space-y-6 bg-[hsl(var(--card))] rounded-[24px] p-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -56,12 +58,17 @@ const AssistanceInformation = ({ formData, handleChange }: AssistanceInformation
             />
           </div>
         </div>
+        
+        <hr className="my-8 border-t border-gray-200 dark:border-gray-700" />
       </div>
 
-      <div className="mt-8">
-        <h1 className="text-2xl font-bold text-[hsl(var(--text-primary))] mb-6">
-          Información de Contacto
-        </h1>
+      <div>
+        <div className="flex items-center justify-center gap-2 mb-6">
+          <User className="w-6 h-6 text-[#4285F4]" />
+          <h1 className="text-2xl font-bold text-[hsl(var(--text-primary))]">
+            Información de Contacto
+          </h1>
+        </div>
 
         <div className="space-y-6 bg-[hsl(var(--card))] rounded-[24px] p-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -130,6 +137,8 @@ const AssistanceInformation = ({ formData, handleChange }: AssistanceInformation
             />
           </div>
         </div>
+        
+        <hr className="my-8 border-t border-gray-200 dark:border-gray-700" />
       </div>
     </>
   );
