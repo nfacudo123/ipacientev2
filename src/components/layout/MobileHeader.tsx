@@ -1,5 +1,6 @@
 
 import { Menu } from "lucide-react";
+import { useTheme } from "next-themes";
 
 interface MobileHeaderProps {
   toggleMobileMenu: () => void;
