@@ -50,7 +50,7 @@ export const SidebarOptions = ({ isCollapsed }: SidebarOptionsProps) => {
         <div className="px-4 py-2 text-sm text-[#7E69AB] dark:text-[#9b87f5]">OPCIONES</div>
       )}
       
-      <OptionItem to="/acerca-de" icon={Info} label="Acerca de" />
+      <OptionItem to="/acerca" icon={Info} label="Acerca de" />
     </div>
   );
 };
