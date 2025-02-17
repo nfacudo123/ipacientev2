@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Save, User, MapPin, GraduationCap, Heart } from "lucide-react";
 import { Sidebar } from "@/components/layout/Sidebar";
@@ -82,12 +81,6 @@ const Profile = () => {
 
       <main className={`flex-1 ${isMenuCollapsed ? 'md:ml-[72px]' : 'md:ml-64'} p-4 pt-20 pb-20 md:pb-4 transition-all duration-200`}>
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="mb-6">
-            <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
-              Mis Datos
-            </h1>
-          </div>
-
           {/* Menú horizontal */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
             <button
@@ -141,13 +134,6 @@ const Profile = () => {
 
           {/* Contenido principal */}
           <div className="bg-white dark:bg-[hsl(var(--card))] rounded-lg p-6">
-            <h2 className="text-xl font-medium mb-6 text-gray-800 dark:text-white">
-              {selectedOption === "basic" && "Información Básica"}
-              {selectedOption === "location" && "Información de Ubicación"}
-              {selectedOption === "academic" && "Información Académica"}
-              {selectedOption === "assistance" && "Información de Asistencia"}
-            </h2>
-
             {selectedOption === "basic" && <BasicInformation formData={formData} handleChange={handleChange} />}
             {selectedOption === "location" && <LocationInformation formData={formData} handleChange={handleChange} />}
             {selectedOption === "academic" && <AcademicInformation formData={formData} handleChange={handleChange} />}
