@@ -1,161 +1,109 @@
-
-import { PlusSquare, User, Key, CreditCard, Sun, Moon } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
+import { useTheme } from "next-themes";
 import RegisterModal from "@/components/RegisterModal";
 import ForgotPasswordModal from "@/components/ForgotPasswordModal";
 
-const Index = () => {
-  const [formData, setFormData] = useState({
-    idType: "",
-    idNumber: "",
-    username: "",
-    password: "",
-  });
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  const [isForgotPasswordModalOpen, setIsForgotPasswordModalOpen] = useState(false);
+  const { toast } = useToast();
+  const navigate = useNavigate();
+  const { theme = "system", setTheme } = useTheme();
+  const isDark = theme === "dark";
 
-  const [isDark, setIsDark] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme === 'dark';
-  });
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-  const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
-
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  }, [isDark]);
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+
+    if (!email || !password) {
+      toast({
+        title: "Error",
+        description: "Por favor, complete todos los campos.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      // Simulación de inicio de sesión exitoso
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      toast({
+        title: "Éxito",
+        description: "Inicio de sesión exitoso.",
+      });
+      navigate("/");
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Credenciales inválidas. Por favor, inténtelo de nuevo.",
+        variant: "destructive",
+      });
+    }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const toggleRegisterModal = () => {
+    setIsRegisterModalOpen(!isRegisterModalOpen);
   };
 
-  const toggleTheme = () => {
-    setIsDark(!isDark);
+  const toggleForgotPasswordModal = () => {
+    setIsForgotPasswordModalOpen(!isForgotPasswordModalOpen);
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center p-4 bg-[#F1F7FF] dark:bg-[hsl(var(--background))] transition-colors duration-200">
+    <div className="min-h-screen w-full flex items-center justify-center bg-[hsl(var(--background))] p-4">
       <div className="login-card">
-        <button
-          onClick={toggleTheme}
-          className="absolute right-4 sm:right-6 md:right-8 top-4 sm:top-6 md:top-8 p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
-          aria-label="Toggle theme"
-        >
-          {isDark ? (
-            <Moon className="w-5 h-5 text-gray-400" />
-          ) : (
-            <Sun className="w-5 h-5 text-yellow-500" />
-          )}
-        </button>
-
-        <div className="icon-container">
-          <PlusSquare className="w-8 h-8 sm:w-10 sm:h-10 text-white" strokeWidth={1.5} />
-        </div>
-
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="flex flex-col items-center justify-center">
+          <img 
+            src={isDark ? "/lovable-uploads/0556f409-35a9-43e5-aaf2-52249b735899.png" : "/lovable-uploads/1685d97b-8505-4da0-a24e-c67e0ae010c0.png"}
+            alt="ISISMAWEB Logo"
+            className="w-48 h-12 object-contain mb-6"
+          />
+          <form onSubmit={handleLogin} className="space-y-6 w-full">
             <div className="relative">
-              <CreditCard className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-              <select
-                name="idType"
-                value={formData.idType}
-                onChange={handleChange}
-                className="select-field"
-              >
-                <option value="" disabled>Tipo de ID</option>
-                <option value="CC">CC</option>
-                <option value="CE">CE</option>
-                <option value="PA">PA</option>
-                <option value="RC">RC</option>
-                <option value="TI">TI</option>
-                <option value="AS">AS</option>
-                <option value="MS">MS</option>
-                <option value="NU">NU</option>
-                <option value="NI">NI</option>
-                <option value="PIP">PIP</option>
-              </select>
-            </div>
-
-            <div className="relative">
-              <CreditCard className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
               <input
-                type="text"
-                name="idNumber"
-                placeholder="Número de ID"
-                value={formData.idNumber}
-                onChange={handleChange}
-                className="input-field"
+                type="email"
+                placeholder="Correo Electrónico"
+                className="input-field pl-12"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
+            <div className="relative">
+              <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
+              <input
+                type="password"
+                placeholder="Contraseña"
+                className="input-field pl-12"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <Button type="submit" className="login-button">
+              Iniciar Sesión
+            </Button>
+          </form>
+          <div className="flex items-center justify-between w-full mt-4">
+            <Link to="#" onClick={toggleForgotPasswordModal} className="link">
+              ¿Olvidaste tu contraseña?
+            </Link>
+            <Link to="#" onClick={toggleRegisterModal} className="link">
+              Crear una cuenta
+            </Link>
           </div>
-
-          <div className="relative">
-            <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-            <input
-              type="text"
-              name="username"
-              placeholder="Usuario"
-              value={formData.username}
-              onChange={handleChange}
-              className="input-field"
-            />
-          </div>
-
-          <div className="relative">
-            <Key className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-            <input
-              type="password"
-              name="password"
-              placeholder="Contraseña"
-              value={formData.password}
-              onChange={handleChange}
-              className="input-field"
-            />
-          </div>
-
-          <button type="submit" className="login-button">
-            Iniciar Sesión
-          </button>
-        </form>
-
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6 pt-4 text-sm">
-          <button 
-            onClick={() => setIsRegisterOpen(true)} 
-            className="link text-center sm:text-left w-full sm:w-auto"
-          >
-            Registrarse ahora
-          </button>
-          <button 
-            onClick={() => setIsForgotPasswordOpen(true)} 
-            className="link text-center sm:text-left w-full sm:w-auto"
-          >
-            ¿Olvidaste tu contraseña?
-          </button>
         </div>
       </div>
 
-      <RegisterModal 
-        isOpen={isRegisterOpen}
-        onClose={() => setIsRegisterOpen(false)}
-      />
-      
-      <ForgotPasswordModal
-        isOpen={isForgotPasswordOpen}
-        onClose={() => setIsForgotPasswordOpen(false)}
-      />
+      <RegisterModal isOpen={isRegisterModalOpen} onClose={toggleRegisterModal} />
+      <ForgotPasswordModal isOpen={isForgotPasswordModalOpen} onClose={toggleForgotPasswordModal} />
     </div>
   );
 };
 
-export default Index;
+export default Login;
