@@ -57,7 +57,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-[#F1F7FF] dark:bg-[hsl(var(--background))] p-4 transition-colors duration-200">
-      <div className="login-card dark:bg-[hsl(var(--card))] dark:text-white">
+      <div className="login-card">
         <div className="flex flex-col items-center justify-center">
           <img 
             src={isDark ? "/lovable-uploads/0556f409-35a9-43e5-aaf2-52249b735899.png" : "/lovable-uploads/1685d97b-8505-4da0-a24e-c67e0ae010c0.png"}
@@ -70,7 +70,7 @@ const Login = () => {
               <input
                 type="email"
                 placeholder="Correo Electrónico"
-                className="input-field dark:bg-[hsl(var(--input))] dark:text-white"
+                className="input-field"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -81,7 +81,7 @@ const Login = () => {
               <input
                 type="password"
                 placeholder="Contraseña"
-                className="input-field dark:bg-[hsl(var(--input))] dark:text-white"
+                className="input-field"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -92,10 +92,10 @@ const Login = () => {
             </Button>
           </form>
           <div className="flex items-center justify-between w-full mt-4">
-            <Link to="#" onClick={toggleForgotPasswordModal} className="link dark:text-[#9b87f5] dark:hover:text-[#8b77e5]">
+            <Link to="#" onClick={toggleForgotPasswordModal} className="link">
               ¿Olvidaste tu contraseña?
             </Link>
-            <Link to="#" onClick={toggleRegisterModal} className="link dark:text-[#9b87f5] dark:hover:text-[#8b77e5]">
+            <Link to="#" onClick={toggleRegisterModal} className="link">
               Crear una cuenta
             </Link>
           </div>

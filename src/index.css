@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -31,6 +32,10 @@
   }
 }
 
+.icon-container {
+  @apply bg-[#4285F4] rounded-[16px] p-3 sm:p-4 inline-block mb-4;
+}
+
 .login-card {
   @apply bg-white dark:bg-[hsl(var(--card))] rounded-[24px] sm:rounded-[28px] shadow-lg w-full max-w-[420px] sm:max-w-[480px] p-5 sm:p-6 md:p-8 space-y-6 transition-all duration-300 ease-in-out relative;
   box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.1);
@@ -39,4 +44,17 @@
 .input-field {
   @apply w-full pl-10 pr-3 py-3 bg-[#F6F6F7] dark:bg-[hsl(var(--input))] border-none rounded-[16px] text-gray-700 dark:text-[hsl(var(--text-primary))] placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#4285F4] transition-all duration-200 text-sm;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.select-field {
+  @apply w-full pl-10 pr-3 py-3 bg-[#F6F6F7] dark:bg-[hsl(var(--input))] border-none rounded-[16px] text-gray-700 dark:text-[hsl(var(--text-primary))] focus:outline-none focus:ring-2 focus:ring-[#4285F4] transition-all duration-200 appearance-none text-sm;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.login-button {
+  @apply w-full py-3 bg-[#4285F4] hover:bg-[#3b77db] text-white rounded-[16px] transition-colors duration-200 font-medium text-sm;
+}
+
+.link {
+  @apply text-[#4285F4] hover:text-[#3b77db] transition-colors duration-200 text-sm dark:text-[#9b87f5] dark:hover:text-[#8b77e5];
 }
