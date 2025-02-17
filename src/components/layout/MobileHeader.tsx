@@ -1,5 +1,5 @@
 
-import { Menu } from "lucide-react";
+import { Menu, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
 
 interface MobileHeaderProps {
@@ -7,8 +7,12 @@ interface MobileHeaderProps {
 }
 
 export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
-  const { theme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const isDark = theme === "dark";
+
+  const toggleTheme = () => {
+    setTheme(isDark ? "light" : "dark");
+  };
 
   return (
     <div className="md:hidden fixed top-0 left-0 right-0 bg-[hsl(var(--card))] shadow-sm z-10 p-4">
@@ -20,12 +24,25 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
             className="w-8 h-8 object-contain"
           />
         </div>
-        <button 
-          onClick={toggleMobileMenu}
-          className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
-        >
-          <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={toggleTheme}
+            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+            aria-label="Cambiar tema"
+          >
+            {isDark ? (
+              <Sun className="w-5 h-5 text-yellow-500" />
+            ) : (
+              <Moon className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+            )}
+          </button>
+          <button 
+            onClick={toggleMobileMenu}
+            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+          >
+            <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+          </button>
+        </div>
       </div>
     </div>
   );
