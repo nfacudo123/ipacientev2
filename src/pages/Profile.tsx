@@ -6,6 +6,7 @@ import { Topbar } from "@/components/layout/Topbar";
 import { MobileMenu } from "@/components/layout/MobileMenu";
 import BasicInformation from "./Profile/BasicInformation";
 import LocationInformation from "./Profile/LocationInformation";
+import AcademicInformation from "./Profile/AcademicInformation";
 import { ProfileFormData } from "./Profile/types";
 
 const Profile = () => {
@@ -35,6 +36,9 @@ const Profile = () => {
     address: "",
     otherPhone: "",
     city: "",
+    education: "",
+    academicStatus: "",
+    profession: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -75,6 +79,7 @@ const Profile = () => {
         <div className="w-full max-w-3xl mx-auto space-y-8">
           <BasicInformation formData={formData} handleChange={handleChange} />
           <LocationInformation formData={formData} handleChange={handleChange} />
+          <AcademicInformation formData={formData} handleChange={handleChange} />
         </div>
       </main>
 

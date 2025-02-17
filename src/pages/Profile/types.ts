@@ -18,4 +18,8 @@ export interface ProfileFormData {
   address: string;
   otherPhone: string;
   city: string;
+  // Nuevos campos para información académica
+  education: string;
+  academicStatus: string;
+  profession: string;
 }
