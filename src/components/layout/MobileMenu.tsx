@@ -1,5 +1,5 @@
 
-import { Home, Calendar, Info, LogOut } from "lucide-react";
+import { Home, Calendar, Info } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 export const MobileMenu = () => {
@@ -42,18 +42,6 @@ export const MobileMenu = () => {
         >
           <Info className="w-6 h-6 mb-1" />
           <span>Acerca de</span>
-        </Link>
-        
-        <Link 
-          to="/login" 
-          className={`flex flex-col items-center text-xs ${
-            location.pathname === '/login' 
-              ? 'text-[#4285F4]' 
-              : 'text-[#7E69AB] dark:text-gray-300'
-          }`}
-        >
-          <LogOut className="w-6 h-6 mb-1" />
-          <span>Cerrar sesión</span>
         </Link>
       </div>
     </nav>
