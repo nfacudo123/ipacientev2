@@ -1,5 +1,5 @@
 
-export interface RegisterFormData {
+export interface ProfileFormData {
   firstName: string;
   secondName: string;
   firstLastName: string;
@@ -11,4 +11,11 @@ export interface RegisterFormData {
   phone: string;
   password: string;
   confirmPassword: string;
+  housingType: string;
+  landlinePhone: string;
+  country: string;
+  neighborhood: string;
+  address: string;
+  otherPhone: string;
+  city: string;
 }
