@@ -31,7 +31,7 @@ export const Sidebar = ({ isDark, toggleTheme, isMobileMenuOpen, onCollapseChang
         <SidebarHeader isDark={isDark} toggleTheme={toggleTheme} isCollapsed={isCollapsed} />
         <SidebarMenu isCollapsed={isCollapsed} />
         <SidebarOptions isCollapsed={isCollapsed} />
-        <SidebarFooter isCollapsed={isCollapsed} />
+        <SidebarFooter isCollapsed={isCollapsed} isDark={isDark} />
         
         <button 
           onClick={toggleCollapse}

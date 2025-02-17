@@ -1,5 +1,6 @@
 
 import { useTheme } from "next-themes";
+import { Sun, Moon } from "lucide-react";
 
 interface SidebarHeaderProps {
   isDark: boolean;

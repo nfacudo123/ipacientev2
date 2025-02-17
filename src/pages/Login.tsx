@@ -1,8 +1,10 @@
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { useTheme } from "next-themes";
+import { Mail, Lock } from "lucide-react";
 import RegisterModal from "@/components/RegisterModal";
 import ForgotPasswordModal from "@/components/ForgotPasswordModal";
 
