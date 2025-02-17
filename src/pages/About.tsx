@@ -4,7 +4,7 @@ import { Sidebar } from "@/components/layout/Sidebar";
 import { MobileHeader } from "@/components/layout/MobileHeader";
 import { Topbar } from "@/components/layout/Topbar";
 import { MobileMenu } from "@/components/layout/MobileMenu";
-import { ChevronRight, Lock, FileText, Users } from "lucide-react";
+import { FileText, Lock, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const About = () => {
@@ -49,49 +49,40 @@ const About = () => {
           </h1>
         </div>
 
-        <div className="bg-white dark:bg-[hsl(var(--card))] rounded-lg p-6">
-          <div className="space-y-4">
-            <Link
-              to="/politicas-privacidad"
-              className="flex items-center justify-between w-full p-4 text-left rounded-lg bg-card hover:bg-muted/50 border border-border transition-colors"
-            >
-              <div className="flex items-center gap-3">
-                <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#F8F7FF] dark:bg-gray-800">
-                  <FileText className="w-5 h-5 text-[#9b87f5]" />
-                </div>
-                <span className="text-lg font-medium">Políticas de privacidad</span>
-              </div>
-              <ChevronRight className="h-5 w-5" />
-            </Link>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
+          <Link
+            to="/politicas-privacidad"
+            className="flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
+          >
+            <div className="flex items-center justify-center w-10 h-10 mb-2 rounded-lg bg-[#F8F7FF] dark:bg-gray-800">
+              <FileText className="w-6 h-6 text-[#9b87f5]" />
+            </div>
+            <span className="text-sm font-medium">Políticas de privacidad</span>
+          </Link>
 
-            <Link
-              to="/consentimiento-informado"
-              className="flex items-center justify-between w-full p-4 text-left rounded-lg bg-card hover:bg-muted/50 border border-border transition-colors"
-            >
-              <div className="flex items-center gap-3">
-                <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#F8F7FF] dark:bg-gray-800">
-                  <Lock className="w-5 h-5 text-[#9b87f5]" />
-                </div>
-                <span className="text-lg font-medium">Consentimiento informado</span>
-              </div>
-              <ChevronRight className="h-5 w-5" />
-            </Link>
+          <Link
+            to="/consentimiento-informado"
+            className="flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
+          >
+            <div className="flex items-center justify-center w-10 h-10 mb-2 rounded-lg bg-[#F8F7FF] dark:bg-gray-800">
+              <Lock className="w-6 h-6 text-[#9b87f5]" />
+            </div>
+            <span className="text-sm font-medium">Consentimiento informado</span>
+          </Link>
 
-            <Link
-              to="/nosotros"
-              className="flex items-center justify-between w-full p-4 text-left rounded-lg bg-card hover:bg-muted/50 border border-border transition-colors"
-            >
-              <div className="flex items-center gap-3">
-                <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#F8F7FF] dark:bg-gray-800">
-                  <Users className="w-5 h-5 text-[#9b87f5]" />
-                </div>
-                <span className="text-lg font-medium">Nosotros</span>
-              </div>
-              <ChevronRight className="h-5 w-5" />
-            </Link>
-          </div>
+          <Link
+            to="/nosotros"
+            className="flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
+          >
+            <div className="flex items-center justify-center w-10 h-10 mb-2 rounded-lg bg-[#F8F7FF] dark:bg-gray-800">
+              <Users className="w-6 h-6 text-[#9b87f5]" />
+            </div>
+            <span className="text-sm font-medium">Nosotros</span>
+          </Link>
+        </div>
 
-          <div className="mt-6 flex items-center justify-between p-4 rounded-lg bg-card border border-border">
+        <div className="mt-6 bg-white dark:bg-[hsl(var(--card))] rounded-lg p-4">
+          <div className="flex items-center justify-between">
             <span className="text-lg font-medium">Versión</span>
             <span className="text-sm text-muted-foreground">2.0</span>
           </div>
