@@ -1,5 +1,5 @@
 
-import { Home, Search, List, ShoppingCart, User } from "lucide-react";
+import { Home, Calendar, Info, LogOut } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 export const MobileMenu = () => {
@@ -12,7 +12,7 @@ export const MobileMenu = () => {
           to="/" 
           className={`flex flex-col items-center text-xs ${
             location.pathname === '/' 
-              ? 'text-[#9b87f5]' 
+              ? 'text-[#4285F4]' 
               : 'text-[#7E69AB] dark:text-gray-300'
           }`}
         >
@@ -21,51 +21,39 @@ export const MobileMenu = () => {
         </Link>
         
         <Link 
-          to="/buscar" 
+          to="/mis-citas" 
           className={`flex flex-col items-center text-xs ${
-            location.pathname === '/buscar' 
-              ? 'text-[#9b87f5]' 
+            location.pathname === '/mis-citas' 
+              ? 'text-[#4285F4]' 
               : 'text-[#7E69AB] dark:text-gray-300'
           }`}
         >
-          <Search className="w-6 h-6 mb-1" />
-          <span>Buscar</span>
+          <Calendar className="w-6 h-6 mb-1" />
+          <span>Mis Citas</span>
         </Link>
         
         <Link 
-          to="/categorias" 
+          to="/acerca-de" 
           className={`flex flex-col items-center text-xs ${
-            location.pathname === '/categorias' 
-              ? 'text-[#9b87f5]' 
+            location.pathname === '/acerca-de' 
+              ? 'text-[#4285F4]' 
               : 'text-[#7E69AB] dark:text-gray-300'
           }`}
         >
-          <List className="w-6 h-6 mb-1" />
-          <span>Categorías</span>
+          <Info className="w-6 h-6 mb-1" />
+          <span>Acerca de</span>
         </Link>
         
         <Link 
-          to="/carrito" 
+          to="/login" 
           className={`flex flex-col items-center text-xs ${
-            location.pathname === '/carrito' 
-              ? 'text-[#9b87f5]' 
+            location.pathname === '/login' 
+              ? 'text-[#4285F4]' 
               : 'text-[#7E69AB] dark:text-gray-300'
           }`}
         >
-          <ShoppingCart className="w-6 h-6 mb-1" />
-          <span>Carrito</span>
-        </Link>
-        
-        <Link 
-          to="/cuenta" 
-          className={`flex flex-col items-center text-xs ${
-            location.pathname === '/cuenta' 
-              ? 'text-[#9b87f5]' 
-              : 'text-[#7E69AB] dark:text-gray-300'
-          }`}
-        >
-          <User className="w-6 h-6 mb-1" />
-          <span>Cuenta</span>
+          <LogOut className="w-6 h-6 mb-1" />
+          <span>Cerrar sesión</span>
         </Link>
       </div>
     </nav>
