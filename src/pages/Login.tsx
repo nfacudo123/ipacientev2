@@ -62,7 +62,6 @@ const Login = () => {
   };
 
   const toggleTheme = () => {
-    document.documentElement.classList.toggle('dark');
     setTheme(isDark ? "light" : "dark");
   };
 
