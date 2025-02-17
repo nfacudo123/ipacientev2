@@ -62,7 +62,11 @@ const Login = () => {
   };
 
   const toggleTheme = () => {
-    setTheme(isDark ? "light" : "dark");
+    if (theme === "dark") {
+      setTheme("light");
+    } else {
+      setTheme("dark");
+    }
   };
 
   if (!mounted) {
@@ -82,7 +86,7 @@ const Login = () => {
           <Moon className="w-5 h-5 text-gray-600" />
         )}
       </button>
-      <div className="login-card">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 w-full max-w-md transition-colors duration-200">
         <div className="flex flex-col items-center justify-center">
           <img 
             key={theme}
@@ -96,7 +100,7 @@ const Login = () => {
               <input
                 type="email"
                 placeholder="Correo Electrónico"
-                className="input-field"
+                className="w-full pl-12 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -107,21 +111,29 @@ const Login = () => {
               <input
                 type="password"
                 placeholder="Contraseña"
-                className="input-field"
+                className="w-full pl-12 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
-            <Button type="submit" className="login-button">
+            <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition-colors duration-200">
               Iniciar Sesión
             </Button>
           </form>
           <div className="flex items-center justify-between w-full mt-4">
-            <Link to="#" onClick={toggleForgotPasswordModal} className="link">
+            <Link 
+              to="#" 
+              onClick={toggleForgotPasswordModal} 
+              className="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+            >
               ¿Olvidaste tu contraseña?
             </Link>
-            <Link to="#" onClick={toggleRegisterModal} className="link">
+            <Link 
+              to="#" 
+              onClick={toggleRegisterModal} 
+              className="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+            >
               Crear una cuenta
             </Link>
           </div>
