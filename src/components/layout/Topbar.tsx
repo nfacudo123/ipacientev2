@@ -40,11 +40,11 @@ export const Topbar = ({ isMenuCollapsed }: TopbarProps) => {
               </div>
               <DropdownMenuSeparator className="bg-gray-100 dark:bg-gray-800" />
               <div className="max-h-[50vh] sm:max-h-[300px] overflow-auto">
-                <DropdownMenuItem className="p-3 sm:p-4 focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50">
-                  <div className="space-y-2">
+                <DropdownMenuItem className="p-3 sm:p-4 focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50 group">
+                  <div className="space-y-2 w-full">
                     <div className="flex items-start gap-2">
                       <BellRing className="w-4 h-4 sm:w-5 sm:h-5 text-[#9b87f5] mt-0.5 animate-pulse" />
-                      <div>
+                      <div className="flex-1">
                         <p className="font-medium text-sm sm:text-base text-gray-800 dark:text-gray-200">
                           Cita Julio 11 a las 11:00 am
                         </p>
@@ -61,11 +61,12 @@ export const Topbar = ({ isMenuCollapsed }: TopbarProps) => {
                     </div>
                   </div>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="p-3 sm:p-4 focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50">
-                  <div className="space-y-2">
+                <hr className="border-t border-gray-100 dark:border-gray-800 group-hover:border-[#9b87f5]/30 transition-colors" />
+                <DropdownMenuItem className="p-3 sm:p-4 focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50 group">
+                  <div className="space-y-2 w-full">
                     <div className="flex items-start gap-2">
                       <BellRing className="w-4 h-4 sm:w-5 sm:h-5 text-[#9b87f5] mt-0.5" />
-                      <div>
+                      <div className="flex-1">
                         <p className="font-medium text-sm sm:text-base text-gray-800 dark:text-gray-200">
                           Cita Julio 11 a las 11:00 am
                         </p>
