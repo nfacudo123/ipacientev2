@@ -22,8 +22,8 @@ export const Topbar = ({ isMenuCollapsed }: TopbarProps) => {
   };
 
   return (
-    <div className={`fixed top-0 right-0 bg-[hsl(var(--card))] shadow-sm z-50 transition-all duration-200 ${isMenuCollapsed ? 'md:left-[72px]' : 'md:left-64'} left-0`}>
-      <div className="flex justify-end items-center h-16 px-4 md:px-6">
+    <div className={`fixed top-0 right-0 bg-[hsl(var(--card))] shadow-sm z-10 transition-all duration-200 ${isMenuCollapsed ? 'md:left-[72px]' : 'md:left-64'} left-0`}>
+      <div className="flex justify-end items-center h-16 px-4">
         <div className="flex items-center space-x-4">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
