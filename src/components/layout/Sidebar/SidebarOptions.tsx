@@ -1,5 +1,5 @@
 
-import { Info, LogOut } from "lucide-react";
+import { Info } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   Tooltip,
@@ -51,7 +51,6 @@ export const SidebarOptions = ({ isCollapsed }: SidebarOptionsProps) => {
       )}
       
       <OptionItem to="/acerca-de" icon={Info} label="Acerca de" />
-      <OptionItem to="/login" icon={LogOut} label="Cerrar sesión" />
     </div>
   );
 };
