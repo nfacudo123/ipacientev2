@@ -56,7 +56,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-[hsl(var(--background))] p-4">
+    <div className="min-h-screen w-full flex items-center justify-center bg-[#F1F7FF] dark:bg-[hsl(var(--background))] p-4">
       <div className="login-card">
         <div className="flex flex-col items-center justify-center">
           <img 
