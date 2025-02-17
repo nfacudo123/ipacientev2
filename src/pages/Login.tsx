@@ -62,8 +62,13 @@ const Login = () => {
   };
 
   const toggleTheme = () => {
-    document.documentElement.classList.toggle('dark');
-    setTheme(isDark ? "light" : "dark");
+    if (isDark) {
+      document.documentElement.classList.remove('dark');
+      setTheme("light");
+    } else {
+      document.documentElement.classList.add('dark');
+      setTheme("dark");
+    }
   };
 
   if (!mounted) {
@@ -85,11 +90,14 @@ const Login = () => {
       </button>
       <div className="login-card">
         <div className="flex flex-col items-center justify-center">
-          <img 
-            src={isDark ? "/lovable-uploads/0556f409-35a9-43e5-aaf2-52249b735899.png" : "/lovable-uploads/1685d97b-8505-4da0-a24e-c67e0ae010c0.png"}
-            alt="ISISMAWEB Logo"
-            className="w-48 h-12 object-contain mb-6"
-          />
+          <div className="w-48 h-12 mb-6">
+            <img 
+              key={theme} // Forzar re-render cuando cambie el tema
+              src={isDark ? "/lovable-uploads/0556f409-35a9-43e5-aaf2-52249b735899.png" : "/lovable-uploads/1685d97b-8505-4da0-a24e-c67e0ae010c0.png"}
+              alt="ISISMAWEB Logo"
+              className="w-full h-full object-contain"
+            />
+          </div>
           <form onSubmit={handleLogin} className="space-y-6 w-full">
             <div className="relative">
               <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 w-4 h-4 sm:w-5 sm:h-5" />
