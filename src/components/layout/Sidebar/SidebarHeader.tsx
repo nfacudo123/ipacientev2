@@ -3,12 +3,17 @@ import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
 
 interface SidebarHeaderProps {
-  isDark: boolean;
-  toggleTheme: () => void;
   isCollapsed: boolean;
+  isDark: boolean;
 }
 
-export const SidebarHeader = ({ isDark, toggleTheme, isCollapsed }: SidebarHeaderProps) => {
+export const SidebarHeader = ({ isCollapsed, isDark }: SidebarHeaderProps) => {
+  const { setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    setTheme(isDark ? "light" : "dark");
+  };
+
   return (
     <div className="p-4 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
       {isCollapsed ? (

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { MobileHeader } from "@/components/layout/MobileHeader";
@@ -9,28 +8,15 @@ import { Link } from "react-router-dom";
 
 const About = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDark, setIsDark] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme === 'dark';
-  });
   const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const toggleTheme = () => {
-    const newIsDark = !isDark;
-    setIsDark(newIsDark);
-    localStorage.setItem('theme', newIsDark ? 'dark' : 'light');
-    document.documentElement.classList.toggle('dark');
-  };
-
   return (
     <div className="min-h-screen flex w-full bg-[hsl(var(--background))] transition-colors duration-200">
       <Sidebar 
-        isDark={isDark}
-        toggleTheme={toggleTheme}
         isMobileMenuOpen={isMobileMenuOpen}
         onCollapseChange={setIsMenuCollapsed}
       />
@@ -43,7 +29,7 @@ const About = () => {
       )}
 
       <MobileHeader toggleMobileMenu={toggleMobileMenu} />
-      <Topbar isDark={isDark} isMenuCollapsed={isMenuCollapsed} />
+      <Topbar isMenuCollapsed={isMenuCollapsed} />
 
       <main className={`flex-1 ${isMenuCollapsed ? 'md:ml-[72px]' : 'md:ml-64'} p-4 pt-20 pb-20 md:pb-4 transition-all duration-200`}>
         <div className="mb-6">
