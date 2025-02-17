@@ -81,82 +81,87 @@ const Profile = () => {
       <Topbar isMenuCollapsed={isMenuCollapsed} />
 
       <main className={`flex-1 ${isMenuCollapsed ? 'md:ml-[72px]' : 'md:ml-64'} p-4 pt-20 pb-20 md:pb-4 transition-all duration-200`}>
-        <div className="mb-6">
-          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
-            Mis Datos
-          </h1>
-        </div>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="mb-6">
+            <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
+              Mis Datos
+            </h1>
+          </div>
 
-        {/* Menú horizontal */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mb-6">
-          <button
-            onClick={() => setSelectedOption("basic")}
-            className={`flex flex-col items-center justify-center p-4 rounded-lg transition-colors
-              ${selectedOption === "basic" 
-                ? "bg-[#F8F7FF] dark:bg-gray-800/50 text-[#9b87f5]" 
-                : "bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"}`}
-          >
-            <User className="w-6 h-6 mb-2" />
-            <span className="text-sm font-medium">Información Básica</span>
-          </button>
-          
-          <button
-            onClick={() => setSelectedOption("location")}
-            className={`flex flex-col items-center justify-center p-4 rounded-lg transition-colors
-              ${selectedOption === "location" 
-                ? "bg-[#F8F7FF] dark:bg-gray-800/50 text-[#9b87f5]" 
-                : "bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"}`}
-          >
-            <MapPin className="w-6 h-6 mb-2" />
-            <span className="text-sm font-medium">Ubicación</span>
-          </button>
-          
-          <button
-            onClick={() => setSelectedOption("academic")}
-            className={`flex flex-col items-center justify-center p-4 rounded-lg transition-colors
-              ${selectedOption === "academic" 
-                ? "bg-[#F8F7FF] dark:bg-gray-800/50 text-[#9b87f5]" 
-                : "bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"}`}
-          >
-            <GraduationCap className="w-6 h-6 mb-2" />
-            <span className="text-sm font-medium">Información Académica</span>
-          </button>
-          
-          <button
-            onClick={() => setSelectedOption("assistance")}
-            className={`flex flex-col items-center justify-center p-4 rounded-lg transition-colors
-              ${selectedOption === "assistance" 
-                ? "bg-[#F8F7FF] dark:bg-gray-800/50 text-[#9b87f5]" 
-                : "bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"}`}
-          >
-            <Heart className="w-6 h-6 mb-2" />
-            <span className="text-sm font-medium">Asistencia</span>
-          </button>
-        </div>
-
-        {/* Contenido principal */}
-        <form onSubmit={handleSubmit} className="bg-white dark:bg-[hsl(var(--card))] rounded-lg p-6">
-          <h2 className="text-xl font-medium mb-6 text-gray-800 dark:text-white">
-            {selectedOption === "basic" && "Información Básica"}
-            {selectedOption === "location" && "Información de Ubicación"}
-            {selectedOption === "academic" && "Información Académica"}
-            {selectedOption === "assistance" && "Información de Asistencia"}
-          </h2>
-
-          {selectedOption === "basic" && <BasicInformation formData={formData} handleChange={handleChange} />}
-          {selectedOption === "location" && <LocationInformation formData={formData} handleChange={handleChange} />}
-          {selectedOption === "academic" && <AcademicInformation formData={formData} handleChange={handleChange} />}
-          {selectedOption === "assistance" && <AssistanceInformation formData={formData} handleChange={handleChange} />}
-
-          <div className="flex justify-end mt-8">
+          {/* Menú horizontal */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
             <button
-              type="submit"
-              className="flex items-center justify-center gap-2 px-6 py-3 bg-[#9b87f5] hover:bg-[#8b77e5] text-white rounded-lg transition-colors duration-200 font-medium text-sm"
+              type="button"
+              onClick={() => setSelectedOption("basic")}
+              className={`flex flex-col items-center justify-center p-4 rounded-lg transition-colors
+                ${selectedOption === "basic" 
+                  ? "bg-[#F8F7FF] dark:bg-gray-800/50 text-[#9b87f5]" 
+                  : "bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"}`}
             >
-              <Save className="w-5 h-5" />
-              Guardar Cambios
+              <User className="w-6 h-6 mb-2" />
+              <span className="text-sm font-medium">Información Básica</span>
+            </button>
+            
+            <button
+              type="button"
+              onClick={() => setSelectedOption("location")}
+              className={`flex flex-col items-center justify-center p-4 rounded-lg transition-colors
+                ${selectedOption === "location" 
+                  ? "bg-[#F8F7FF] dark:bg-gray-800/50 text-[#9b87f5]" 
+                  : "bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"}`}
+            >
+              <MapPin className="w-6 h-6 mb-2" />
+              <span className="text-sm font-medium">Ubicación</span>
+            </button>
+            
+            <button
+              type="button"
+              onClick={() => setSelectedOption("academic")}
+              className={`flex flex-col items-center justify-center p-4 rounded-lg transition-colors
+                ${selectedOption === "academic" 
+                  ? "bg-[#F8F7FF] dark:bg-gray-800/50 text-[#9b87f5]" 
+                  : "bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"}`}
+            >
+              <GraduationCap className="w-6 h-6 mb-2" />
+              <span className="text-sm font-medium">Información Académica</span>
+            </button>
+            
+            <button
+              type="button"
+              onClick={() => setSelectedOption("assistance")}
+              className={`flex flex-col items-center justify-center p-4 rounded-lg transition-colors
+                ${selectedOption === "assistance" 
+                  ? "bg-[#F8F7FF] dark:bg-gray-800/50 text-[#9b87f5]" 
+                  : "bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"}`}
+            >
+              <Heart className="w-6 h-6 mb-2" />
+              <span className="text-sm font-medium">Asistencia</span>
             </button>
           </div>
+
+          {/* Contenido principal */}
+          <div className="bg-white dark:bg-[hsl(var(--card))] rounded-lg p-6">
+            <h2 className="text-xl font-medium mb-6 text-gray-800 dark:text-white">
+              {selectedOption === "basic" && "Información Básica"}
+              {selectedOption === "location" && "Información de Ubicación"}
+              {selectedOption === "academic" && "Información Académica"}
+              {selectedOption === "assistance" && "Información de Asistencia"}
+            </h2>
+
+            {selectedOption === "basic" && <BasicInformation formData={formData} handleChange={handleChange} />}
+            {selectedOption === "location" && <LocationInformation formData={formData} handleChange={handleChange} />}
+            {selectedOption === "academic" && <AcademicInformation formData={formData} handleChange={handleChange} />}
+            {selectedOption === "assistance" && <AssistanceInformation formData={formData} handleChange={handleChange} />}
+          </div>
+
+          {/* Botón de guardar fuera del card */}
+          <button
+            type="submit"
+            className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-[#9b87f5] hover:bg-[#8b77e5] text-white rounded-full transition-colors duration-200 font-medium text-sm"
+          >
+            <Save className="w-5 h-5" />
+            Guardar Cambios
+          </button>
         </form>
       </main>
 
