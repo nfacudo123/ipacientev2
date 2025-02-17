@@ -5,16 +5,17 @@ import { SidebarHeader } from "./SidebarHeader";
 import { SidebarMenu } from "./SidebarMenu";
 import { SidebarOptions } from "./SidebarOptions";
 import { SidebarFooter } from "./SidebarFooter";
+import { useTheme } from "next-themes";
 
 interface SidebarProps {
-  isDark: boolean;
-  toggleTheme: () => void;
   isMobileMenuOpen: boolean;
   onCollapseChange: (collapsed: boolean) => void;
 }
 
-export const Sidebar = ({ isDark, toggleTheme, isMobileMenuOpen, onCollapseChange }: SidebarProps) => {
+export const Sidebar = ({ isMobileMenuOpen, onCollapseChange }: SidebarProps) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed);
@@ -28,7 +29,7 @@ export const Sidebar = ({ isDark, toggleTheme, isMobileMenuOpen, onCollapseChang
       ${isMobileMenuOpen ? 'translate-x-0 right-0' : 'translate-x-full right-0'}
     `}>
       <div className="flex flex-col h-full">
-        <SidebarHeader isDark={isDark} toggleTheme={toggleTheme} isCollapsed={isCollapsed} />
+        <SidebarHeader isDark={isDark} isCollapsed={isCollapsed} />
         <SidebarMenu isCollapsed={isCollapsed} />
         <SidebarOptions isCollapsed={isCollapsed} />
         <SidebarFooter isCollapsed={isCollapsed} isDark={isDark} />

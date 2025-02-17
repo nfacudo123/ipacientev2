@@ -11,11 +11,10 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 
 interface TopbarProps {
-  isDark: boolean;
   isMenuCollapsed?: boolean;
 }
 
-export const Topbar = ({ isDark, isMenuCollapsed }: TopbarProps) => {
+export const Topbar = ({ isMenuCollapsed }: TopbarProps) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
