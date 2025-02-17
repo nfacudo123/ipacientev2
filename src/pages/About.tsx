@@ -39,7 +39,7 @@ const About = () => {
           </h1>
         </div>
 
-        <div className="flex flex-nowrap overflow-x-auto gap-4 md:grid md:grid-cols-3 md:gap-4 pb-4 md:pb-0 md:overflow-x-visible">
+        <div className="flex flex-row overflow-x-auto gap-4 pb-4 md:grid md:grid-cols-3 md:gap-4 md:pb-0 md:overflow-x-visible">
           <Link
             to="/politicas-privacidad"
             className="flex-shrink-0 w-[280px] md:w-auto flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"

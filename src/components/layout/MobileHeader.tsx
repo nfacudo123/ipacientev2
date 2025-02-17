@@ -39,6 +39,7 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
           <button 
             onClick={toggleMobileMenu}
             className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+            aria-label="Abrir menú"
           >
             <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
           </button>
