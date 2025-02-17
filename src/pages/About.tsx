@@ -1,27 +1,37 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { MobileHeader } from "@/components/layout/MobileHeader";
 import { Topbar } from "@/components/layout/Topbar";
 import { MobileMenu } from "@/components/layout/MobileMenu";
 import { FileText, Lock, Users } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTheme } from "next-themes";
 
 const About = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDark, setIsDark] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme === 'dark';
-  });
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
   const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   const toggleTheme = () => {
-    setIsDark(!isDark);
+    document.documentElement.classList.toggle('dark');
+    setTheme(theme === "dark" ? "light" : "dark");
   };
+
+  if (!mounted) {
+    return null;
+  }
+
+  const isDark = theme === "dark";
 
   return (
     <div className="min-h-screen flex w-full bg-[hsl(var(--background))] transition-colors duration-200">
