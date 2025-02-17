@@ -45,61 +45,63 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center p-4">
+    <div className="min-h-screen w-full flex items-center justify-center p-4 bg-[#F1F7FF] dark:bg-[hsl(var(--background))] transition-colors duration-200">
       <div className="login-card">
         <button
           onClick={toggleTheme}
-          className="theme-switch"
+          className="absolute right-4 sm:right-6 md:right-8 top-4 sm:top-6 md:top-8 p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
           aria-label="Toggle theme"
         >
           {isDark ? (
-            <Moon className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" />
+            <Moon className="w-5 h-5 text-gray-400" />
           ) : (
-            <Sun className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-500" />
+            <Sun className="w-5 h-5 text-yellow-500" />
           )}
         </button>
 
         <div className="icon-container">
-          <PlusSquare className="w-8 h-8 sm:w-12 sm:h-12 text-white" strokeWidth={1.5} />
+          <PlusSquare className="w-8 h-8 sm:w-10 sm:h-10 text-white" strokeWidth={1.5} />
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="relative">
-            <CreditCard className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-            <select
-              name="idType"
-              value={formData.idType}
-              onChange={handleChange}
-              className="select-field"
-            >
-              <option value="" disabled>Tipo de Identificación</option>
-              <option value="CC">CC</option>
-              <option value="CE">CE</option>
-              <option value="PA">PA</option>
-              <option value="RC">RC</option>
-              <option value="TI">TI</option>
-              <option value="AS">AS</option>
-              <option value="MS">MS</option>
-              <option value="NU">NU</option>
-              <option value="NI">NI</option>
-              <option value="PIP">PIP</option>
-            </select>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="relative">
+              <CreditCard className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <select
+                name="idType"
+                value={formData.idType}
+                onChange={handleChange}
+                className="select-field"
+              >
+                <option value="" disabled>Tipo de ID</option>
+                <option value="CC">CC</option>
+                <option value="CE">CE</option>
+                <option value="PA">PA</option>
+                <option value="RC">RC</option>
+                <option value="TI">TI</option>
+                <option value="AS">AS</option>
+                <option value="MS">MS</option>
+                <option value="NU">NU</option>
+                <option value="NI">NI</option>
+                <option value="PIP">PIP</option>
+              </select>
+            </div>
+
+            <div className="relative">
+              <CreditCard className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input
+                type="text"
+                name="idNumber"
+                placeholder="Número de ID"
+                value={formData.idNumber}
+                onChange={handleChange}
+                className="input-field"
+              />
+            </div>
           </div>
 
           <div className="relative">
-            <CreditCard className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-            <input
-              type="text"
-              name="idNumber"
-              placeholder="Número de Identificación"
-              value={formData.idNumber}
-              onChange={handleChange}
-              className="input-field"
-            />
-          </div>
-
-          <div className="relative">
-            <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
+            <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="text"
               name="username"
@@ -111,7 +113,7 @@ const Index = () => {
           </div>
 
           <div className="relative">
-            <Key className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
+            <Key className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="password"
               name="password"
@@ -127,13 +129,16 @@ const Index = () => {
           </button>
         </form>
 
-        <div className="flex justify-between items-center pt-4 text-sm space-x-20">
-          <button onClick={() => setIsRegisterOpen(true)} className="link whitespace-nowrap">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6 pt-4 text-sm">
+          <button 
+            onClick={() => setIsRegisterOpen(true)} 
+            className="link text-center sm:text-left w-full sm:w-auto"
+          >
             Registrarse ahora
           </button>
           <button 
             onClick={() => setIsForgotPasswordOpen(true)} 
-            className="link whitespace-nowrap"
+            className="link text-center sm:text-left w-full sm:w-auto"
           >
             ¿Olvidaste tu contraseña?
           </button>
