@@ -31,7 +31,7 @@ export const Topbar = ({ isDark, isMenuCollapsed }: TopbarProps) => {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48 bg-[hsl(var(--card))] border border-gray-100 dark:border-gray-800">
               <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-gray-800/50">
-                <Link to="/mis-datos" className="w-full text-[#7E69AB] dark:text-gray-300 cursor-pointer flex items-center">
+                <Link to="/profile" className="w-full text-[#7E69AB] dark:text-gray-300 cursor-pointer flex items-center">
                   <User className="w-4 h-4 mr-2" />
                   Mis Datos
                 </Link>

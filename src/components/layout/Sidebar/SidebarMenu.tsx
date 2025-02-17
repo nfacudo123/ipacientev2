@@ -1,6 +1,6 @@
 
 import { Home, Calendar } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   Tooltip,
   TooltipContent,
@@ -13,7 +13,11 @@ interface SidebarMenuProps {
 }
 
 export const SidebarMenu = ({ isCollapsed }: SidebarMenuProps) => {
-  const MenuItem = ({ to, icon: Icon, label, isActive = false }) => {
+  const location = useLocation();
+
+  const MenuItem = ({ to, icon: Icon, label }) => {
+    const isActive = location.pathname === to;
+
     const content = (
       <Link 
         to={to} 
@@ -53,7 +57,7 @@ export const SidebarMenu = ({ isCollapsed }: SidebarMenuProps) => {
         <div className="px-4 py-2 text-sm text-[#7E69AB] dark:text-[#9b87f5]">MENÚ</div>
       )}
       
-      <MenuItem to="/" icon={Home} label="Inicio" isActive={true} />
+      <MenuItem to="/" icon={Home} label="Inicio" />
       <MenuItem to="/mis-citas" icon={Calendar} label="Mis Citas" />
     </div>
   );
