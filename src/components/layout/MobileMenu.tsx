@@ -33,9 +33,9 @@ export const MobileMenu = () => {
         </Link>
         
         <Link 
-          to="/acerca-de" 
+          to="/acerca" 
           className={`flex flex-col items-center text-xs ${
-            location.pathname === '/acerca-de' 
+            location.pathname === '/acerca' 
               ? 'text-[#4285F4]' 
               : 'text-[#7E69AB] dark:text-gray-300'
           }`}
