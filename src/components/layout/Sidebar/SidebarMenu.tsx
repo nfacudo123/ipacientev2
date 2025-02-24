@@ -16,13 +16,15 @@ interface MenuItemProps {
   to: string;
   icon: React.ComponentType<{ className?: string }>;
   label: string;
+  end?: boolean;
 }
 
 export const SidebarMenu = ({ isCollapsed }: SidebarMenuProps) => {
-  const MenuItem = ({ to, icon: Icon, label }: MenuItemProps) => {
+  const MenuItem = ({ to, icon: Icon, label, end }: MenuItemProps) => {
     const content = (
       <NavLink 
         to={to}
+        end={end}
         className={({ isActive }) => `
           w-full flex items-center ${isCollapsed ? 'justify-center' : ''} px-4 py-3
           ${isActive 

@@ -128,14 +128,14 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
               </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48 bg-white dark:bg-[#2B4C6B] border border-gray-100 dark:border-[#5799CC]">
-              <MenuItem to="/profile">
+              <MenuItem to="/profile" icon={User}>
                 Mis Datos
               </MenuItem>
-              <MenuItem to="/preferencias">
+              <MenuItem to="/preferencias" icon={Settings}>
                 Preferencias
               </MenuItem>
               <DropdownMenuSeparator className="bg-[#5799CC]/20 dark:bg-[#6EB8D7]/20" />
-              <MenuItem to="/login">
+              <MenuItem to="/login" icon={LogOut}>
                 Cerrar sesión
               </MenuItem>
             </DropdownMenuContent>
