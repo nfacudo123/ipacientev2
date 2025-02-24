@@ -33,7 +33,7 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
       <div className="flex justify-between items-center">
         <div className="flex items-center">
           <img 
-            src={isDark ? "/lovable-uploads/b162bd3a-df6e-464f-b894-e47592de98c9.png" : "/lovable-uploads/a28bae4b-b8b3-48dd-bb30-73f20fb73a2c.png"}
+            src={isDark ? "/lovable-uploads/401fd9ed-e5c3-4898-a5fb-f4afc6855ed9.png" : "/lovable-uploads/3c4e209f-eba1-4f56-a526-71797329eba2.png"}
             alt="ISISMAWEB Icon"
             className="w-8 h-8 object-contain"
           />

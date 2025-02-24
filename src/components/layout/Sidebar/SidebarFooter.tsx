@@ -11,7 +11,7 @@ export const SidebarFooter = ({ isCollapsed, isDark }: SidebarFooterProps) => {
     <div className="mt-auto border-t border-gray-100 dark:border-gray-800 p-4">
       <div className="flex items-center justify-center">
         <img 
-          src={isDark ? "/lovable-uploads/0556f409-35a9-43e5-aaf2-52249b735899.png" : "/lovable-uploads/1685d97b-8505-4da0-a24e-c67e0ae010c0.png"}
+          src={isDark ? "/lovable-uploads/401fd9ed-e5c3-4898-a5fb-f4afc6855ed9.png" : "/lovable-uploads/3c4e209f-eba1-4f56-a526-71797329eba2.png"}
           alt="ISISMAWEB Logo"
           className="w-24 h-6 object-contain"
         />
