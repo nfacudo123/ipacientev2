@@ -1,3 +1,4 @@
+
 import { Sun, Moon, User, Settings, LogOut, BellRing } from "lucide-react";
 import { useTheme } from "next-themes";
 import {
@@ -114,25 +115,25 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
               </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48 bg-white dark:bg-[#2B4C6B] border border-gray-100 dark:border-[#5799CC]">
-              <NavLink to="/profile" className="block">
-                <DropdownMenuItem className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 cursor-pointer">
+              <div className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20">
+                <NavLink to="/profile" className="flex items-center px-2 py-1.5">
                   <User className="w-4 h-4 mr-2" />
                   Mis Datos
-                </DropdownMenuItem>
-              </NavLink>
-              <NavLink to="/preferencias" className="block">
-                <DropdownMenuItem className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 cursor-pointer">
+                </NavLink>
+              </div>
+              <div className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20">
+                <NavLink to="/preferencias" className="flex items-center px-2 py-1.5">
                   <Settings className="w-4 h-4 mr-2" />
                   Preferencias
-                </DropdownMenuItem>
-              </NavLink>
+                </NavLink>
+              </div>
               <DropdownMenuSeparator className="bg-[#5799CC]/20 dark:bg-[#6EB8D7]/20" />
-              <NavLink to="/login" className="block">
-                <DropdownMenuItem className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 cursor-pointer">
+              <div className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20">
+                <NavLink to="/login" className="flex items-center px-2 py-1.5">
                   <LogOut className="w-4 h-4 mr-2" />
                   Cerrar sesión
-                </DropdownMenuItem>
-              </NavLink>
+                </NavLink>
+              </div>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
