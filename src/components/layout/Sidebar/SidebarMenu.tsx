@@ -1,6 +1,6 @@
 
 import { Home, Calendar } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   Tooltip,
   TooltipContent,
@@ -19,25 +19,21 @@ interface MenuItemProps {
 }
 
 export const SidebarMenu = ({ isCollapsed }: SidebarMenuProps) => {
-  const navigate = useNavigate();
-
   const MenuItem = ({ to, icon: Icon, label }: MenuItemProps) => {
-    const handleClick = (e: React.MouseEvent) => {
-      e.preventDefault();
-      navigate(to);
-    };
-
     const content = (
-      <button
-        onClick={handleClick}
-        className={`
+      <NavLink 
+        to={to}
+        className={({ isActive }) => `
           w-full flex items-center ${isCollapsed ? 'justify-center' : ''} px-4 py-3
-          text-[#5799CC] dark:text-gray-300 hover:bg-[#F8F7FF] hover:text-[#6EB8D7] dark:hover:bg-gray-800/50
+          ${isActive 
+            ? 'text-[#6EB8D7] bg-[#F8F7FF] dark:bg-gray-800/50' 
+            : 'text-[#5799CC] dark:text-gray-300 hover:bg-[#F8F7FF] hover:text-[#6EB8D7] dark:hover:bg-gray-800/50'
+          }
         `}
       >
         <Icon className={`${isCollapsed ? 'w-8 h-8' : 'w-5 h-5'} transition-all duration-200`} />
         {!isCollapsed && <span className="ml-3">{label}</span>}
-      </button>
+      </NavLink>
     );
 
     return isCollapsed ? (
