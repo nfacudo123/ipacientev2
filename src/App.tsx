@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import PageTitle from "./components/PageTitle";
 import Index from "./pages/Index";
@@ -23,32 +23,24 @@ const queryClient = new QueryClient({
   }
 });
 
-const AppRoutes = () => {
-  return (
-    <>
-      <PageTitle />
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/mis-citas" element={<Appointments />} />
-        <Route path="/preferencias" element={<Preferences />} />
-        <Route path="/acerca" element={<About />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </>
-  );
-};
-
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <TooltipProvider>
-        <Router>
-          <Toaster />
-          <Sonner />
-          <AppRoutes />
-        </Router>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <PageTitle />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/mis-citas" element={<Appointments />} />
+            <Route path="/preferencias" element={<Preferences />} />
+            <Route path="/acerca" element={<About />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>
   </QueryClientProvider>
