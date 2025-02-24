@@ -1,6 +1,7 @@
 
 import { Sun, Moon, User, Settings, LogOut, BellRing } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useNavigate } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,9 +21,15 @@ interface MobileHeaderProps {
 export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
   const { theme, setTheme } = useTheme();
   const isDark = theme === "dark";
+  const navigate = useNavigate();
 
   const toggleTheme = () => {
     setTheme(isDark ? "light" : "dark");
+  };
+
+  const handleNavigation = (to: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate(to);
   };
 
   return (
@@ -115,24 +122,18 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
               </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48 bg-white dark:bg-[#2B4C6B] border border-gray-100 dark:border-[#5799CC]">
-              <DropdownMenuItem asChild>
-                <NavLink to="/profile" className="w-full text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer flex items-center gap-2">
-                  <User className="w-4 h-4" />
-                  Mis Datos
-                </NavLink>
+              <DropdownMenuItem onClick={handleNavigation("/profile")}>
+                <User className="w-4 h-4 mr-2" />
+                Mis Datos
               </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <NavLink to="/preferencias" className="w-full text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer flex items-center gap-2">
-                  <Settings className="w-4 h-4" />
-                  Preferencias
-                </NavLink>
+              <DropdownMenuItem onClick={handleNavigation("/preferencias")}>
+                <Settings className="w-4 h-4 mr-2" />
+                Preferencias
               </DropdownMenuItem>
               <DropdownMenuSeparator className="bg-[#5799CC]/20 dark:bg-[#6EB8D7]/20" />
-              <DropdownMenuItem asChild>
-                <NavLink to="/login" className="w-full text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer flex items-center gap-2">
-                  <LogOut className="w-4 h-4" />
-                  Cerrar sesión
-                </NavLink>
+              <DropdownMenuItem onClick={handleNavigation("/login")}>
+                <LogOut className="w-4 h-4 mr-2" />
+                Cerrar sesión
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
