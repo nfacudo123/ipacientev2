@@ -1,6 +1,6 @@
 
 import { Info } from "lucide-react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   Tooltip,
   TooltipContent,
@@ -22,15 +22,18 @@ export const SidebarOptions = ({ isCollapsed }: SidebarOptionsProps) => {
     );
 
     const content = (
-      <Link 
+      <NavLink 
         to={to}
-        className={`
+        className={({ isActive }) => `
           flex items-center ${isCollapsed ? 'justify-center' : ''} px-4 py-3 
-          text-[#5799CC] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50
+          ${isActive 
+            ? 'text-[#6EB8D7] bg-[#F8F7FF] dark:bg-gray-800/50' 
+            : 'text-[#5799CC] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50'
+          }
         `}
       >
         {linkContent}
-      </Link>
+      </NavLink>
     );
 
     return isCollapsed ? (
