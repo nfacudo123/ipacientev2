@@ -1,6 +1,6 @@
 
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { PlusSquare } from "lucide-react";
+import { PlusSquare, Check } from "lucide-react";
 import { useState } from "react";
 import PersonalInfoFields from "./register/PersonalInfoFields";
 import IdentificationFields from "./register/IdentificationFields";
@@ -8,6 +8,8 @@ import ContactFields from "./register/ContactFields";
 import PasswordFields from "./register/PasswordFields";
 import { RegisterFormData } from "./register/types";
 import ReCAPTCHA from "react-google-recaptcha";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Link } from "react-router-dom";
 
 interface RegisterModalProps {
   isOpen: boolean;
@@ -30,6 +32,7 @@ const RegisterModal = ({ isOpen, onClose }: RegisterModalProps) => {
   });
 
   const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
@@ -42,6 +45,10 @@ const RegisterModal = ({ isOpen, onClose }: RegisterModalProps) => {
     e.preventDefault();
     if (!captchaValue) {
       console.log("Por favor, complete el captcha");
+      return;
+    }
+    if (!acceptedTerms) {
+      console.log("Debes aceptar los términos y condiciones");
       return;
     }
     console.log("Register form submitted:", formData);
@@ -68,6 +75,27 @@ const RegisterModal = ({ isOpen, onClose }: RegisterModalProps) => {
             <ContactFields formData={formData} handleChange={handleChange} />
             <PasswordFields formData={formData} handleChange={handleChange} />
             
+            <div className="flex items-center space-x-2">
+              <Checkbox 
+                id="terms" 
+                checked={acceptedTerms}
+                onCheckedChange={(checked) => setAcceptedTerms(checked as boolean)}
+              />
+              <label 
+                htmlFor="terms" 
+                className="text-sm text-gray-600 dark:text-gray-300"
+              >
+                He leído y acepto los{" "}
+                <Link 
+                  to="/terminos" 
+                  className="text-[#5799CC] hover:text-[#2B4C6B] dark:text-[#6EB8D7] dark:hover:text-[#95F1E1]"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  términos y condiciones
+                </Link>
+              </label>
+            </div>
+            
             <div className="w-full flex flex-col items-center justify-center space-y-2">
               <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow duration-200">
                 <div className="w-full text-sm text-gray-500 dark:text-gray-400 text-center mb-2">
@@ -84,8 +112,8 @@ const RegisterModal = ({ isOpen, onClose }: RegisterModalProps) => {
             
             <button 
               type="submit" 
-              className={`login-button w-full ${!captchaValue ? 'opacity-50 cursor-not-allowed' : ''}`}
-              disabled={!captchaValue}
+              className={`login-button w-full ${(!captchaValue || !acceptedTerms) ? 'opacity-50 cursor-not-allowed' : ''}`}
+              disabled={!captchaValue || !acceptedTerms}
             >
               Crear Cuenta
             </button>
