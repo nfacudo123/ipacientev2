@@ -40,7 +40,7 @@ interface MenuItemProps {
 export const MobileMenu = () => {
   const MenuItem = ({ to, icon: Icon, label, end, submenu }: MenuItemProps) => {
     const content = (
-      <div className="w-full">
+      <div className="w-16">
         {submenu ? (
           <DropdownMenu>
             <DropdownMenuTrigger className="w-full">
@@ -53,15 +53,15 @@ export const MobileMenu = () => {
               side="top"
               align="center"
               className={`mb-2 bg-white dark:bg-[#2B4C6B] border border-gray-100 dark:border-[#5799CC] rounded-lg shadow-lg ${
-                submenu.length === 1 ? 'w-[100px]' : 'min-w-[300px] grid grid-cols-3 gap-4'
-              } p-4`}
+                submenu.length === 1 ? 'w-16' : 'min-w-[300px] grid grid-cols-3 gap-2'
+              } p-2`}
             >
               {submenu.map((item) => (
                 <div key={item.label} className={submenu.length === 1 ? 'w-full' : ''}>
                   {item.submenu ? (
                     <DropdownMenu>
                       <DropdownMenuTrigger className="w-full">
-                        <div className="flex flex-col items-center p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                        <div className="flex flex-col items-center p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
                           <item.icon className="w-6 h-6 mb-1 text-[#5799CC] dark:text-[#6EB8D7]" />
                           <span className="text-xs text-center text-[#5799CC] dark:text-[#6EB8D7]">{item.label}</span>
                         </div>
@@ -69,13 +69,13 @@ export const MobileMenu = () => {
                       <DropdownMenuContent 
                         side="top"
                         align="center"
-                        className="grid grid-cols-2 gap-4 p-4 mb-2 bg-white dark:bg-[#2B4C6B] min-w-[200px] border border-gray-100 dark:border-[#5799CC] rounded-lg shadow-lg"
+                        className="grid grid-cols-2 gap-2 p-2 mb-2 bg-white dark:bg-[#2B4C6B] min-w-[200px] border border-gray-100 dark:border-[#5799CC] rounded-lg shadow-lg"
                       >
                         {item.submenu.map((subitem) => (
                           <NavLink 
                             key={subitem.label}
                             to={subitem.to}
-                            className="flex flex-col items-center p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
+                            className="flex flex-col items-center p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
                           >
                             <subitem.icon className="w-6 h-6 mb-1 text-[#5799CC] dark:text-[#6EB8D7]" />
                             <span className="text-xs text-center text-[#5799CC] dark:text-[#6EB8D7]">{subitem.label}</span>
@@ -86,7 +86,7 @@ export const MobileMenu = () => {
                   ) : (
                     <NavLink 
                       to={item.to}
-                      className="flex flex-col items-center p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
+                      className="flex flex-col items-center p-1 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
                     >
                       <item.icon className="w-6 h-6 mb-1 text-[#5799CC] dark:text-[#6EB8D7]" />
                       <span className="text-xs text-center text-[#5799CC] dark:text-[#6EB8D7]">{item.label}</span>

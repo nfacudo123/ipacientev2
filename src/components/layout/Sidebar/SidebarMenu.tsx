@@ -58,7 +58,7 @@ export const SidebarMenu = ({ isCollapsed }: SidebarMenuProps) => {
               <div className={`
                 w-full flex items-center justify-between px-4 py-3
                 text-[#5799CC] dark:text-gray-300 hover:bg-[#F8F7FF] hover:text-[#6EB8D7] dark:hover:bg-gray-800/50
-                transition-colors duration-200
+                transition-colors duration-200 group
               `}>
                 <div className="flex items-center">
                   <Icon className={`${isCollapsed ? 'w-8 h-8' : 'w-5 h-5'} transition-all duration-200`} />
@@ -68,26 +68,34 @@ export const SidebarMenu = ({ isCollapsed }: SidebarMenuProps) => {
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent 
-              side={isCollapsed ? "right" : "right"} 
-              className="bg-white dark:bg-[hsl(var(--card))] min-w-[200px]"
+              side="right"
+              align="start"
+              className={`
+                p-2 bg-white dark:bg-[#2B4C6B] border border-gray-100 dark:border-[#5799CC] rounded-lg shadow-lg
+                text-[#5799CC] dark:text-[#6EB8D7] min-w-[200px]
+              `}
             >
               {submenu.map((item) => (
                 <div key={item.label}>
                   {item.submenu ? (
                     <DropdownMenu>
                       <DropdownMenuTrigger className="w-full">
-                        <DropdownMenuItem className="w-full cursor-pointer">
+                        <DropdownMenuItem className="w-full cursor-pointer hover:text-[#2B4C6B] dark:hover:text-[#95F1E1]">
                           <item.icon className="w-4 h-4 mr-2" />
                           <span>{item.label}</span>
                         </DropdownMenuItem>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent 
-                        side="right" 
-                        className="bg-white dark:bg-[hsl(var(--card))] min-w-[200px]"
+                        side="right"
+                        align="start"
+                        className="p-2 bg-white dark:bg-[#2B4C6B] border border-gray-100 dark:border-[#5799CC] rounded-lg shadow-lg min-w-[200px]"
                       >
                         {item.submenu.map((subitem) => (
                           <DropdownMenuItem key={subitem.label} asChild>
-                            <NavLink to={subitem.to} className="cursor-pointer">
+                            <NavLink 
+                              to={subitem.to}
+                              className="flex items-center cursor-pointer text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1]"
+                            >
                               <subitem.icon className="w-4 h-4 mr-2" />
                               <span>{subitem.label}</span>
                             </NavLink>
@@ -97,7 +105,10 @@ export const SidebarMenu = ({ isCollapsed }: SidebarMenuProps) => {
                     </DropdownMenu>
                   ) : (
                     <DropdownMenuItem asChild>
-                      <NavLink to={item.to} className="cursor-pointer">
+                      <NavLink 
+                        to={item.to}
+                        className="flex items-center cursor-pointer text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1]"
+                      >
                         <item.icon className="w-4 h-4 mr-2" />
                         <span>{item.label}</span>
                       </NavLink>
