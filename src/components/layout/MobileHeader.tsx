@@ -122,19 +122,46 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
               </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48 bg-white dark:bg-[#2B4C6B] border border-gray-100 dark:border-[#5799CC]">
-              <DropdownMenuItem onClick={handleNavigation("/profile")}>
+              <NavLink 
+                to="/profile"
+                className={({ isActive }) => `
+                  flex items-center px-2 py-1.5 text-sm 
+                  ${isActive 
+                    ? 'text-[#2B4C6B] dark:text-[#95F1E1] bg-[#F8F7FF] dark:bg-[#5799CC]/20' 
+                    : 'text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] hover:bg-[#F8F7FF] dark:hover:bg-[#5799CC]/20'
+                  }
+                `}
+              >
                 <User className="w-4 h-4 mr-2" />
                 Mis Datos
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={handleNavigation("/preferencias")}>
+              </NavLink>
+              <NavLink 
+                to="/preferencias"
+                className={({ isActive }) => `
+                  flex items-center px-2 py-1.5 text-sm 
+                  ${isActive 
+                    ? 'text-[#2B4C6B] dark:text-[#95F1E1] bg-[#F8F7FF] dark:bg-[#5799CC]/20' 
+                    : 'text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] hover:bg-[#F8F7FF] dark:hover:bg-[#5799CC]/20'
+                  }
+                `}
+              >
                 <Settings className="w-4 h-4 mr-2" />
                 Preferencias
-              </DropdownMenuItem>
+              </NavLink>
               <DropdownMenuSeparator className="bg-[#5799CC]/20 dark:bg-[#6EB8D7]/20" />
-              <DropdownMenuItem onClick={handleNavigation("/login")}>
+              <NavLink 
+                to="/login"
+                className={({ isActive }) => `
+                  flex items-center px-2 py-1.5 text-sm 
+                  ${isActive 
+                    ? 'text-[#2B4C6B] dark:text-[#95F1E1] bg-[#F8F7FF] dark:bg-[#5799CC]/20' 
+                    : 'text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] hover:bg-[#F8F7FF] dark:hover:bg-[#5799CC]/20'
+                  }
+                `}
+              >
                 <LogOut className="w-4 h-4 mr-2" />
                 Cerrar sesión
-              </DropdownMenuItem>
+              </NavLink>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
