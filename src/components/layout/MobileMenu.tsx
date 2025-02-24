@@ -1,3 +1,4 @@
+
 import { 
   Home, 
   CalendarDays,
@@ -51,10 +52,12 @@ export const MobileMenu = () => {
             <DropdownMenuContent 
               side="top"
               align="center"
-              className="grid grid-cols-3 gap-4 p-4 mb-2 bg-white dark:bg-[#2B4C6B] min-w-[300px] border border-gray-100 dark:border-[#5799CC] rounded-lg shadow-lg"
+              className={`mb-2 bg-white dark:bg-[#2B4C6B] border border-gray-100 dark:border-[#5799CC] rounded-lg shadow-lg ${
+                submenu.length === 1 ? 'w-[100px]' : 'min-w-[300px] grid grid-cols-3 gap-4'
+              } p-4`}
             >
               {submenu.map((item) => (
-                <div key={item.label}>
+                <div key={item.label} className={submenu.length === 1 ? 'w-full' : ''}>
                   {item.submenu ? (
                     <DropdownMenu>
                       <DropdownMenuTrigger className="w-full">
