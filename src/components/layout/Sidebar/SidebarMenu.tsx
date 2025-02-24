@@ -18,6 +18,13 @@ export const SidebarMenu = ({ isCollapsed }: SidebarMenuProps) => {
   const MenuItem = ({ to, icon: Icon, label }) => {
     const isActive = location.pathname === to;
 
+    const linkContent = (
+      <>
+        <Icon className={`${isCollapsed ? 'w-8 h-8' : 'w-5 h-5'} transition-all duration-200`} />
+        {!isCollapsed && <span className="ml-3">{label}</span>}
+      </>
+    );
+
     const content = (
       <Link 
         to={to} 
@@ -29,8 +36,7 @@ export const SidebarMenu = ({ isCollapsed }: SidebarMenuProps) => {
           }
         `}
       >
-        <Icon className={`${isCollapsed ? 'w-8 h-8' : 'w-5 h-5'} transition-all duration-200`} />
-        {!isCollapsed && <span className="ml-3">{label}</span>}
+        {linkContent}
       </Link>
     );
 

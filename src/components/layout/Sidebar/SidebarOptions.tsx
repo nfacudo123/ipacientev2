@@ -14,6 +14,13 @@ interface SidebarOptionsProps {
 
 export const SidebarOptions = ({ isCollapsed }: SidebarOptionsProps) => {
   const OptionItem = ({ to, icon: Icon, label }) => {
+    const linkContent = (
+      <>
+        <Icon className={`${isCollapsed ? 'w-8 h-8' : 'w-5 h-5'} transition-all duration-200`} />
+        {!isCollapsed && <span className="ml-3">{label}</span>}
+      </>
+    );
+
     const content = (
       <Link 
         to={to} 
@@ -22,8 +29,7 @@ export const SidebarOptions = ({ isCollapsed }: SidebarOptionsProps) => {
           text-[#5799CC] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50
         `}
       >
-        <Icon className={`${isCollapsed ? 'w-8 h-8' : 'w-5 h-5'} transition-all duration-200`} />
-        {!isCollapsed && <span className="ml-3">{label}</span>}
+        {linkContent}
       </Link>
     );
 
