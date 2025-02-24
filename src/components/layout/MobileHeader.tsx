@@ -1,4 +1,3 @@
-
 import { Sun, Moon, User, Settings, LogOut, BellRing } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useNavigate } from "react-router-dom";
@@ -25,11 +24,6 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
 
   const toggleTheme = () => {
     setTheme(isDark ? "light" : "dark");
-  };
-
-  const handleNavigation = (to: string) => (e: React.MouseEvent) => {
-    e.preventDefault();
-    navigate(to);
   };
 
   return (
@@ -123,14 +117,14 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48 bg-white dark:bg-[#2B4C6B] border border-gray-100 dark:border-[#5799CC]">
               <DropdownMenuItem 
-                onClick={handleNavigation("/profile")}
+                onClick={() => navigate("/profile")}
                 className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20"
               >
                 <User className="w-4 h-4 mr-2" />
                 Mis Datos
               </DropdownMenuItem>
               <DropdownMenuItem 
-                onClick={handleNavigation("/preferencias")}
+                onClick={() => navigate("/preferencias")}
                 className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20"
               >
                 <Settings className="w-4 h-4 mr-2" />
@@ -138,7 +132,7 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
               </DropdownMenuItem>
               <DropdownMenuSeparator className="bg-[#5799CC]/20 dark:bg-[#6EB8D7]/20" />
               <DropdownMenuItem 
-                onClick={handleNavigation("/login")}
+                onClick={() => navigate("/login")}
                 className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20"
               >
                 <LogOut className="w-4 h-4 mr-2" />
