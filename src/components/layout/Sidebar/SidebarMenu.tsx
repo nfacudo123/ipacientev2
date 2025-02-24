@@ -1,6 +1,6 @@
 
 import { Home, Calendar } from "lucide-react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   Tooltip,
   TooltipContent,
@@ -15,8 +15,9 @@ interface SidebarMenuProps {
 export const SidebarMenu = ({ isCollapsed }: SidebarMenuProps) => {
   const MenuItem = ({ to, icon: Icon, label }) => {
     const content = (
-      <Link 
+      <NavLink 
         to={to}
+        end={to === "/"}
         className={({ isActive }) => `
           flex items-center ${isCollapsed ? 'justify-center' : ''} px-4 py-3
           ${isActive 
@@ -27,7 +28,7 @@ export const SidebarMenu = ({ isCollapsed }: SidebarMenuProps) => {
       >
         <Icon className={`${isCollapsed ? 'w-8 h-8' : 'w-5 h-5'} transition-all duration-200`} />
         {!isCollapsed && <span className="ml-3">{label}</span>}
-      </Link>
+      </NavLink>
     );
 
     return isCollapsed ? (
