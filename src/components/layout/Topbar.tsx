@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 interface TopbarProps {
   isMenuCollapsed?: boolean;
@@ -86,25 +86,25 @@ export const Topbar = ({ isMenuCollapsed }: TopbarProps) => {
               </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48 bg-white dark:bg-[#2B4C6B] border border-gray-100 dark:border-[#5799CC]">
-              <Link to="/profile" className="w-full block">
+              <NavLink to="/profile" className="w-full">
                 <DropdownMenuItem className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer">
                   <User className="w-4 h-4 mr-2" />
                   Mis Datos
                 </DropdownMenuItem>
-              </Link>
-              <Link to="/preferencias" className="w-full block">
+              </NavLink>
+              <NavLink to="/preferencias" className="w-full">
                 <DropdownMenuItem className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer">
                   <Settings className="w-4 h-4 mr-2" />
                   Preferencias
                 </DropdownMenuItem>
-              </Link>
+              </NavLink>
               <DropdownMenuSeparator className="bg-[#5799CC]/20 dark:bg-[#6EB8D7]/20" />
-              <Link to="/login" className="w-full block">
+              <NavLink to="/login" className="w-full">
                 <DropdownMenuItem className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer">
                   <LogOut className="w-4 h-4 mr-2" />
                   Cerrar sesión
                 </DropdownMenuItem>
-              </Link>
+              </NavLink>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

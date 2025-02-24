@@ -24,6 +24,7 @@ export const SidebarMenu = ({ isCollapsed }: SidebarMenuProps) => {
     const content = (
       <NavLink 
         to={to}
+        end={to === "/"}
         className={({ isActive }) => `
           flex items-center ${isCollapsed ? 'justify-center' : ''} px-4 py-3
           ${isActive 

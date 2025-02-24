@@ -13,6 +13,7 @@ export const MobileMenu = () => {
               ? 'text-[#2B4C6B] dark:text-[#95F1E1]' 
               : 'text-[#5799CC] dark:text-[#6EB8D7]'
           }`}
+          end
         >
           <Home className="w-6 h-6 mb-1" />
           <span>Inicio</span>
