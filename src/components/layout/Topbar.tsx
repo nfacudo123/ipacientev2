@@ -86,25 +86,25 @@ export const Topbar = ({ isMenuCollapsed }: TopbarProps) => {
               </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48 bg-white dark:bg-[#2B4C6B] border border-gray-100 dark:border-[#5799CC]">
-              <NavLink to="/profile" className="w-full">
-                <DropdownMenuItem className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer">
+              <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer">
+                <NavLink to="/profile" className="flex items-center w-full">
                   <User className="w-4 h-4 mr-2" />
                   Mis Datos
-                </DropdownMenuItem>
-              </NavLink>
-              <NavLink to="/preferencias" className="w-full">
-                <DropdownMenuItem className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer">
+                </NavLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer">
+                <NavLink to="/preferencias" className="flex items-center w-full">
                   <Settings className="w-4 h-4 mr-2" />
                   Preferencias
-                </DropdownMenuItem>
-              </NavLink>
+                </NavLink>
+              </DropdownMenuItem>
               <DropdownMenuSeparator className="bg-[#5799CC]/20 dark:bg-[#6EB8D7]/20" />
-              <NavLink to="/login" className="w-full">
-                <DropdownMenuItem className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer">
+              <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer">
+                <NavLink to="/login" className="flex items-center w-full">
                   <LogOut className="w-4 h-4 mr-2" />
                   Cerrar sesión
-                </DropdownMenuItem>
-              </NavLink>
+                </NavLink>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
