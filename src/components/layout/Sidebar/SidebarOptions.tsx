@@ -19,7 +19,7 @@ export const SidebarOptions = ({ isCollapsed }: SidebarOptionsProps) => {
         to={to} 
         className={`
           flex items-center ${isCollapsed ? 'justify-center' : ''} px-4 py-3 
-          text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50
+          text-[#5799CC] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50
         `}
       >
         <Icon className={`${isCollapsed ? 'w-8 h-8' : 'w-5 h-5'} transition-all duration-200`} />
@@ -47,7 +47,7 @@ export const SidebarOptions = ({ isCollapsed }: SidebarOptionsProps) => {
   return (
     <div className="py-4 border-t border-gray-100 dark:border-gray-800">
       {!isCollapsed && (
-        <div className="px-4 py-2 text-sm text-[#7E69AB] dark:text-[#9b87f5]">OPCIONES</div>
+        <div className="px-4 py-2 text-sm text-[#5799CC] dark:text-[#6EB8D7]">OPCIONES</div>
       )}
       
       <OptionItem to="/acerca" icon={Info} label="Acerca de" />

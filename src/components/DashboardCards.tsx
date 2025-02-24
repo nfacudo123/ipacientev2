@@ -8,7 +8,7 @@ export const DashboardCards = () => {
           alt="Personal Info" 
           className="w-full h-[200px] object-cover"
         />
-        <div className="p-6 bg-[#FF1493]">
+        <div className="p-6 bg-[#2B4C6B]">
           <p className="text-white text-lg font-medium">
             Revisa y actualiza tu información personal
           </p>
@@ -21,7 +21,7 @@ export const DashboardCards = () => {
           alt="Appointments" 
           className="w-full h-[200px] object-cover"
         />
-        <div className="p-6 bg-[#0066CC]">
+        <div className="p-6 bg-[#5799CC]">
           <p className="text-white text-lg font-medium">
             Ver tus citas programadas y completadas
           </p>
@@ -34,7 +34,7 @@ export const DashboardCards = () => {
           alt="Health Blog" 
           className="w-full h-[200px] object-cover"
         />
-        <div className="p-6 bg-[#FF4500]">
+        <div className="p-6 bg-[#6EB8D7]">
           <p className="text-white text-lg font-medium">
             Mantente actualizado con nuestro blog de salud
           </p>

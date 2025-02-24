@@ -16,7 +16,7 @@ export const SidebarFooter = ({ isCollapsed, isDark }: SidebarFooterProps) => {
           className="w-24 h-6 object-contain"
         />
       </div>
-      <p className="text-xs text-center mt-2 text-[#7E69AB] dark:text-gray-400">
+      <p className="text-xs text-center mt-2 text-[#5799CC] dark:text-[#6EB8D7]">
         Versión 2.0.0
       </p>
     </div>

@@ -24,8 +24,8 @@ export const SidebarMenu = ({ isCollapsed }: SidebarMenuProps) => {
         className={`
           flex items-center ${isCollapsed ? 'justify-center' : ''} px-4 py-3
           ${isActive 
-            ? 'text-[#9b87f5] bg-[#F8F7FF] dark:bg-gray-800/50' 
-            : 'text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50'
+            ? 'text-[#6EB8D7] bg-[#F8F7FF] dark:bg-gray-800/50' 
+            : 'text-[#5799CC] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50'
           }
         `}
       >
@@ -54,7 +54,7 @@ export const SidebarMenu = ({ isCollapsed }: SidebarMenuProps) => {
   return (
     <div className="py-4">
       {!isCollapsed && (
-        <div className="px-4 py-2 text-sm text-[#7E69AB] dark:text-[#9b87f5]">MENÚ</div>
+        <div className="px-4 py-2 text-sm text-[#5799CC] dark:text-[#6EB8D7]">MENÚ</div>
       )}
       
       <MenuItem to="/" icon={Home} label="Inicio" />
