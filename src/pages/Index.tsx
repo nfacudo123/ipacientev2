@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { MobileHeader } from "@/components/layout/MobileHeader";
 import { Topbar } from "@/components/layout/Topbar";
@@ -39,14 +39,6 @@ const Index = () => {
           <p className="text-[hsl(var(--text-secondary))]">
             juan.perez@ejemplo.com
           </p>
-        </div>
-
-        <div className="w-full h-[300px] bg-[hsl(var(--card))] rounded-xl mb-6">
-          <img 
-            src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952" 
-            alt="Doctor en consulta" 
-            className="w-full h-full object-cover rounded-xl"
-          />
         </div>
 
         <DashboardCards />
