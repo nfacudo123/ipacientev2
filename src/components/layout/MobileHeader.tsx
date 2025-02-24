@@ -1,4 +1,3 @@
-
 import { Sun, Moon, User, Settings, LogOut, BellRing } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useNavigate } from "react-router-dom";
@@ -25,12 +24,6 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
 
   const toggleTheme = () => {
     setTheme(isDark ? "light" : "dark");
-  };
-
-  const handleClick = (path: string) => (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    navigate(path);
   };
 
   return (
@@ -125,14 +118,14 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
             <DropdownMenuContent align="end" className="w-48 bg-white dark:bg-[#2B4C6B] border border-gray-100 dark:border-[#5799CC]">
               <DropdownMenuItem 
                 className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 cursor-pointer"
-                onSelect={(e) => handleClick('/profile')(e as any)}
+                onClick={() => navigate('/profile')}
               >
                 <User className="w-4 h-4 mr-2" />
                 Mis Datos
               </DropdownMenuItem>
               <DropdownMenuItem 
                 className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 cursor-pointer"
-                onSelect={(e) => handleClick('/preferencias')(e as any)}
+                onClick={() => navigate('/preferencias')}
               >
                 <Settings className="w-4 h-4 mr-2" />
                 Preferencias
@@ -140,7 +133,7 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
               <DropdownMenuSeparator className="bg-[#5799CC]/20 dark:bg-[#6EB8D7]/20" />
               <DropdownMenuItem 
                 className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 cursor-pointer"
-                onSelect={(e) => handleClick('/login')(e as any)}
+                onClick={() => navigate('/login')}
               >
                 <LogOut className="w-4 h-4 mr-2" />
                 Cerrar sesión
