@@ -1,5 +1,7 @@
+
 import { Sun, Moon, User, Settings, LogOut, BellRing } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useNavigate } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,7 +10,7 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import iconLight from "/lovable-uploads/a28bae4b-b8b3-48dd-bb30-73f20fb73a2c.png";
 import iconDark from "/lovable-uploads/b162bd3a-df6e-464f-b894-e47592de98c9.png";
 
@@ -19,9 +21,16 @@ interface MobileHeaderProps {
 export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
   const { theme, setTheme } = useTheme();
   const isDark = theme === "dark";
+  const navigate = useNavigate();
 
   const toggleTheme = () => {
     setTheme(isDark ? "light" : "dark");
+  };
+
+  const handleClick = (path: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigate(path);
   };
 
   return (
@@ -114,25 +123,28 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
               </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48 bg-white dark:bg-[#2B4C6B] border border-gray-100 dark:border-[#5799CC]">
-              <Link to="/profile" className="block">
-                <DropdownMenuItem className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 cursor-pointer">
-                  <User className="w-4 h-4 mr-2" />
-                  Mis Datos
-                </DropdownMenuItem>
-              </Link>
-              <Link to="/preferencias" className="block">
-                <DropdownMenuItem className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 cursor-pointer">
-                  <Settings className="w-4 h-4 mr-2" />
-                  Preferencias
-                </DropdownMenuItem>
-              </Link>
+              <DropdownMenuItem 
+                className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 cursor-pointer"
+                onSelect={(e) => handleClick('/profile')(e as any)}
+              >
+                <User className="w-4 h-4 mr-2" />
+                Mis Datos
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 cursor-pointer"
+                onSelect={(e) => handleClick('/preferencias')(e as any)}
+              >
+                <Settings className="w-4 h-4 mr-2" />
+                Preferencias
+              </DropdownMenuItem>
               <DropdownMenuSeparator className="bg-[#5799CC]/20 dark:bg-[#6EB8D7]/20" />
-              <Link to="/login" className="block">
-                <DropdownMenuItem className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 cursor-pointer">
-                  <LogOut className="w-4 h-4 mr-2" />
-                  Cerrar sesión
-                </DropdownMenuItem>
-              </Link>
+              <DropdownMenuItem 
+                className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 cursor-pointer"
+                onSelect={(e) => handleClick('/login')(e as any)}
+              >
+                <LogOut className="w-4 h-4 mr-2" />
+                Cerrar sesión
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
