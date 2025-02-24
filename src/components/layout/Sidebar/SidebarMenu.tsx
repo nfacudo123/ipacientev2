@@ -12,13 +12,19 @@ interface SidebarMenuProps {
   isCollapsed: boolean;
 }
 
+interface MenuItemProps {
+  to: string;
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+}
+
 export const SidebarMenu = ({ isCollapsed }: SidebarMenuProps) => {
-  const MenuItem = ({ to, icon: Icon, label }) => {
+  const MenuItem = ({ to, icon: Icon, label }: MenuItemProps) => {
     const content = (
       <NavLink 
         to={to}
         end={to === "/"}
-        className={({ isActive }) => `
+        className={({ isActive }: { isActive: boolean }) => `
           flex items-center ${isCollapsed ? 'justify-center' : ''} px-4 py-3
           ${isActive 
             ? 'text-[#6EB8D7] bg-[#F8F7FF] dark:bg-gray-800/50' 
