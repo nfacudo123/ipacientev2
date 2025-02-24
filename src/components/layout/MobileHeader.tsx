@@ -1,4 +1,3 @@
-
 import { Sun, Moon, User, Settings, LogOut, BellRing } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useNavigate } from "react-router-dom";
@@ -25,11 +24,6 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
 
   const toggleTheme = () => {
     setTheme(isDark ? "light" : "dark");
-  };
-
-  const handleNavigation = (to: string) => (e: React.MouseEvent) => {
-    e.preventDefault();
-    navigate(to);
   };
 
   return (
@@ -122,46 +116,28 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
               </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48 bg-white dark:bg-[#2B4C6B] border border-gray-100 dark:border-[#5799CC]">
-              <NavLink 
-                to="/profile"
-                className={({ isActive }) => `
-                  flex items-center px-2 py-1.5 text-sm 
-                  ${isActive 
-                    ? 'text-[#2B4C6B] dark:text-[#95F1E1] bg-[#F8F7FF] dark:bg-[#5799CC]/20' 
-                    : 'text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] hover:bg-[#F8F7FF] dark:hover:bg-[#5799CC]/20'
-                  }
-                `}
+              <DropdownMenuItem 
+                className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20"
+                onSelect={() => navigate('/profile')}
               >
                 <User className="w-4 h-4 mr-2" />
                 Mis Datos
-              </NavLink>
-              <NavLink 
-                to="/preferencias"
-                className={({ isActive }) => `
-                  flex items-center px-2 py-1.5 text-sm 
-                  ${isActive 
-                    ? 'text-[#2B4C6B] dark:text-[#95F1E1] bg-[#F8F7FF] dark:bg-[#5799CC]/20' 
-                    : 'text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] hover:bg-[#F8F7FF] dark:hover:bg-[#5799CC]/20'
-                  }
-                `}
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20"
+                onSelect={() => navigate('/preferencias')}
               >
                 <Settings className="w-4 h-4 mr-2" />
                 Preferencias
-              </NavLink>
+              </DropdownMenuItem>
               <DropdownMenuSeparator className="bg-[#5799CC]/20 dark:bg-[#6EB8D7]/20" />
-              <NavLink 
-                to="/login"
-                className={({ isActive }) => `
-                  flex items-center px-2 py-1.5 text-sm 
-                  ${isActive 
-                    ? 'text-[#2B4C6B] dark:text-[#95F1E1] bg-[#F8F7FF] dark:bg-[#5799CC]/20' 
-                    : 'text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] hover:bg-[#F8F7FF] dark:hover:bg-[#5799CC]/20'
-                  }
-                `}
+              <DropdownMenuItem 
+                className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20"
+                onSelect={() => navigate('/login')}
               >
                 <LogOut className="w-4 h-4 mr-2" />
                 Cerrar sesión
-              </NavLink>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
