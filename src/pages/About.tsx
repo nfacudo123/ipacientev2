@@ -34,7 +34,7 @@ const About = () => {
 
       <main className={`flex-1 ${isMenuCollapsed ? 'md:ml-[72px]' : 'md:ml-64'} p-4 pt-20 pb-20 md:pb-4 transition-all duration-200`}>
         <div className="mb-6">
-          <h1 className="text-2xl font-bold text-[hsl(var(--text-primary))]">
+          <h1 className="text-2xl font-bold text-[#2B4C6B] dark:text-[#6EB8D7]">
             Acerca de
           </h1>
         </div>
@@ -42,30 +42,30 @@ const About = () => {
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <Link
             to="/politicas-privacidad"
-            className="flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
+            className="flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#5799CC] dark:text-[#6EB8D7] hover:bg-[#F8F7FF] dark:hover:bg-[#2B4C6B]/50"
           >
-            <div className="flex items-center justify-center w-10 h-10 mb-2 rounded-lg bg-[#F8F7FF] dark:bg-gray-800">
-              <FileText className="w-6 h-6 text-[#9b87f5]" />
+            <div className="flex items-center justify-center w-10 h-10 mb-2 rounded-lg bg-[#F8F7FF] dark:bg-[#2B4C6B]">
+              <FileText className="w-6 h-6 text-[#5799CC] dark:text-[#6EB8D7]" />
             </div>
             <span className="text-sm font-medium">Políticas de privacidad</span>
           </Link>
 
           <Link
             to="/consentimiento-informado"
-            className="flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
+            className="flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#5799CC] dark:text-[#6EB8D7] hover:bg-[#F8F7FF] dark:hover:bg-[#2B4C6B]/50"
           >
-            <div className="flex items-center justify-center w-10 h-10 mb-2 rounded-lg bg-[#F8F7FF] dark:bg-gray-800">
-              <Lock className="w-6 h-6 text-[#9b87f5]" />
+            <div className="flex items-center justify-center w-10 h-10 mb-2 rounded-lg bg-[#F8F7FF] dark:bg-[#2B4C6B]">
+              <Lock className="w-6 h-6 text-[#5799CC] dark:text-[#6EB8D7]" />
             </div>
             <span className="text-sm font-medium">Consentimiento informado</span>
           </Link>
 
           <Link
             to="/nosotros"
-            className="flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#7E69AB] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50"
+            className="flex flex-col items-center justify-center p-4 rounded-lg transition-colors bg-white dark:bg-[hsl(var(--card))] text-[#5799CC] dark:text-[#6EB8D7] hover:bg-[#F8F7FF] dark:hover:bg-[#2B4C6B]/50"
           >
-            <div className="flex items-center justify-center w-10 h-10 mb-2 rounded-lg bg-[#F8F7FF] dark:bg-gray-800">
-              <Users className="w-6 h-6 text-[#9b87f5]" />
+            <div className="flex items-center justify-center w-10 h-10 mb-2 rounded-lg bg-[#F8F7FF] dark:bg-[#2B4C6B]">
+              <Users className="w-6 h-6 text-[#5799CC] dark:text-[#6EB8D7]" />
             </div>
             <span className="text-sm font-medium">Nosotros</span>
           </Link>
@@ -73,8 +73,8 @@ const About = () => {
 
         <div className="mt-6 bg-white dark:bg-[hsl(var(--card))] rounded-lg p-4">
           <div className="flex items-center justify-between">
-            <span className="text-lg font-medium">Versión</span>
-            <span className="text-sm text-muted-foreground">2.0</span>
+            <span className="text-lg font-medium text-[#2B4C6B] dark:text-[#6EB8D7]">Versión</span>
+            <span className="text-sm text-[#5799CC] dark:text-[#95F1E1]">2.0</span>
           </div>
         </div>
       </main>
