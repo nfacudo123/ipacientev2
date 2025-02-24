@@ -10,7 +10,6 @@ export const MobileMenu = () => {
       <div className="flex justify-around items-center h-16">
         <Link 
           to="/" 
-          onClick={(e) => e.preventDefault}
           className={`flex flex-col items-center text-xs ${
             location.pathname === '/' 
               ? 'text-[#2B4C6B] dark:text-[#95F1E1]' 
@@ -23,7 +22,6 @@ export const MobileMenu = () => {
         
         <Link 
           to="/mis-citas"
-          onClick={(e) => e.preventDefault}
           className={`flex flex-col items-center text-xs ${
             location.pathname === '/mis-citas' 
               ? 'text-[#2B4C6B] dark:text-[#95F1E1]' 
@@ -36,7 +34,6 @@ export const MobileMenu = () => {
         
         <Link 
           to="/acerca"
-          onClick={(e) => e.preventDefault}
           className={`flex flex-col items-center text-xs ${
             location.pathname === '/acerca' 
               ? 'text-[#2B4C6B] dark:text-[#95F1E1]' 

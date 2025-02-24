@@ -24,7 +24,6 @@ export const SidebarOptions = ({ isCollapsed }: SidebarOptionsProps) => {
     const content = (
       <Link 
         to={to}
-        onClick={(e) => e.preventDefault} 
         className={`
           flex items-center ${isCollapsed ? 'justify-center' : ''} px-4 py-3 
           text-[#5799CC] dark:text-gray-300 hover:bg-[#F8F7FF] dark:hover:bg-gray-800/50
