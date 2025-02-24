@@ -8,19 +8,13 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface TopbarProps {
   isMenuCollapsed?: boolean;
 }
 
 export const Topbar = ({ isMenuCollapsed }: TopbarProps) => {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    navigate('/login');
-  };
-
   return (
     <div className={`fixed top-0 right-0 bg-[hsl(var(--card))] shadow-sm z-10 transition-all duration-200 ${isMenuCollapsed ? 'md:left-[72px]' : 'md:left-64'} left-0`}>
       <div className="flex justify-end items-center h-16 px-4">
@@ -92,26 +86,25 @@ export const Topbar = ({ isMenuCollapsed }: TopbarProps) => {
               </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48 bg-white dark:bg-[#2B4C6B] border border-gray-100 dark:border-[#5799CC]">
-              <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20">
-                <Link to="/profile" className="w-full text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer flex items-center">
+              <Link to="/profile" className="w-full block">
+                <DropdownMenuItem className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer">
                   <User className="w-4 h-4 mr-2" />
                   Mis Datos
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20">
-                <Link to="/preferencias" className="w-full text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer flex items-center">
+                </DropdownMenuItem>
+              </Link>
+              <Link to="/preferencias" className="w-full block">
+                <DropdownMenuItem className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer">
                   <Settings className="w-4 h-4 mr-2" />
                   Preferencias
-                </Link>
-              </DropdownMenuItem>
+                </DropdownMenuItem>
+              </Link>
               <DropdownMenuSeparator className="bg-[#5799CC]/20 dark:bg-[#6EB8D7]/20" />
-              <DropdownMenuItem 
-                onClick={handleLogout}
-                className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer flex items-center"
-              >
-                <LogOut className="w-4 h-4 mr-2" />
-                Cerrar sesión
-              </DropdownMenuItem>
+              <Link to="/login" className="w-full block">
+                <DropdownMenuItem className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer">
+                  <LogOut className="w-4 h-4 mr-2" />
+                  Cerrar sesión
+                </DropdownMenuItem>
+              </Link>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
