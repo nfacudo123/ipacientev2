@@ -51,17 +51,6 @@
   box-shadow: 0 2px 4px rgba(43, 76, 107, 0.02);
 }
 
-/* Estilo para las opciones del select */
-select option {
-  @apply bg-[#F6F6F7] dark:bg-[hsl(var(--input))] text-[#2B4C6B] dark:text-[hsl(var(--text-primary))];
-}
-
-/* Estilo para el placeholder del select */
-select:invalid, 
-select option[value=""] {
-  @apply text-[#6EB8D7] dark:text-[#95F1E1];
-}
-
 .login-button {
   @apply w-full py-3 bg-[#5799CC] hover:bg-[#2B4C6B] text-white rounded-[16px] transition-colors duration-200 font-medium text-sm;
 }
