@@ -4,7 +4,7 @@ export const DashboardCards = () => {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div className="bg-[hsl(var(--card))] rounded-xl overflow-hidden shadow-sm">
         <img 
-          src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
+          src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=2070"
           alt="Personal Info" 
           className="w-full h-[200px] object-cover"
         />
@@ -17,7 +17,7 @@ export const DashboardCards = () => {
 
       <div className="bg-[hsl(var(--card))] rounded-xl overflow-hidden shadow-sm">
         <img 
-          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c"
+          src="https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&q=80&w=2071"
           alt="Appointments" 
           className="w-full h-[200px] object-cover"
         />
@@ -30,7 +30,7 @@ export const DashboardCards = () => {
 
       <div className="bg-[hsl(var(--card))] rounded-xl overflow-hidden shadow-sm">
         <img 
-          src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952"
+          src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=2091"
           alt="Health Blog" 
           className="w-full h-[200px] object-cover"
         />

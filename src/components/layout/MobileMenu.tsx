@@ -12,8 +12,8 @@ export const MobileMenu = () => {
           to="/" 
           className={`flex flex-col items-center text-xs ${
             location.pathname === '/' 
-              ? 'text-[#4285F4]' 
-              : 'text-[#7E69AB] dark:text-gray-300'
+              ? 'text-[#2B4C6B] dark:text-[#95F1E1]' 
+              : 'text-[#5799CC] dark:text-[#6EB8D7]'
           }`}
         >
           <Home className="w-6 h-6 mb-1" />
@@ -24,8 +24,8 @@ export const MobileMenu = () => {
           to="/mis-citas" 
           className={`flex flex-col items-center text-xs ${
             location.pathname === '/mis-citas' 
-              ? 'text-[#4285F4]' 
-              : 'text-[#7E69AB] dark:text-gray-300'
+              ? 'text-[#2B4C6B] dark:text-[#95F1E1]' 
+              : 'text-[#5799CC] dark:text-[#6EB8D7]'
           }`}
         >
           <Calendar className="w-6 h-6 mb-1" />
@@ -36,8 +36,8 @@ export const MobileMenu = () => {
           to="/acerca" 
           className={`flex flex-col items-center text-xs ${
             location.pathname === '/acerca' 
-              ? 'text-[#4285F4]' 
-              : 'text-[#7E69AB] dark:text-gray-300'
+              ? 'text-[#2B4C6B] dark:text-[#95F1E1]' 
+              : 'text-[#5799CC] dark:text-[#6EB8D7]'
           }`}
         >
           <Info className="w-6 h-6 mb-1" />
