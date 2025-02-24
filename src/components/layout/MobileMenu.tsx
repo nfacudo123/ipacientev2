@@ -10,8 +10,7 @@ import {
   FileCheck,
   ClipboardList,
   TestTube,
-  Pill,
-  ChevronRight
+  Pill
 } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import {
@@ -45,36 +44,30 @@ export const MobileMenu = () => {
         {submenu ? (
           <DropdownMenu>
             <DropdownMenuTrigger className="w-full">
-              <div className="flex items-center justify-between w-full px-4 py-2">
-                <div className="flex items-center">
-                  <Icon className="w-6 h-6 text-[#5799CC] dark:text-[#6EB8D7]" />
-                  <span className="ml-2 text-xs text-[#5799CC] dark:text-[#6EB8D7]">{label}</span>
-                </div>
-                <ChevronRight className="w-4 h-4 text-[#5799CC] dark:text-[#6EB8D7]" />
+              <div className="flex flex-col items-center">
+                <Icon className="w-6 h-6 mb-1 text-[#5799CC] dark:text-[#6EB8D7]" />
+                <span className="text-xs text-[#5799CC] dark:text-[#6EB8D7]">{label}</span>
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent 
-              side="right"
-              align="start"
-              className="bg-white dark:bg-[#2B4C6B] min-w-[200px] border border-gray-100 dark:border-[#5799CC] rounded-lg shadow-lg"
+              side="top"
+              align="center"
+              className="mb-2 bg-white dark:bg-[#2B4C6B] min-w-[200px] border border-gray-100 dark:border-[#5799CC] rounded-lg shadow-lg"
             >
               {submenu.map((item) => (
                 <div key={item.label}>
                   {item.submenu ? (
                     <DropdownMenu>
                       <DropdownMenuTrigger className="w-full">
-                        <DropdownMenuItem className="flex items-center justify-between w-full cursor-pointer">
-                          <div className="flex items-center">
-                            <item.icon className="w-4 h-4 mr-2" />
-                            <span>{item.label}</span>
-                          </div>
-                          <ChevronRight className="w-4 h-4" />
+                        <DropdownMenuItem className="w-full cursor-pointer">
+                          <item.icon className="w-4 h-4 mr-2" />
+                          <span>{item.label}</span>
                         </DropdownMenuItem>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent 
-                        side="right"
-                        align="start"
-                        className="bg-white dark:bg-[#2B4C6B] min-w-[200px] border border-gray-100 dark:border-[#5799CC] rounded-lg shadow-lg"
+                        side="top"
+                        align="center"
+                        className="mb-2 bg-white dark:bg-[#2B4C6B] min-w-[200px] border border-gray-100 dark:border-[#5799CC] rounded-lg shadow-lg"
                       >
                         {item.submenu.map((subitem) => (
                           <DropdownMenuItem key={subitem.label} asChild>

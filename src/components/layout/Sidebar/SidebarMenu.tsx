@@ -10,7 +10,8 @@ import {
   FileCheck,
   ClipboardList,
   TestTube,
-  Pill
+  Pill,
+  ChevronRight
 } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import {
@@ -55,12 +56,15 @@ export const SidebarMenu = ({ isCollapsed }: SidebarMenuProps) => {
           <DropdownMenu>
             <DropdownMenuTrigger className="w-full">
               <div className={`
-                w-full flex items-center ${isCollapsed ? 'justify-center' : ''} px-4 py-3
+                w-full flex items-center justify-between px-4 py-3
                 text-[#5799CC] dark:text-gray-300 hover:bg-[#F8F7FF] hover:text-[#6EB8D7] dark:hover:bg-gray-800/50
                 transition-colors duration-200
               `}>
-                <Icon className={`${isCollapsed ? 'w-8 h-8' : 'w-5 h-5'} transition-all duration-200`} />
-                {!isCollapsed && <span className="ml-3">{label}</span>}
+                <div className="flex items-center">
+                  <Icon className={`${isCollapsed ? 'w-8 h-8' : 'w-5 h-5'} transition-all duration-200`} />
+                  {!isCollapsed && <span className="ml-3">{label}</span>}
+                </div>
+                {!isCollapsed && <ChevronRight className="w-4 h-4" />}
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent 
