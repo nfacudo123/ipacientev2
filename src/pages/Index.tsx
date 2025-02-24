@@ -5,10 +5,12 @@ import { MobileHeader } from "@/components/layout/MobileHeader";
 import { Topbar } from "@/components/layout/Topbar";
 import { MobileMenu } from "@/components/layout/MobileMenu";
 import { DashboardCards } from "@/components/DashboardCards";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
