@@ -1,4 +1,5 @@
-import { Sun, Moon, User, Settings, LogOut, BellRing, Building2 } from "lucide-react";
+
+import { Sun, Moon, User, Settings, LogOut, BellRing } from "lucide-react";
 import { useTheme } from "next-themes";
 import {
   DropdownMenu,
@@ -9,6 +10,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { NavLink } from "react-router-dom";
+import iconLight from "/lovable-uploads/a28bae4b-b8b3-48dd-bb30-73f20fb73a2c.png";
+import iconDark from "/lovable-uploads/b162bd3a-df6e-464f-b894-e47592de98c9.png";
 
 interface MobileHeaderProps {
   toggleMobileMenu: () => void;
@@ -39,8 +42,10 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
     <div className="md:hidden fixed top-0 left-0 right-0 bg-[hsl(var(--card))] shadow-sm z-40 p-4">
       <div className="flex justify-between items-center">
         <NavLink to="/" className="flex items-center" preventScrollReset={true}>
-          <Building2 
-            className={`w-8 h-8 ${isDark ? 'text-[#6EB8D7]' : 'text-[#5799CC]'}`}
+          <img 
+            src={isDark ? iconDark : iconLight}
+            alt="ISISMAWEB Icon"
+            className="w-8 h-8 object-contain"
           />
         </NavLink>
         <div className="flex items-center gap-2">
