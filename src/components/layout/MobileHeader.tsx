@@ -1,5 +1,4 @@
-
-import { Sun, Moon, User, Settings, LogOut, BellRing } from "lucide-react";
+import { Sun, Moon, User, Settings, LogOut, BellRing, Info } from "lucide-react";
 import { useTheme } from "next-themes";
 import {
   DropdownMenu,
@@ -133,6 +132,9 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
               </MenuItem>
               <MenuItem to="/preferencias" icon={Settings}>
                 Preferencias
+              </MenuItem>
+              <MenuItem to="/acerca" icon={Info}>
+                Acerca de
               </MenuItem>
               <DropdownMenuSeparator className="bg-[#5799CC]/20 dark:bg-[#6EB8D7]/20" />
               <MenuItem to="/login" icon={LogOut}>

@@ -3,7 +3,6 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { SidebarHeader } from "./SidebarHeader";
 import { SidebarMenu } from "./SidebarMenu";
-import { SidebarOptions } from "./SidebarOptions";
 import { SidebarFooter } from "./SidebarFooter";
 import { useTheme } from "next-themes";
 
@@ -31,7 +30,6 @@ export const Sidebar = ({ isMobileMenuOpen, onCollapseChange }: SidebarProps) =>
       <div className="flex flex-col h-full">
         <SidebarHeader isDark={isDark} isCollapsed={isCollapsed} />
         <SidebarMenu isCollapsed={isCollapsed} />
-        <SidebarOptions isCollapsed={isCollapsed} />
         <SidebarFooter isCollapsed={isCollapsed} isDark={isDark} />
         
         <button 
