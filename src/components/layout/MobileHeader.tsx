@@ -1,3 +1,4 @@
+
 import { Sun, Moon, User, Settings, LogOut, BellRing } from "lucide-react";
 import { useTheme } from "next-themes";
 import {
@@ -11,7 +12,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { NavLink } from "react-router-dom";
 import iconLight from "/lovable-uploads/a28bae4b-b8b3-48dd-bb30-73f20fb73a2c.png";
 import iconDark from "/lovable-uploads/b162bd3a-df6e-464f-b894-e47592de98c9.png";
-import { Link, useNavigate } from "react-router-dom";
 
 interface MobileHeaderProps {
   toggleMobileMenu: () => void;
@@ -20,26 +20,21 @@ interface MobileHeaderProps {
 export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
   const { theme, setTheme } = useTheme();
   const isDark = theme === "dark";
-  const navigate = useNavigate();
 
   const toggleTheme = () => {
     setTheme(isDark ? "light" : "dark");
   };
 
-  const handleLogout = () => {
-    navigate('/login');
-  };
-
   return (
     <div className="md:hidden fixed top-0 left-0 right-0 bg-[hsl(var(--card))] shadow-sm z-40 p-4">
       <div className="flex justify-between items-center">
-        <div className="flex items-center">
+        <NavLink to="/" className="flex items-center">
           <img 
             src={isDark ? iconDark : iconLight}
             alt="ISISMAWEB Icon"
             className="w-8 h-8 object-contain"
           />
-        </div>
+        </NavLink>
         <div className="flex items-center gap-2">
           <button
             onClick={toggleTheme}
@@ -121,24 +116,23 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48 bg-white dark:bg-[#2B4C6B] border border-gray-100 dark:border-[#5799CC]">
               <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20">
-                <Link to="/profile" className="w-full text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer flex items-center gap-2">
+                <NavLink to="/profile" className="w-full text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer flex items-center gap-2">
                   <User className="w-4 h-4" />
                   Mis Datos
-                </Link>
+                </NavLink>
               </DropdownMenuItem>
               <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20">
-                <Link to="/preferencias" className="w-full text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer flex items-center gap-2">
+                <NavLink to="/preferencias" className="w-full text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer flex items-center gap-2">
                   <Settings className="w-4 h-4" />
                   Preferencias
-                </Link>
+                </NavLink>
               </DropdownMenuItem>
               <DropdownMenuSeparator className="bg-[#5799CC]/20 dark:bg-[#6EB8D7]/20" />
-              <DropdownMenuItem 
-                onClick={handleLogout}
-                className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer flex items-center gap-2"
-              >
-                <LogOut className="w-4 h-4" />
-                Cerrar sesión
+              <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20">
+                <NavLink to="/login" className="w-full text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer flex items-center gap-2">
+                  <LogOut className="w-4 h-4" />
+                  Cerrar sesión
+                </NavLink>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
