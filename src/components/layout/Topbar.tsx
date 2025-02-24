@@ -15,6 +15,19 @@ interface TopbarProps {
 }
 
 export const Topbar = ({ isMenuCollapsed }: TopbarProps) => {
+  const MenuItem = ({ to, icon: Icon, children }: { to: string; icon: any; children: React.ReactNode }) => (
+    <DropdownMenuItem asChild>
+      <NavLink 
+        to={to} 
+        className="flex items-center w-full text-[#2B4C6B] dark:text-[#95F1E1] hover:bg-[#F8F7FF] dark:hover:bg-[#5799CC]/20 focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 cursor-pointer"
+        preventScrollReset={true}
+      >
+        <Icon className="w-4 h-4 mr-2" />
+        {children}
+      </NavLink>
+    </DropdownMenuItem>
+  );
+
   return (
     <div className={`fixed top-0 right-0 bg-[hsl(var(--card))] shadow-sm z-10 transition-all duration-200 ${isMenuCollapsed ? 'md:left-[72px]' : 'md:left-64'} left-0`}>
       <div className="flex justify-end items-center h-16 px-4">
@@ -86,25 +99,16 @@ export const Topbar = ({ isMenuCollapsed }: TopbarProps) => {
               </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48 bg-white dark:bg-[#2B4C6B] border border-gray-100 dark:border-[#5799CC]">
-              <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer">
-                <NavLink to="/profile" className="flex items-center w-full">
-                  <User className="w-4 h-4 mr-2" />
-                  Mis Datos
-                </NavLink>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer">
-                <NavLink to="/preferencias" className="flex items-center w-full">
-                  <Settings className="w-4 h-4 mr-2" />
-                  Preferencias
-                </NavLink>
-              </DropdownMenuItem>
+              <MenuItem to="/profile" icon={User}>
+                Mis Datos
+              </MenuItem>
+              <MenuItem to="/preferencias" icon={Settings}>
+                Preferencias
+              </MenuItem>
               <DropdownMenuSeparator className="bg-[#5799CC]/20 dark:bg-[#6EB8D7]/20" />
-              <DropdownMenuItem asChild className="focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 text-[#2B4C6B] dark:text-[#95F1E1] cursor-pointer">
-                <NavLink to="/login" className="flex items-center w-full">
-                  <LogOut className="w-4 h-4 mr-2" />
-                  Cerrar sesión
-                </NavLink>
-              </DropdownMenuItem>
+              <MenuItem to="/login" icon={LogOut}>
+                Cerrar sesión
+              </MenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

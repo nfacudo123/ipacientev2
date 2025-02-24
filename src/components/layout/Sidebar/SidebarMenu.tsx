@@ -29,7 +29,9 @@ export const SidebarMenu = ({ isCollapsed }: SidebarMenuProps) => {
             ? 'text-[#6EB8D7] bg-[#F8F7FF] dark:bg-gray-800/50' 
             : 'text-[#5799CC] dark:text-gray-300 hover:bg-[#F8F7FF] hover:text-[#6EB8D7] dark:hover:bg-gray-800/50'
           }
+          transition-colors duration-200
         `}
+        preventScrollReset={true}
       >
         <Icon className={`${isCollapsed ? 'w-8 h-8' : 'w-5 h-5'} transition-all duration-200`} />
         {!isCollapsed && <span className="ml-3">{label}</span>}
@@ -59,7 +61,7 @@ export const SidebarMenu = ({ isCollapsed }: SidebarMenuProps) => {
         <div className="px-4 py-2 text-sm text-[#5799CC] dark:text-[#6EB8D7]">MENÚ</div>
       )}
       
-      <MenuItem to="/" icon={Home} label="Inicio" />
+      <MenuItem to="/" icon={Home} label="Inicio" end={true} />
       <MenuItem to="/mis-citas" icon={Calendar} label="Mis Citas" />
     </div>
   );

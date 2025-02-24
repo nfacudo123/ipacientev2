@@ -1,3 +1,4 @@
+
 import { Sun, Moon, User, Settings, LogOut, BellRing } from "lucide-react";
 import { useTheme } from "next-themes";
 import {
@@ -24,10 +25,23 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
     setTheme(isDark ? "light" : "dark");
   };
 
+  const MenuItem = ({ to, icon: Icon, children }: { to: string; icon: any; children: React.ReactNode }) => (
+    <DropdownMenuItem asChild>
+      <NavLink 
+        to={to} 
+        className="flex items-center w-full text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 cursor-pointer"
+        preventScrollReset={true}
+      >
+        <Icon className="w-4 h-4 mr-2" />
+        {children}
+      </NavLink>
+    </DropdownMenuItem>
+  );
+
   return (
     <div className="md:hidden fixed top-0 left-0 right-0 bg-[hsl(var(--card))] shadow-sm z-40 p-4">
       <div className="flex justify-between items-center">
-        <NavLink to="/" className="flex items-center">
+        <NavLink to="/" className="flex items-center" preventScrollReset={true}>
           <img 
             src={isDark ? iconDark : iconLight}
             alt="ISISMAWEB Icon"
@@ -114,25 +128,16 @@ export const MobileHeader = ({ toggleMobileMenu }: MobileHeaderProps) => {
               </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48 bg-white dark:bg-[#2B4C6B] border border-gray-100 dark:border-[#5799CC]">
-              <DropdownMenuItem asChild className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 cursor-pointer">
-                <NavLink to="/profile" className="flex items-center w-full">
-                  <User className="w-4 h-4 mr-2" />
-                  Mis Datos
-                </NavLink>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 cursor-pointer">
-                <NavLink to="/preferencias" className="flex items-center w-full">
-                  <Settings className="w-4 h-4 mr-2" />
-                  Preferencias
-                </NavLink>
-              </DropdownMenuItem>
+              <MenuItem to="/profile">
+                Mis Datos
+              </MenuItem>
+              <MenuItem to="/preferencias">
+                Preferencias
+              </MenuItem>
               <DropdownMenuSeparator className="bg-[#5799CC]/20 dark:bg-[#6EB8D7]/20" />
-              <DropdownMenuItem asChild className="text-[#5799CC] dark:text-[#6EB8D7] hover:text-[#2B4C6B] dark:hover:text-[#95F1E1] focus:text-[#2B4C6B] dark:focus:text-[#95F1E1] focus:bg-[#F8F7FF] dark:focus:bg-[#5799CC]/20 cursor-pointer">
-                <NavLink to="/login" className="flex items-center w-full">
-                  <LogOut className="w-4 h-4 mr-2" />
-                  Cerrar sesión
-                </NavLink>
-              </DropdownMenuItem>
+              <MenuItem to="/login">
+                Cerrar sesión
+              </MenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
